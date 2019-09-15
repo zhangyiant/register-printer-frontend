@@ -6,10 +6,16 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTreeModule } from '@angular/material/tree';
+import { TopSysTreeViewComponent } from './top-sys-tree-view/top-sys-tree-view.component';
+import { TopSysContentViewComponent } from './top-sys-content-view/top-sys-content-view.component';
+import { TopSysConsoleViewComponent } from './top-sys-console-view/top-sys-console-view.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopSysTreeViewComponent,
+    TopSysContentViewComponent,
+    TopSysConsoleViewComponent
   ],
   imports: [
     BrowserModule,
