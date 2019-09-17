@@ -14,32 +14,38 @@ interface FoodNode {
 
 const TREE_DATA: FoodNode[] = [
   {
-    name: 'Fruit',
+    name: 'Top Sys',
     children: [
-      { name: 'Apple' },
-      { name: 'Banana' },
-      { name: 'Fruit loops' },
-    ]
-  }, {
-    name: 'Vegetables',
-    children: [
-      {
-        name: 'Green',
+      { name: 'Author: Yi Zhang' },
+      { name: 'Version: 2.1.234' },
+      { name: 'Address width: 32' },
+      { name: 'Data width: 32' },
+      { 
+        name: 'Block Types',
         children: [
-          { name: 'Broccoli' },
-          { name: 'Brussel sprouts' },
-        ]
-      }, {
-        name: 'Orange',
-        children: [
-          { name: 'Pumpkins' },
-          { name: 'Carrots' },
+          { name: 'Block Type 1' },
+          { name: 'Block Type 2' }
         ]
       },
+      {
+        name: 'Blocks',
+        children: [
+          {
+            name: 'Block 1',
+            children: [
+              { name: 'Type 1' },
+              {
+                name: 'Registers',
+                children: [
+                  { name: 'reg1' },
+                  { name: 'reg2' }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     ]
-  },
-  {
-    name: 'Hello'
   }
 ];
 
