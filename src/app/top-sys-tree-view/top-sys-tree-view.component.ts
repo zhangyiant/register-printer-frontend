@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FlatTreeControl } from '@angular/cdk/tree';
-import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+import { NestedTreeControl } from '@angular/cdk/tree';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
 
 /**
  * Food data with nested structure.
@@ -38,15 +38,11 @@ const TREE_DATA: FoodNode[] = [
       },
     ]
   },
+  {
+    name: 'Hello'
+  }
 ];
 
-
-/** Flat node with expandable and level information */
-interface ExampleFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-}
 
 @Component({
   selector: 'app-top-sys-tree-view',
@@ -55,27 +51,13 @@ interface ExampleFlatNode {
 })
 export class TopSysTreeViewComponent implements OnInit {
 
-  private _transformer = (node: FoodNode, level: number) => {
-    return {
-      expandable: !!node.children && node.children.length > 0,
-      name: node.name,
-      level: level,
-    };
-  }
-
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
-    node => node.level, node => node.expandable);
-
-  treeFlattener = new MatTreeFlattener(
-    this._transformer, node => node.level, node => node.expandable, node => node.children);
-
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
+  treeControl = new NestedTreeControl<FoodNode>(node => node.children);
+  dataSource = new MatTreeNestedDataSource<FoodNode>();
 
   constructor() {
     this.dataSource.data = TREE_DATA;
   }
-  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+  hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
 
   ngOnInit() {
   }

@@ -1,0 +1,11 @@
+.example-tree-invisible {
+    display: none;
+}
+
+.example-tree-node {
+    display: block;
+}
+
+.example-tree-node .example-tree-node {
+    padding-left: 40px;
+}
