@@ -10,13 +10,15 @@ import { MatTreeModule } from '@angular/material/tree';
 import { TopSysTreeViewComponent } from './top-sys-tree-view/top-sys-tree-view.component';
 import { TopSysContentViewComponent } from './top-sys-content-view/top-sys-content-view.component';
 import { TopSysConsoleViewComponent } from './top-sys-console-view/top-sys-console-view.component';
+import { TopSysViewComponent } from './top-sys-view/top-sys-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopSysTreeViewComponent,
     TopSysContentViewComponent,
-    TopSysConsoleViewComponent
+    TopSysConsoleViewComponent,
+    TopSysViewComponent
   ],
   imports: [
     BrowserModule,
