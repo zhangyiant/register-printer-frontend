@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TopSys } from '../top-sys';
 
 @Component({
@@ -8,13 +8,11 @@ import { TopSys } from '../top-sys';
 })
 export class TopSysContentViewComponent implements OnInit {
 
-  topSys: TopSys = new TopSys('HelloTopSys');
+  @Input() topSys: TopSys;
 
   constructor() { }
 
   ngOnInit() {
-    this.topSys.author = 'Yi Zhang';
-    this.topSys.version = '2.1.1234';
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TopSys } from './top-sys';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'register-printer-frontend';
 
+  topSys: TopSys = new TopSys('Top_Module');
   constructor() {
+    this.topSys.version = '2.1.234';
+    this.topSys.author = 'Peter';
   }
 
 }

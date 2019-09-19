@@ -1,7 +1,7 @@
 <h1>Register Printer</h1>
 <div [ngStyle]="{'display': 'grid', 'grid-template-columns': '25% 75%', 'grid-template-rows': 'auto'}">
-  <app-top-sys-tree-view></app-top-sys-tree-view>
-  <app-top-sys-content-view></app-top-sys-content-view>
+  <app-top-sys-tree-view [topSys]="topSys"></app-top-sys-tree-view>
+  <app-top-sys-content-view [topSys]="topSys"></app-top-sys-content-view>
   <app-top-sys-console-view [ngStyle]="{'grid-area': '2 / 1 / 3 / 3'}"></app-top-sys-console-view>
 </div>
 <router-outlet></router-outlet>

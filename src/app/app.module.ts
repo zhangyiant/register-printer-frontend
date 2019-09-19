@@ -11,6 +11,9 @@ import { TopSysTreeViewComponent } from './top-sys-tree-view/top-sys-tree-view.c
 import { TopSysContentViewComponent } from './top-sys-content-view/top-sys-content-view.component';
 import { TopSysConsoleViewComponent } from './top-sys-console-view/top-sys-console-view.component';
 import { TopSysViewComponent } from './top-sys-view/top-sys-view.component';
+import { TopSysNodeComponent } from './top-sys-node/top-sys-node.component';
+import { PropertyNodeComponent } from './property-node/property-node.component';
+import { RegisterPrinterNodeComponent } from './register-printer-node/register-printer-node.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { TopSysViewComponent } from './top-sys-view/top-sys-view.component';
     TopSysTreeViewComponent,
     TopSysContentViewComponent,
     TopSysConsoleViewComponent,
-    TopSysViewComponent
+    TopSysViewComponent,
+    TopSysNodeComponent,
+    PropertyNodeComponent,
+    RegisterPrinterNodeComponent
   ],
   imports: [
     BrowserModule,
