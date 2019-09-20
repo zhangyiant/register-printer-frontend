@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/cor
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { TopSys } from '../top-sys';
+import { BlockType } from '../block-type';
 
 export interface RegisterPrinterTreeNode {
   type: string;
@@ -29,6 +30,12 @@ export class PropertyTreeNode implements RegisterPrinterTreeNode {
 
 export class BlockTypesTreeNode implements RegisterPrinterTreeNode {
   type: string;
+  children?: RegisterPrinterTreeNode[];
+}
+
+export class BlockTypeTreeNode implements RegisterPrinterTreeNode {
+  type: string;
+  blockType: BlockType;
   children?: RegisterPrinterTreeNode[];
 }
 
@@ -76,7 +83,26 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     propertyNode.value = topSys.dataWidth;
     topSysNode.children.push(propertyNode);
     const blockTypesTreeNode = new BlockTypesTreeNode();
+    blockTypesTreeNode.children = [];
     topSysNode.children.push(blockTypesTreeNode);
+    for (const blockType of topSys.blockTypes) {
+      const blockTypeTreeNode: BlockTypeTreeNode = new BlockTypeTreeNode();
+      blockTypeTreeNode.children = [];
+      blockTypeTreeNode.blockType = blockType;
+      propertyNode = new PropertyTreeNode();
+      propertyNode.name = 'size';
+      propertyNode.value = blockType.size;
+      blockTypeTreeNode.children.push(propertyNode);
+      propertyNode = new PropertyTreeNode();
+      propertyNode.name = 'AddressWidth';
+      propertyNode.value = blockType.addressWidth;
+      blockTypeTreeNode.children.push(propertyNode);
+      propertyNode = new PropertyTreeNode();
+      propertyNode.name = 'DataWidth';
+      propertyNode.value = blockType.dataWidth;
+      blockTypeTreeNode.children.push(propertyNode);
+      blockTypesTreeNode.children.push(blockTypeTreeNode);
+    }
     TREE_DATA.push(topSysNode);
     this.dataSource.data = TREE_DATA;
   }

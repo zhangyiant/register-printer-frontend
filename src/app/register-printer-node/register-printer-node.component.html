@@ -2,4 +2,5 @@
     <app-top-sys-node [topSysTreeNode]="registerPrinterTreeNode" *ngIf="registerPrinterTreeNode.type === 'TopSysNode'"></app-top-sys-node>
     <app-property-node [propertyTreeNode]="registerPrinterTreeNode" *ngIf="registerPrinterTreeNode.type === 'PropertyNode'"></app-property-node>
     <app-block-types-node *ngIf="isBlockTypesTreeNode()"></app-block-types-node>
+    <app-block-type-node [blockTypeTreeNode]="registerPrinterTreeNode" *ngIf="isBlockTypeTreeNode()"></app-block-type-node>
 </span>
