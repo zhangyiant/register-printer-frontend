@@ -3,15 +3,6 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { TopSys } from '../top-sys';
 
-/**
- * Food data with nested structure.
- * Each node has a name and an optiona list of children.
- */
-interface FoodNode {
-  name: string;
-  children?: FoodNode[];
-}
-
 export interface RegisterPrinterTreeNode {
   type: string;
   children?: RegisterPrinterTreeNode[];
@@ -34,6 +25,11 @@ export class PropertyTreeNode implements RegisterPrinterTreeNode {
   constructor() {
     this.type = 'PropertyNode';
   }
+}
+
+export class BlockTypesTreeNode implements RegisterPrinterTreeNode {
+  type: string;
+  children?: RegisterPrinterTreeNode[];
 }
 
 let TREE_DATA: RegisterPrinterTreeNode[] = [];
@@ -79,6 +75,8 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     propertyNode.name = 'DataWidth';
     propertyNode.value = topSys.dataWidth;
     topSysNode.children.push(propertyNode);
+    const blockTypesTreeNode = new BlockTypesTreeNode();
+    topSysNode.children.push(blockTypesTreeNode);
     TREE_DATA.push(topSysNode);
     this.dataSource.data = TREE_DATA;
   }

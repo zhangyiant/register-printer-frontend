@@ -1,4 +1,5 @@
 import { Block } from './block';
+import { BlockType } from './block-type';
 
 export class TopSys {
     name: string;
@@ -6,7 +7,7 @@ export class TopSys {
     dataWidth: number;
     version: string | null;
     author: string | null;
-    blocks: Array<Block>;
+    blockTypes: Array<BlockType>;
     addressMap: Array<string>;
 
     constructor(name: string, addressWidth: number = 12, dataWidth: number = 32) {
@@ -15,8 +16,13 @@ export class TopSys {
         this.dataWidth = dataWidth;
         this.version = null;
         this.author = null;
-        this.blocks = [];
+        this.blockTypes = [];
         this.addressMap = [];
+        return;
+    }
+
+    addBlockType(blockType: BlockType) {
+        this.blockTypes.push(blockType);
         return;
     }
 }

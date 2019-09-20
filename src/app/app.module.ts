@@ -14,6 +14,7 @@ import { TopSysViewComponent } from './top-sys-view/top-sys-view.component';
 import { TopSysNodeComponent } from './top-sys-node/top-sys-node.component';
 import { PropertyNodeComponent } from './property-node/property-node.component';
 import { RegisterPrinterNodeComponent } from './register-printer-node/register-printer-node.component';
+import { BlockTypesNodeComponent } from './block-types-node/block-types-node.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RegisterPrinterNodeComponent } from './register-printer-node/register-p
     TopSysViewComponent,
     TopSysNodeComponent,
     PropertyNodeComponent,
-    RegisterPrinterNodeComponent
+    RegisterPrinterNodeComponent,
+    BlockTypesNodeComponent
   ],
   imports: [
     BrowserModule,
