@@ -16,6 +16,8 @@ import { PropertyNodeComponent } from './property-node/property-node.component';
 import { RegisterPrinterNodeComponent } from './register-printer-node/register-printer-node.component';
 import { BlockTypesNodeComponent } from './block-types-node/block-types-node.component';
 import { BlockTypeNodeComponent } from './block-type-node/block-type-node.component';
+import { RegistersNodeComponent } from './registers-node/registers-node.component';
+import { RegisterNodeComponent } from './register-node/register-node.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { BlockTypeNodeComponent } from './block-type-node/block-type-node.compon
     PropertyNodeComponent,
     RegisterPrinterNodeComponent,
     BlockTypesNodeComponent,
-    BlockTypeNodeComponent
+    BlockTypeNodeComponent,
+    RegistersNodeComponent,
+    RegisterNodeComponent
   ],
   imports: [
     BrowserModule,

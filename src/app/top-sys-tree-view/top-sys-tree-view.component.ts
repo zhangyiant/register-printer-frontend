@@ -3,6 +3,7 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { TopSys } from '../top-sys';
 import { BlockType } from '../block-type';
+import { Register } from '../register';
 
 export interface RegisterPrinterTreeNode {
   type: string;
@@ -36,6 +37,17 @@ export class BlockTypesTreeNode implements RegisterPrinterTreeNode {
 export class BlockTypeTreeNode implements RegisterPrinterTreeNode {
   type: string;
   blockType: BlockType;
+  children?: RegisterPrinterTreeNode[];
+}
+
+export class RegistersTreeNode implements RegisterPrinterTreeNode {
+  type: string;
+  children?: RegisterPrinterTreeNode[];
+}
+
+export class RegisterTreeNode implements RegisterPrinterTreeNode {
+  type: string;
+  register: Register;
   children?: RegisterPrinterTreeNode[];
 }
 
@@ -101,7 +113,21 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
       propertyNode.name = 'DataWidth';
       propertyNode.value = blockType.dataWidth;
       blockTypeTreeNode.children.push(propertyNode);
+      const registersTreeNode = new RegistersTreeNode();
+      registersTreeNode.children = [];
+      blockTypeTreeNode.children.push(registersTreeNode);
+
       blockTypesTreeNode.children.push(blockTypeTreeNode);
+      for (const register of blockType.registers) {
+        const registerTreeNode = new RegisterTreeNode();
+        registerTreeNode.register = register;
+        registerTreeNode.children = [];
+        const propertyTreeNode = new PropertyTreeNode();
+        propertyTreeNode.name = 'offset';
+        propertyTreeNode.value = register.offset;
+        registerTreeNode.children.push(propertyTreeNode);
+        registersTreeNode.children.push(registerTreeNode);
+      }
     }
     TREE_DATA.push(topSysNode);
     this.dataSource.data = TREE_DATA;

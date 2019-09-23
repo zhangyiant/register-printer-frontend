@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import {
   RegisterPrinterTreeNode,
   BlockTypesTreeNode,
-  BlockTypeTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
+  BlockTypeTreeNode,
+  RegistersTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
 
 @Component({
   selector: 'app-register-printer-node',
@@ -20,6 +21,9 @@ export class RegisterPrinterNodeComponent implements OnInit {
   }
   isBlockTypeTreeNode() {
     return this.registerPrinterTreeNode instanceof BlockTypeTreeNode;
+  }
+  isRegistersTreeNode() {
+    return this.registerPrinterTreeNode instanceof RegistersTreeNode;
   }
   ngOnInit() {
   }
