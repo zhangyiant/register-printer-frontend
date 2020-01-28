@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { TopSys } from './top-sys';
-import { BlockType } from './block-type';
-import { Register } from './register';
-import { Field } from './field';
+import { TopSys } from '../register-printer/top-sys';
+import { BlockType } from '../register-printer/block-type';
+import { Register } from '../register-printer/register';
+import { Field } from '../register-printer/field';
 
 
 @Component({
