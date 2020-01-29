@@ -1,9 +1,7 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { TopSys } from '../../register-printer/top-sys';
-import { BlockType } from '../../register-printer/block-type';
-import { Register } from '../../register-printer/register';
+import { TopSys, BlockType, Register } from '../../register-printer';
 
 export interface RegisterPrinterTreeNode {
   type: string;

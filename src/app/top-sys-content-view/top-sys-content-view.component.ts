@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TopSys } from '../../register-printer/top-sys';
+import { TopSys } from '../../register-printer';
 
 @Component({
   selector: 'app-top-sys-content-view',
