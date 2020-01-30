@@ -30,7 +30,7 @@ export class AppComponent {
     field = new Field('Field2', 10, 8, 1, 'RW');
     register.addField(field);
     blockType.addRegister(register);
-    register = new Register('reg2', 0);
+    register = new Register('reg2', 2);
     field = new Field('Field2', 7, 1, 1, 'RW');
     register.addField(field);
     field = new Field('Field3', 12, 9, 1, 'RW');

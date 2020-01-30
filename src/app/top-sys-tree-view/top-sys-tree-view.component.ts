@@ -1,7 +1,12 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { TopSys, BlockType, Register } from '../../register-printer';
+import {
+    TopSys,
+    BlockType,
+    Register,
+    Field
+} from '../../register-printer';
 
 export interface RegisterPrinterTreeNode {
   type: string;
@@ -46,6 +51,17 @@ export class RegistersTreeNode implements RegisterPrinterTreeNode {
 export class RegisterTreeNode implements RegisterPrinterTreeNode {
   type: string;
   register: Register;
+  children?: RegisterPrinterTreeNode[];
+}
+
+export class FieldsTreeNode implements RegisterPrinterTreeNode {
+  type: string;
+  children?: RegisterPrinterTreeNode[];
+}
+
+export class FieldTreeNode implements RegisterPrinterTreeNode {
+  type: string;
+  field: Field;
   children?: RegisterPrinterTreeNode[];
 }
 
@@ -125,6 +141,39 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
         propertyTreeNode.value = register.offset;
         registerTreeNode.children.push(propertyTreeNode);
         registersTreeNode.children.push(registerTreeNode);
+        const fieldsTreeNode = new FieldsTreeNode();
+        fieldsTreeNode.children = [];
+        registerTreeNode.children.push(fieldsTreeNode);
+        for (const field of register.fields) {
+          const fieldTreeNode = new FieldTreeNode();
+          fieldTreeNode.field = field;
+          fieldTreeNode.children = [];
+          fieldsTreeNode.children.push(fieldTreeNode);
+          let propertyTreeNode = new PropertyTreeNode();
+          propertyTreeNode.name = 'name';
+          propertyTreeNode.value = field.name;
+          fieldTreeNode.children.push(propertyTreeNode);
+          propertyTreeNode = new PropertyTreeNode();
+          propertyTreeNode.name = 'msb';
+          propertyTreeNode.value = field.msb;
+          fieldTreeNode.children.push(propertyTreeNode);
+          propertyTreeNode = new PropertyTreeNode();
+          propertyTreeNode.name = 'lsb';
+          propertyTreeNode.value = field.lsb;
+          fieldTreeNode.children.push(propertyTreeNode);
+          propertyTreeNode = new PropertyTreeNode();
+          propertyTreeNode.name = 'default value';
+          propertyTreeNode.value = field.defaultValue;
+          fieldTreeNode.children.push(propertyTreeNode);
+          propertyTreeNode = new PropertyTreeNode();
+          propertyTreeNode.name = 'access';
+          propertyTreeNode.value = field.access;
+          fieldTreeNode.children.push(propertyTreeNode);
+          propertyTreeNode = new PropertyTreeNode();
+          propertyTreeNode.name = 'description';
+          propertyTreeNode.value = field.description;
+          fieldTreeNode.children.push(propertyTreeNode);
+        }
       }
     }
     TREE_DATA.push(topSysNode);

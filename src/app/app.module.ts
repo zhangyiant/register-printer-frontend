@@ -18,6 +18,8 @@ import { BlockTypesNodeComponent } from './block-types-node/block-types-node.com
 import { BlockTypeNodeComponent } from './block-type-node/block-type-node.component';
 import { RegistersNodeComponent } from './registers-node/registers-node.component';
 import { RegisterNodeComponent } from './register-node/register-node.component';
+import { FieldsNodeComponent } from './fields-node/fields-node.component';
+import { FieldNodeComponent } from './field-node/field-node.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { RegisterNodeComponent } from './register-node/register-node.component';
     BlockTypesNodeComponent,
     BlockTypeNodeComponent,
     RegistersNodeComponent,
-    RegisterNodeComponent
+    RegisterNodeComponent,
+    FieldsNodeComponent,
+    FieldNodeComponent
   ],
   imports: [
     BrowserModule,

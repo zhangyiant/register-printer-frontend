@@ -3,7 +3,11 @@ import {
   RegisterPrinterTreeNode,
   BlockTypesTreeNode,
   BlockTypeTreeNode,
-  RegistersTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
+  RegistersTreeNode,
+  RegisterTreeNode,
+  FieldsTreeNode,
+  FieldTreeNode
+} from '../top-sys-tree-view/top-sys-tree-view.component';
 
 @Component({
   selector: 'app-register-printer-node',
@@ -24,6 +28,15 @@ export class RegisterPrinterNodeComponent implements OnInit {
   }
   isRegistersTreeNode() {
     return this.registerPrinterTreeNode instanceof RegistersTreeNode;
+  }
+  isRegisterTreeNode() {
+    return this.registerPrinterTreeNode instanceof RegisterTreeNode;
+  }
+  isFieldsTreeNode() {
+    return this.registerPrinterTreeNode instanceof FieldsTreeNode;
+  }
+  isFieldTreeNode() {
+    return this.registerPrinterTreeNode instanceof FieldTreeNode;
   }
   ngOnInit() {
   }

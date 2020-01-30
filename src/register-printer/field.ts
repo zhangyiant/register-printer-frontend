@@ -1,15 +1,10 @@
 export class Field {
-    name: string;
-    msb: number;
-    lsb: number;
-    defaultValue: number;
-    access: string;
-
-    constructor(name: string, msb: number, lsb: number, defaultValue: number, access: string) {
-        this.name = name;
-        this.msb = msb;
-        this.lsb = lsb;
-        this.defaultValue = defaultValue,
-        this.access = access;
+    constructor(
+        public name: string,
+        public msb: number,
+        public lsb: number,
+        public defaultValue: number,
+        public access: string,
+        public description: string = "") {
     }
 }
