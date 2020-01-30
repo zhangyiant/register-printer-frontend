@@ -15,4 +15,8 @@ export class TopSysNodeComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClick() {
+    console.log("TopSysNode clicked");
+    return;
+  }
 }
