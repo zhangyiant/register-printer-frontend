@@ -1,8 +1,34 @@
 <div>
-  <ul>
-    <li>{{ blockType.name }}</li>
-    <li>{{ blockType.size }}</li>
-    <li>{{ blockType.addressWidth }}</li>
-    <li>{{ blockType.dataWidth }}</li>
-  </ul>
+  <h2>Block Type: {{ blockType.name }}</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Size:</td>
+        <td>{{ blockType.size }}</td>
+      </tr>
+      <tr>
+        <td>Address Width:</td>
+        <td>{{ blockType.addressWidth }}</td>
+      </tr>
+      <tr>
+        <td>Data Width:</td>
+        <td>{{ blockType.dataWidth }}</td>
+      </tr>
+      <tr>
+        <td>Registers</td>
+        <td>
+          <app-register-view
+            *ngFor="let register of blockType.registers"
+            [register]="register">
+          </app-register-view>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

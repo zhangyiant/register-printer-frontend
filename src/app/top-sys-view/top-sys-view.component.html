@@ -1,6 +1,6 @@
 <div>
   <h2>Top Sys: {{ topSys.name }}</h2>
-  <table>
+  <table border="1">
     <thead>
       <tr>
         <th>name</th>
@@ -24,8 +24,14 @@
         <td>Author:</td>
         <td>{{ topSys.author }}</td>
       </tr>
+      <tr>
+        <td>Block Types: </td>
+        <td>
+          <app-block-type-view
+            *ngFor="let blockType of topSys.blockTypes"
+            [blockType]="blockType">
+          </app-block-type-view>
+        </td>
     </tbody>
   </table>
-  <input [(ngModel)]="topSys.author" placeholder="author" />
-  <button (click)="onSubmit()">Submit</button>
 </div>

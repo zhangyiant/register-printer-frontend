@@ -1,11 +1,33 @@
 <div>
-  <h2>Field</h2>
-  <ul>
-    <li>{{ field.name }}</li>
-    <li>{{ field.msb }}</li>
-    <li>{{ field.lsb }}</li>
-    <li>{{ field.defaultValue }}</li>
-    <li>{{ field.access }}</li>
-    <li>{{ field.description }}</li>
-  </ul>
+  <h2>Field: {{ field.name }}</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>MSB: </td>
+        <td>{{ field.msb }}</td>
+      </tr>
+      <tr>
+        <td>LSB: </td>
+        <td>{{ field.lsb }}</td>
+      </tr>
+      <tr>
+        <td>Default Value: </td>
+        <td>{{ field.defaultValue }}</td>
+      </tr>
+      <tr>
+        <td>Access: </td>
+        <td>{{ field.access }}</td>
+      </tr>
+      <tr>
+        <td>Description: </td>
+        <td>{{ field.description }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
