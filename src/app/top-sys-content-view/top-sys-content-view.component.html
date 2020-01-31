@@ -1,4 +1,23 @@
 <div>
     <h2>Content View</h2>
-    <app-top-sys-view [topSys]="topSys"></app-top-sys-view>
+    <app-top-sys-view
+      *ngIf="isTopSys()"
+      [topSys]="registerPrinterObject">
+    </app-top-sys-view>
+    <app-block-view
+      *ngIf="isBlock()"
+      [block]="registerPrinterObject">
+    </app-block-view>
+    <app-block-type-view
+      *ngIf="isBlockType()"
+      [blockType]="registerPrinterObject">
+    </app-block-type-view>
+    <app-register-view
+      *ngIf="isRegister()"
+      [register]="registerPrinterObject">
+    </app-register-view>
+    <app-field-view
+      *ngIf="isField()"
+      [field]="registerPrinterObject">
+    </app-field-view>
 </div>

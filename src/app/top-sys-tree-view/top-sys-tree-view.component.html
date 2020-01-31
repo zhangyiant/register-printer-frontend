@@ -3,7 +3,10 @@
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle class="example-tree-node">
       <div>
-        <app-register-printer-node [registerPrinterTreeNode]="node"></app-register-printer-node>
+        <app-register-printer-node
+          (click)="onClick(node)"
+          [registerPrinterTreeNode]="node">
+        </app-register-printer-node>
       </div>
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
@@ -13,7 +16,10 @@
           {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
         </mat-icon>
       </button>
-      <app-register-printer-node [registerPrinterTreeNode]="node"></app-register-printer-node>
+      <app-register-printer-node
+        (click)="onClick(node)"
+        [registerPrinterTreeNode]="node">
+      </app-register-printer-node>
       <div [class.example-tree-invisible]="!treeControl.isExpanded(node)">
         <ng-container matTreeNodeOutlet></ng-container>
       </div>

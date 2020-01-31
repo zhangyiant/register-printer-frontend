@@ -1,5 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TopSys } from '../../register-printer';
+import {
+  TopSys,
+  Block,
+  BlockType,
+  Register,
+  Field
+} from '../../register-printer';
 
 @Component({
   selector: 'app-top-sys-content-view',
@@ -8,11 +14,26 @@ import { TopSys } from '../../register-printer';
 })
 export class TopSysContentViewComponent implements OnInit {
 
-  @Input() topSys: TopSys;
+  @Input() registerPrinterObject: TopSys | Block | BlockType | Register | Field;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  isTopSys(): boolean {
+    return (this.registerPrinterObject instanceof TopSys);
+  }
+  isBlock(): boolean {
+    return (this.registerPrinterObject instanceof Block);
+  }
+  isBlockType(): boolean {
+    return (this.registerPrinterObject instanceof BlockType);
+  }
+  isRegister(): boolean {
+    return (this.registerPrinterObject instanceof Register);
+  }
+  isField(): boolean {
+    return (this.registerPrinterObject instanceof Field);
+  }
 }

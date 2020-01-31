@@ -14,10 +14,4 @@ export class PropertyNodeComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  onClick() {
-    console.log(
-      `property: ${ this.propertyTreeNode.name} => ${ this.propertyTreeNode.value}`);
-    return;
-  }
 }

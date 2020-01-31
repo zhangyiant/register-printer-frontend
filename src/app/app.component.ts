@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { TopSys } from '../register-printer/top-sys';
-import { BlockType } from '../register-printer/block-type';
-import { Register } from '../register-printer/register';
-import { Field } from '../register-printer/field';
+import {
+  TopSys,
+  BlockType,
+  Block,
+  Register,
+  Field
+} from '../register-printer';
 
 
 @Component({
@@ -14,6 +17,8 @@ export class AppComponent {
   title = 'register-printer-frontend';
 
   topSys: TopSys = new TopSys('Top_Module');
+  selected: TopSys | BlockType | Block | Register | Field | null;
+
   constructor() {
     this.topSys.version = '2.1.234';
     this.topSys.author = 'Peter';
@@ -50,6 +55,11 @@ export class AppComponent {
     field = new Field('Field3', 12, 9, 1, 'RW');
     register.addField(field);
     blockType.addRegister(register);
+    return;
+  }
+
+  onSelect(registerPrinterObject: TopSys | BlockType | Block | Register | Field): void {
+    this.selected = registerPrinterObject;
     return;
   }
 

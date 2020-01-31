@@ -20,6 +20,10 @@ import { RegistersNodeComponent } from './registers-node/registers-node.componen
 import { RegisterNodeComponent } from './register-node/register-node.component';
 import { FieldsNodeComponent } from './fields-node/fields-node.component';
 import { FieldNodeComponent } from './field-node/field-node.component';
+import { BlockViewComponent } from './block-view/block-view.component';
+import { BlockTypeViewComponent } from './block-type-view/block-type-view.component';
+import { RegisterViewComponent } from './register-view/register-view.component';
+import { FieldViewComponent } from './field-view/field-view.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { FieldNodeComponent } from './field-node/field-node.component';
     RegistersNodeComponent,
     RegisterNodeComponent,
     FieldsNodeComponent,
-    FieldNodeComponent
+    FieldNodeComponent,
+    BlockViewComponent,
+    BlockTypeViewComponent,
+    RegisterViewComponent,
+    FieldViewComponent
   ],
   imports: [
     BrowserModule,

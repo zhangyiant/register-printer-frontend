@@ -1,11 +1,20 @@
-import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  OnChanges,
+  SimpleChanges,
+  Input,
+  Output
+} from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import {
-    TopSys,
-    BlockType,
-    Register,
-    Field
+  TopSys,
+  BlockType,
+  Block,
+  Register,
+  Field
 } from '../../register-printer';
 
 export interface RegisterPrinterTreeNode {
@@ -35,34 +44,53 @@ export class PropertyTreeNode implements RegisterPrinterTreeNode {
 export class BlockTypesTreeNode implements RegisterPrinterTreeNode {
   type: string;
   children?: RegisterPrinterTreeNode[];
+  constructor() {
+    this.type = 'BlockTypesNode';
+  }
 }
 
 export class BlockTypeTreeNode implements RegisterPrinterTreeNode {
   type: string;
   blockType: BlockType;
   children?: RegisterPrinterTreeNode[];
+  constructor() {
+    this.type = 'BlockTypeNode';
+  }
+
 }
 
 export class RegistersTreeNode implements RegisterPrinterTreeNode {
   type: string;
   children?: RegisterPrinterTreeNode[];
+  constructor() {
+    this.type = 'RegistersNode';
+  }
 }
 
 export class RegisterTreeNode implements RegisterPrinterTreeNode {
   type: string;
   register: Register;
   children?: RegisterPrinterTreeNode[];
+  constructor() {
+    this.type = 'RegisterNode';
+  }
 }
 
 export class FieldsTreeNode implements RegisterPrinterTreeNode {
   type: string;
   children?: RegisterPrinterTreeNode[];
+  constructor() {
+    this.type = 'FieldsNode';
+  }
 }
 
 export class FieldTreeNode implements RegisterPrinterTreeNode {
   type: string;
   field: Field;
   children?: RegisterPrinterTreeNode[];
+  constructor() {
+    this.type = 'FieldNode';
+  }
 }
 
 let TREE_DATA: RegisterPrinterTreeNode[] = [];
@@ -75,6 +103,7 @@ let TREE_DATA: RegisterPrinterTreeNode[] = [];
 export class TopSysTreeViewComponent implements OnInit, OnChanges {
 
   @Input() topSys: TopSys;
+  @Output() selected = new EventEmitter<TopSys | BlockType | Block | Register | Field>();
 
   treeControl = new NestedTreeControl<RegisterPrinterTreeNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<RegisterPrinterTreeNode>();
@@ -185,5 +214,17 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
         this.updateTopSys(changes[propName].currentValue);
       }
     }
+  }
+  onClick(node: RegisterPrinterTreeNode) {
+    if (node instanceof TopSysTreeNode) {
+      this.selected.emit(node.topSys);
+    } else if (node instanceof BlockTypeTreeNode) {
+      this.selected.emit(node.blockType);
+    } else if (node instanceof RegisterTreeNode) {
+      this.selected.emit(node.register);
+    } else if (node instanceof FieldTreeNode) {
+      this.selected.emit(node.field);
+    }
+    return;
   }
 }
