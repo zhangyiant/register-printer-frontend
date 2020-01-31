@@ -1,9 +1,31 @@
 <div>
-    <ul>
-        <li>{{ topSys.name }}</li>
-        <li>{{ topSys.addressWidth }}</li>
-        <li>{{ topSys.dataWidth }}</li>
-        <li>{{ topSys.version }}</li>
-        <li>{{ topSys.author }}</li>
-    </ul>
+  <h2>Top Sys: {{ topSys.name }}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Address Width:</td>
+        <td>{{ topSys.addressWidth }}</td>
+      </tr>
+      <tr>
+        <td>Data Width:</td>
+        <td>{{ topSys.dataWidth }}</td>
+      </tr>
+      <tr>
+        <td>Version:</td>
+        <td>{{ topSys.version }}</td>
+      </tr>
+      <tr>
+        <td>Author:</td>
+        <td>{{ topSys.author }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <input [(ngModel)]="topSys.author" placeholder="author" />
+  <button (click)="onSubmit()">Submit</button>
 </div>

@@ -7,10 +7,13 @@ import { TopSys } from '../../register-printer';
   styleUrls: ['./top-sys-view.component.scss']
 })
 export class TopSysViewComponent implements OnInit {
-  @Input() topSys: TopSys | null;
+  @Input() topSys: TopSys;
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSubmit() {
+    console.log("submitted");
+  }
 }
