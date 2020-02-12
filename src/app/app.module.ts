@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TopSysTreeViewComponent } from './top-sys-tree-view/top-sys-tree-view.component';
 import { TopSysContentViewComponent } from './top-sys-content-view/top-sys-content-view.component';
 import { TopSysConsoleViewComponent } from './top-sys-console-view/top-sys-console-view.component';
@@ -25,6 +26,7 @@ import { BlockViewComponent } from './block-view/block-view.component';
 import { BlockTypeViewComponent } from './block-type-view/block-type-view.component';
 import { RegisterViewComponent } from './register-view/register-view.component';
 import { FieldViewComponent } from './field-view/field-view.component';
+import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { FieldViewComponent } from './field-view/field-view.component';
     BlockViewComponent,
     BlockTypeViewComponent,
     RegisterViewComponent,
-    FieldViewComponent
+    FieldViewComponent,
+    OpenDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -54,9 +57,11 @@ import { FieldViewComponent } from './field-view/field-view.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatButtonModule,
-    MatTreeModule
+    MatTreeModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [OpenDialogComponent]
 })
 export class AppModule { }

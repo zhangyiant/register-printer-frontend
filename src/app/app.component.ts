@@ -6,6 +6,8 @@ import {
   Register,
   Field
 } from '../register-printer';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 import { RegisterPrinterService } from './register-printer.service';
 
 
@@ -21,7 +23,8 @@ export class AppComponent implements OnInit {
   selected: TopSys | BlockType | Block | Register | Field | null;
 
   constructor(
-    private registerPrinterService: RegisterPrinterService) {
+    private registerPrinterService: RegisterPrinterService,
+    private dialog: MatDialog) {
     return;
   }
 
@@ -36,7 +39,10 @@ export class AppComponent implements OnInit {
   }
 
   onOpenClicked() {
-    console.log("Open clicked");
-    return;
+    const dialogConfig = new MatDialogConfig();
+    this.dialog.open(
+      OpenDialogComponent,
+      dialogConfig
+    );
   }
 }
