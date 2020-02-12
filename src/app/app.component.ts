@@ -35,4 +35,8 @@ export class AppComponent implements OnInit {
     return;
   }
 
+  onOpenClicked() {
+    console.log("Open clicked");
+    return;
+  }
 }
