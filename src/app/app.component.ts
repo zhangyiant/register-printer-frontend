@@ -40,9 +40,13 @@ export class AppComponent implements OnInit {
 
   onOpenClicked() {
     const dialogConfig = new MatDialogConfig();
-    this.dialog.open(
+    const dialogRef = this.dialog.open(
       OpenDialogComponent,
       dialogConfig
     );
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog is closed');
+      console.log(result);
+    });
   }
 }
