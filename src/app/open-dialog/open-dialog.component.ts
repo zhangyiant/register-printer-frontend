@@ -9,6 +9,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class OpenDialogComponent implements OnInit {
 
+  filenames: string[] = ['a', 'b', 'c', 'd'];
+
   constructor(
     public dialogRef: MatDialogRef<OpenDialogComponent>) {
   }

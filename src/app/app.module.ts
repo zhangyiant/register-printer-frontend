@@ -8,7 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { TopSysTreeViewComponent } from './top-sys-tree-view/top-sys-tree-view.component';
 import { TopSysContentViewComponent } from './top-sys-content-view/top-sys-content-view.component';
 import { TopSysConsoleViewComponent } from './top-sys-console-view/top-sys-console-view.component';
@@ -56,7 +59,10 @@ import { OpenDialogComponent } from './open-dialog/open-dialog.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatFormFieldModule,
     MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
     MatTreeModule,
     MatDialogModule
   ],

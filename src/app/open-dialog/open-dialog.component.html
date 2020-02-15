@@ -1,6 +1,15 @@
-<h1 mat-dialog-title>Open Dialog works!</h1>
+<h1 mat-dialog-title>Open files...</h1>
 <mat-dialog-content>
-  Files
+  <mat-form-field>
+    <mat-label>files</mat-label>
+    <mat-select>
+      <mat-option
+        *ngFor="let filename of filenames"
+        [value]="filename">
+        {{ filename }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancel</button>
