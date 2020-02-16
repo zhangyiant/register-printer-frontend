@@ -4,9 +4,9 @@
     <mat-label>files</mat-label>
     <mat-select>
       <mat-option
-        *ngFor="let filename of filenames"
-        [value]="filename">
-        {{ filename }}
+        *ngFor="let doc of registerPrinterDocs"
+        [value]="doc.rp_doc_id">
+        {{ doc.name }}
       </mat-option>
     </mat-select>
   </mat-form-field>

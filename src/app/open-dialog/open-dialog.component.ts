@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-
+import { RegisterPrinterService } from '../register-printer.service';
+import { RegisterPrinterDoc } from '../register-printer-doc';
 
 @Component({
   selector: 'app-open-dialog',
@@ -9,13 +10,17 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class OpenDialogComponent implements OnInit {
 
-  filenames: string[] = ['a', 'b', 'c', 'd'];
+  registerPrinterDocs: RegisterPrinterDoc[];
 
   constructor(
-    public dialogRef: MatDialogRef<OpenDialogComponent>) {
+    public dialogRef: MatDialogRef<OpenDialogComponent>,
+    private registerPrinterService: RegisterPrinterService) {
   }
 
   ngOnInit() {
+    this.registerPrinterService.getRegisterPrinterDocs().subscribe(
+      docs => this.registerPrinterDocs = docs
+    );
   }
 
 }

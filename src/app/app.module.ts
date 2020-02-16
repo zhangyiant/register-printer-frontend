@@ -5,6 +5,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HttpClientModule } from '@angular/common/http';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTreeModule } from '@angular/material/tree';
@@ -56,6 +59,7 @@ import { OpenDialogComponent } from './open-dialog/open-dialog.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
@@ -66,7 +70,8 @@ import { OpenDialogComponent } from './open-dialog/open-dialog.component';
     MatTreeModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent],
   entryComponents: [OpenDialogComponent]
 })

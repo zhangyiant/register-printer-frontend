@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import {
   TopSys,
   BlockType,
@@ -6,6 +8,7 @@ import {
   Register,
   Field
 } from '../register-printer';
+import { RegisterPrinterDoc } from './register-printer-doc';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +17,10 @@ export class RegisterPrinterService {
 
   topSys: TopSys = new TopSys('Top_Module');
 
-  constructor() {
+  private registerPrinterDocsUrl = "register-printer/api/register-printer-docs/";
+
+  constructor(
+    private http: HttpClient) {
     this.topSys.version = '2.1.234';
     this.topSys.author = 'Peter';
     this.topSys.addressWidth = 12;
@@ -55,5 +61,10 @@ export class RegisterPrinterService {
 
   getTopSys(): TopSys {
     return this.topSys;
+  }
+
+  getRegisterPrinterDocs(): Observable<RegisterPrinterDoc[]> {
+    return this.http.get<RegisterPrinterDoc[]>(
+      this.registerPrinterDocsUrl);
   }
 }
