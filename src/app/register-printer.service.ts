@@ -68,8 +68,19 @@ export class RegisterPrinterService {
       this.registerPrinterDocsUrl);
   }
 
+  parseDoc(strDoc: string): TopSys | null {
+    console.log("parseDoc called");
+    console.log(strDoc);
+    return null;
+  }
   openDoc(docId: number) {
     console.log(`Open document ID: ${docId}.`);
+    this.http.get<RegisterPrinterDoc>(
+      `${this.registerPrinterDocsUrl}/${docId}`
+    ).subscribe(
+      doc => {
+        this.parseDoc(doc.doc);
+      });
     return;
   }
 }
