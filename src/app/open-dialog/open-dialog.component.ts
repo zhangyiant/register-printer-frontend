@@ -11,6 +11,7 @@ import { RegisterPrinterDoc } from '../register-printer-doc';
 export class OpenDialogComponent implements OnInit {
 
   registerPrinterDocs: RegisterPrinterDoc[];
+  selectedDocId: number;
 
   constructor(
     public dialogRef: MatDialogRef<OpenDialogComponent>,
@@ -19,7 +20,14 @@ export class OpenDialogComponent implements OnInit {
 
   ngOnInit() {
     this.registerPrinterService.getRegisterPrinterDocs().subscribe(
-      docs => this.registerPrinterDocs = docs
+      docs => {
+        this.registerPrinterDocs = docs;
+        if (docs.length > 0) {
+          this.selectedDocId = docs[0].rp_doc_id;
+        } else {
+          this.selectedDocId = -1;
+        }
+      }
     );
   }
 

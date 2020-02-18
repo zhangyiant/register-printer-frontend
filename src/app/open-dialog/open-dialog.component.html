@@ -2,7 +2,7 @@
 <mat-dialog-content>
   <mat-form-field>
     <mat-label>files</mat-label>
-    <mat-select>
+    <mat-select [(value)]="selectedDocId">
       <mat-option
         *ngFor="let doc of registerPrinterDocs"
         [value]="doc.rp_doc_id">
@@ -10,8 +10,9 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+  {{ selectedDocId }}
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true">Open</button>
+  <button mat-button [mat-dialog-close]="selectedDocId">Open</button>
 </mat-dialog-actions>
