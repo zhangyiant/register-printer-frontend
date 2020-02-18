@@ -45,8 +45,11 @@ export class AppComponent implements OnInit {
       dialogConfig
     );
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog is closed');
-      console.log(result);
+      if (result) {
+        if (result > 0) {
+          this.registerPrinterService.openDoc(result);
+        }
+      }
     });
   }
 }

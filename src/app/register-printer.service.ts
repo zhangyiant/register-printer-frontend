@@ -67,4 +67,9 @@ export class RegisterPrinterService {
     return this.http.get<RegisterPrinterDoc[]>(
       this.registerPrinterDocsUrl);
   }
+
+  openDoc(docId: number) {
+    console.log(`Open document ID: ${docId}.`);
+    return;
+  }
 }
