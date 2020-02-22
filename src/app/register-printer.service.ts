@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import {
   TopSys,
   BlockType,
@@ -16,6 +16,9 @@ import { RegisterPrinterDoc } from './register-printer-doc';
 export class RegisterPrinterService {
 
   topSys: TopSys = new TopSys('Top_Module');
+
+  documentOpenedSource = new Subject<TopSys>();
+  documentOpened$ = this.documentOpenedSource.asObservable();
 
   private registerPrinterDocsUrl = "register-printer/api/register-printer-docs/";
 
@@ -71,7 +74,7 @@ export class RegisterPrinterService {
   parseDoc(strDoc: string): TopSys | null {
     console.log("parseDoc called");
     console.log(strDoc);
-    return null;
+    return this.topSys;
   }
   openDoc(docId: number) {
     console.log(`Open document ID: ${docId}.`);
@@ -79,7 +82,8 @@ export class RegisterPrinterService {
       `${this.registerPrinterDocsUrl}/${docId}`
     ).subscribe(
       doc => {
-        this.parseDoc(doc.doc);
+        let topSys: TopSys = this.parseDoc(doc.doc);
+        this.documentOpenedSource.next(topSys);
       });
     return;
   }

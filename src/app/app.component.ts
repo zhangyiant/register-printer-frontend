@@ -29,7 +29,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.topSys = this.registerPrinterService.getTopSys();
+    this.registerPrinterService.documentOpened$.subscribe(
+      (topSys: TopSys) => this.topSys = topSys
+    );
     return;
   }
 

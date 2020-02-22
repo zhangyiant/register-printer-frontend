@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { RegisterPrinterService } from '../register-printer.service';
 import {
   TopSys,
   BlockType,
@@ -108,15 +109,20 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
   treeControl = new NestedTreeControl<RegisterPrinterTreeNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<RegisterPrinterTreeNode>();
 
-  constructor() {
+  constructor(
+    private registerPrinterService: RegisterPrinterService) {
   }
   hasChild = (_: number, node: RegisterPrinterTreeNode) => !!node.children && node.children.length > 0;
 
   ngOnInit() {
   }
 
-  updateTopSys(topSys: TopSys) {
+  updateTopSys(topSys: TopSys | null) {
     TREE_DATA = [];
+    if (!topSys) {
+      this.dataSource.data = TREE_DATA;
+      return;
+    }
     const topSysNode: TopSysTreeNode = new TopSysTreeNode();
     topSysNode.topSys = topSys;
     topSysNode.children = [];
