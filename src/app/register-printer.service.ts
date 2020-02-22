@@ -74,10 +74,12 @@ export class RegisterPrinterService {
   parseDoc(strDoc: string): TopSys | null {
     console.log("parseDoc called");
     console.log(strDoc);
+    const jsonObj: object = JSON.parse(strDoc);
+    const topSys = TopSys.parseJson(jsonObj);
+    this.topSys = topSys;
     return this.topSys;
   }
   openDoc(docId: number) {
-    console.log(`Open document ID: ${docId}.`);
     this.http.get<RegisterPrinterDoc>(
       `${this.registerPrinterDocsUrl}/${docId}`
     ).subscribe(

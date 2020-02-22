@@ -25,4 +25,14 @@ export class TopSys {
         this.blockTypes.push(blockType);
         return;
     }
+
+  static parseJson(jsonObj: object): TopSys {
+    const topSys = new TopSys(
+      jsonObj["name"],
+      jsonObj["addressWidth"],
+      jsonObj["dataWidth"]);
+    topSys.version = jsonObj["version"];
+    topSys.author = jsonObj["author"];
+    return topSys;
+  }
 }
