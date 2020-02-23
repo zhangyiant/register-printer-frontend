@@ -16,4 +16,17 @@ export class Register {
         this.fields.push(field);
         return;
     }
+
+  static parseJson(jsonObj: object): Register {
+    const register = new Register(
+      jsonObj["name"],
+      jsonObj["offset"]);
+    const fieldsJsonObj = jsonObj["fields"];
+    for (let fieldJsonObj of fieldsJsonObj) {
+      const field = Field.parseJson(
+        fieldJsonObj);
+      register.addField(field);
+    }
+    return register;
+  }
 }

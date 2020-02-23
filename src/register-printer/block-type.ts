@@ -20,4 +20,19 @@ export class BlockType {
         this.registers.push(register);
         return;
     }
+
+  static parseJson(jsonObj: object): BlockType {
+    const blockType = new BlockType(
+      jsonObj["name"],
+      jsonObj["size"],
+      jsonObj["addressWidth"],
+      jsonObj["dataWidth"]);
+    const registersJsonObj = jsonObj["registers"];
+    for (let registerJsonObj of registersJsonObj) {
+      const register = Register.parseJson(
+        registerJsonObj);
+      blockType.addRegister(register);
+    }
+    return blockType;
+  }
 }

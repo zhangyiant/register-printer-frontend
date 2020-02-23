@@ -7,4 +7,15 @@ export class Field {
         public access: string,
         public description: string = "") {
     }
+
+  static parseJson(jsonObj: object): Field {
+    const field = new Field(
+      jsonObj["name"],
+      jsonObj["msb"],
+      jsonObj["lsb"],
+      jsonObj["defaultValue"],
+      jsonObj["access"],
+      jsonObj["description"]);
+    return field;
+  }
 }

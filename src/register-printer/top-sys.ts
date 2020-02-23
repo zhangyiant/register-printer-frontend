@@ -1,5 +1,6 @@
 import { Block } from './block';
 import { BlockType } from './block-type';
+import { AddressMap } from './address-map';
 
 export class TopSys {
     name: string;
@@ -8,7 +9,7 @@ export class TopSys {
     version: string | null;
     author: string | null;
     blockTypes: Array<BlockType>;
-    addressMap: Array<string>;
+    addressMaps: Array<AddressMap>;
 
     constructor(name: string, addressWidth: number = 12, dataWidth: number = 32) {
         this.name = name;
@@ -17,7 +18,7 @@ export class TopSys {
         this.version = null;
         this.author = null;
         this.blockTypes = [];
-        this.addressMap = [];
+        this.addressMaps = [];
         return;
     }
 
@@ -26,6 +27,11 @@ export class TopSys {
         return;
     }
 
+  addAddressMap(addressMap: AddressMap) {
+    this.addressMaps.push(addressMap);
+    return;
+  }
+
   static parseJson(jsonObj: object): TopSys {
     const topSys = new TopSys(
       jsonObj["name"],
@@ -33,6 +39,18 @@ export class TopSys {
       jsonObj["dataWidth"]);
     topSys.version = jsonObj["version"];
     topSys.author = jsonObj["author"];
+    const blockTypesJsonObj = jsonObj["blockTypes"];
+    for (let blockTypeJsonObj of blockTypesJsonObj) {
+      const blockType = BlockType.parseJson(
+        blockTypeJsonObj);
+      topSys.addBlockType(blockType);
+    }
+    const addressMapsJsonObj = jsonObj["addressMaps"];
+    for (let addressMapJsonObj of addressMapsJsonObj) {
+      const addressMap = AddressMap.parseJson(
+        addressMapJsonObj);
+      topSys.addAddressMap(addressMap);
+    }
     return topSys;
   }
 }
