@@ -12,6 +12,7 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { RegisterPrinterService } from '../register-printer.service';
 import {
   TopSys,
+  AddressMap,
   BlockType,
   Block,
   Register,
@@ -57,7 +58,23 @@ export class BlockTypeTreeNode implements RegisterPrinterTreeNode {
   constructor() {
     this.type = 'BlockTypeNode';
   }
+}
 
+export class AddressMapsTreeNode implements RegisterPrinterTreeNode {
+  type: string;
+  children?: RegisterPrinterTreeNode[];
+  constructor() {
+    this.type = "AddressMapsNode";
+  }
+}
+
+export class AddressMapTreeNode implements RegisterPrinterTreeNode {
+  type: string;
+  addressMap: AddressMap;
+  children?: RegisterPrinterTreeNode[];
+  constructor() {
+    this.type = "AddressMapNode";
+  }
 }
 
 export class RegistersTreeNode implements RegisterPrinterTreeNode {
@@ -104,7 +121,7 @@ let TREE_DATA: RegisterPrinterTreeNode[] = [];
 export class TopSysTreeViewComponent implements OnInit, OnChanges {
 
   @Input() topSys: TopSys;
-  @Output() selected = new EventEmitter<TopSys | BlockType | Block | Register | Field>();
+  @Output() selected = new EventEmitter<TopSys | AddressMap | BlockType | Block | Register | Field>();
 
   treeControl = new NestedTreeControl<RegisterPrinterTreeNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<RegisterPrinterTreeNode>();
@@ -143,6 +160,15 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     propertyNode.name = 'DataWidth';
     propertyNode.value = topSys.dataWidth;
     topSysNode.children.push(propertyNode);
+    const addressMapsTreeNode = new AddressMapsTreeNode();
+    addressMapsTreeNode.children = [];
+    topSysNode.children.push(addressMapsTreeNode);
+    for (const addressMap of topSys.addressMaps) {
+      const addressMapTreeNode: AddressMapTreeNode = new AddressMapTreeNode();
+      addressMapTreeNode.children = [];
+      addressMapTreeNode.addressMap = addressMap;
+      addressMapsTreeNode.children.push(addressMapTreeNode);
+    }
     const blockTypesTreeNode = new BlockTypesTreeNode();
     blockTypesTreeNode.children = [];
     topSysNode.children.push(blockTypesTreeNode);
@@ -224,6 +250,8 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
   onClick(node: RegisterPrinterTreeNode) {
     if (node instanceof TopSysTreeNode) {
       this.selected.emit(node.topSys);
+    } else if (node instanceof AddressMapTreeNode) {
+      this.selected.emit(node.addressMap);
     } else if (node instanceof BlockTypeTreeNode) {
       this.selected.emit(node.blockType);
     } else if (node instanceof RegisterTreeNode) {

@@ -25,6 +25,15 @@
         <td>{{ topSys.author }}</td>
       </tr>
       <tr>
+        <td>Address Maps: </td>
+        <td>
+          <app-address-map-view
+            *ngFor="let addressMap of topSys.addressMaps"
+            [addressMap]="addressMap">
+          </app-address-map-view>
+        </td>
+      </tr>
+      <tr>
         <td>Block Types: </td>
         <td>
           <app-block-type-view
@@ -32,6 +41,7 @@
             [blockType]="blockType">
           </app-block-type-view>
         </td>
+      </tr>
     </tbody>
   </table>
 </div>

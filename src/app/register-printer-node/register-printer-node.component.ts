@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {
   RegisterPrinterTreeNode,
+  AddressMapsTreeNode,
+  AddressMapTreeNode,
   BlockTypesTreeNode,
   BlockTypeTreeNode,
   RegistersTreeNode,
@@ -19,6 +21,14 @@ export class RegisterPrinterNodeComponent implements OnInit {
   @Input() registerPrinterTreeNode: RegisterPrinterTreeNode;
 
   constructor() { }
+
+  isAddressMapsTreeNode() {
+    return this.registerPrinterTreeNode instanceof AddressMapsTreeNode;
+  }
+
+  isAddressMapTreeNode() {
+    return this.registerPrinterTreeNode instanceof AddressMapTreeNode;
+  }
 
   isBlockTypesTreeNode() {
     return this.registerPrinterTreeNode instanceof BlockTypesTreeNode;

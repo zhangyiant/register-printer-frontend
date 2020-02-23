@@ -33,6 +33,9 @@ import { BlockTypeViewComponent } from './block-type-view/block-type-view.compon
 import { RegisterViewComponent } from './register-view/register-view.component';
 import { FieldViewComponent } from './field-view/field-view.component';
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
+import { AddressMapsNodeComponent } from './address-maps-node/address-maps-node.component';
+import { AddressMapNodeComponent } from './address-map-node/address-map-node.component';
+import { AddressMapViewComponent } from './address-map-view/address-map-view.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { OpenDialogComponent } from './open-dialog/open-dialog.component';
     BlockTypeViewComponent,
     RegisterViewComponent,
     FieldViewComponent,
-    OpenDialogComponent
+    OpenDialogComponent,
+    AddressMapsNodeComponent,
+    AddressMapNodeComponent,
+    AddressMapViewComponent
   ],
   imports: [
     BrowserModule,
