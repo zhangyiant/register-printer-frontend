@@ -36,6 +36,7 @@ import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 import { AddressMapsNodeComponent } from './address-maps-node/address-maps-node.component';
 import { AddressMapNodeComponent } from './address-map-node/address-map-node.component';
 import { AddressMapViewComponent } from './address-map-view/address-map-view.component';
+import { TopSysAuthorComponent } from './top-sys-author/top-sys-author.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { AddressMapViewComponent } from './address-map-view/address-map-view.com
     OpenDialogComponent,
     AddressMapsNodeComponent,
     AddressMapNodeComponent,
-    AddressMapViewComponent
+    AddressMapViewComponent,
+    TopSysAuthorComponent
   ],
   imports: [
     BrowserModule,
