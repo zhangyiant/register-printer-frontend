@@ -2,6 +2,7 @@ import {
   Component,
   OnInit,
   Input,
+  Output,
   EventEmitter
 } from '@angular/core';
 
@@ -13,6 +14,7 @@ import {
 export class TopSysAuthorComponent implements OnInit {
 
   @Input() author: string;
+  @Output() authorChange = new EventEmitter<string>();
 
   editingAuthor: string;
 
@@ -32,6 +34,7 @@ export class TopSysAuthorComponent implements OnInit {
   onSubmit(event) {
     this.author = this.editingAuthor;
     this.isEditing = false;
+    this.authorChange.emit(this.author);
     return;
   }
 
