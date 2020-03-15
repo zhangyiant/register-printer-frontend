@@ -32,6 +32,26 @@ export class TopSys {
     return;
   }
 
+  toJson(): object {
+    const jsonObj: object = {};
+    jsonObj["name"] = this.name;
+    jsonObj["addressWidth"] = this.addressWidth;
+    jsonObj["dataWidth"] = this.dataWidth;
+    jsonObj["version"] = this.version;
+    jsonObj["author"] = this.author;
+    jsonObj["blockTypes"] = [];
+    for (let blockType of this.blockTypes) {
+      const blockTypeJsonObj = blockType.toJson();
+      jsonObj["blockTypes"].push(blockTypeJsonObj);
+    }
+    jsonObj["addressMaps"] = [];
+    for (let addressMap of this.addressMaps) {
+      const addressMapJsonObj = addressMap.toJson();
+      jsonObj["addressMaps"].push(addressMapJsonObj);
+    }
+    return jsonObj;
+  }
+
   static parseJson(jsonObj: object): TopSys {
     const topSys = new TopSys(
       jsonObj["name"],

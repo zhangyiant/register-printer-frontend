@@ -7,10 +7,10 @@
       <mat-label>Author</mat-label>
       <input matInput placeholder="Author" [(ngModel)]="editingAuthor">
     </mat-form-field>
-    <button mat-icon-button (click)="onSubmit()">
+    <button mat-icon-button (click)="onSubmit($event)">
       <mat-icon>done</mat-icon>
     </button>
-    <button mat-icon-button (click)="onCancel()">
+    <button mat-icon-button (click)="onCancel($event)">
       <mat-icon>clear</mat-icon>
     </button>
   </span>

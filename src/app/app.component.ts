@@ -54,4 +54,10 @@ export class AppComponent implements OnInit {
       }
     });
   }
+
+  onSaveClicked() {
+    this.registerPrinterService.saveDoc(
+      this.topSys);
+    return;
+  }
 }

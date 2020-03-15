@@ -15,6 +15,15 @@ export class AddressMap {
     return;
   }
 
+  toJson(): object {
+    const jsonObj: object = {};
+    jsonObj["blockType"] = this.blockType;
+    jsonObj["blockInstance"] = this.blockInstance;
+    jsonObj["baseAddress"] = this.baseAddress;
+    jsonObj["blockSize"] = this.blockSize;
+    return jsonObj;
+  }
+
   static parseJson(jsonObj: object): AddressMap {
     const addressMap = new AddressMap(
       jsonObj["blockType"],

@@ -15,6 +15,7 @@ import { RegisterPrinterDoc } from './register-printer-doc';
 })
 export class RegisterPrinterService {
 
+  registerPrinterDoc: RegisterPrinterDoc;
   topSys: TopSys;
 
   documentOpenedSource = new Subject<TopSys>();
@@ -37,20 +38,36 @@ export class RegisterPrinterService {
   }
 
   parseDoc(strDoc: string): TopSys | null {
-    console.log(strDoc);
     const jsonObj: object = JSON.parse(strDoc);
     const topSys = TopSys.parseJson(jsonObj);
-    this.topSys = topSys;
-    return this.topSys;
+    return topSys;
   }
   openDoc(docId: number) {
     this.http.get<RegisterPrinterDoc>(
-      `${this.registerPrinterDocsUrl}/${docId}`
+      `${this.registerPrinterDocsUrl}/${docId}/`
     ).subscribe(
       doc => {
+        this.registerPrinterDoc = doc;
         let topSys: TopSys = this.parseDoc(doc.doc);
+        this.topSys = topSys;
         this.documentOpenedSource.next(topSys);
       });
     return;
   }
+  saveDoc(topSys: TopSys) {
+    if (this.registerPrinterDoc) {
+      const jsonObj: object = topSys.toJson();
+      this.registerPrinterDoc.doc = JSON.stringify(jsonObj);
+      this.http.put<RegisterPrinterDoc>(
+        `${this.registerPrinterDocsUrl}/${this.registerPrinterDoc.rp_doc_id}/`,
+        this.registerPrinterDoc).subscribe(
+          doc => {
+            console.log(doc);
+          });
+    } else {
+      console.log("Error");
+    }
+    return;
+  }
+
 }

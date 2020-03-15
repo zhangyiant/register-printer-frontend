@@ -21,6 +21,20 @@ export class BlockType {
         return;
     }
 
+  toJson(): object {
+    const jsonObj: object = {};
+    jsonObj["name"] = this.name;
+    jsonObj["size"] = this.size;
+    jsonObj["addressWidth"] = this.addressWidth;
+    jsonObj["dataWidth"] = this.dataWidth;
+    jsonObj["registers"] = [];
+    for (let register of this.registers) {
+      const registerJsonObj = register.toJson();
+      jsonObj["registers"].push(registerJsonObj);
+    }
+    return jsonObj;
+  }
+
   static parseJson(jsonObj: object): BlockType {
     const blockType = new BlockType(
       jsonObj["name"],
