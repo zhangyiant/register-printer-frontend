@@ -1,5 +1,17 @@
 <ng-container>
-  <span (dblclick)="onAuthorDoubleClick($event)">
+  <span *ngIf="!isEditing" (dblclick)="onAuthorDoubleClick($event)">
     {{ author }}
+  </span>
+  <span *ngIf="isEditing">
+    <mat-form-field>
+      <mat-label>Author</mat-label>
+      <input matInput placeholder="Author" [(ngModel)]="editingAuthor">
+    </mat-form-field>
+    <button mat-icon-button (click)="onSubmit()">
+      <mat-icon>done</mat-icon>
+    </button>
+    <button mat-icon-button (click)="onCancel()">
+      <mat-icon>clear</mat-icon>
+    </button>
   </span>
 </ng-container>

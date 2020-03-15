@@ -18,7 +18,7 @@
       </tr>
       <tr>
         <td>Author:</td>
-        <td>{{ topSys.author }}
+        <td>
           <app-top-sys-author [author]="topSys.author">
           </app-top-sys-author>
         </td>
@@ -51,4 +51,5 @@
       </tr>
     </tbody>
   </table>
+  {{ topSys | json }}
 </div>

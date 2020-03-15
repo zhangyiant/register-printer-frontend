@@ -14,13 +14,29 @@ export class TopSysAuthorComponent implements OnInit {
 
   @Input() author: string;
 
+  editingAuthor: string;
+
+  isEditing: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   onAuthorDoubleClick(event) {
-    console.log(event);
+    this.isEditing = true;
+    this.editingAuthor = this.author;
+    return;
+  }
+
+  onSubmit(event) {
+    this.author = this.editingAuthor;
+    this.isEditing = false;
+    return;
+  }
+
+  onCancel(event) {
+    this.isEditing = false;
     return;
   }
 }
