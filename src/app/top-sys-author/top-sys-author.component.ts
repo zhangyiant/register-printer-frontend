@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  EventEmitter
+} from '@angular/core';
 
 @Component({
   selector: 'app-top-sys-author',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopSysAuthorComponent implements OnInit {
 
+  @Input() author: string;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onAuthorDoubleClick(event) {
+    console.log(event);
+    return;
+  }
 }
