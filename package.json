@@ -1,13 +1,15 @@
 {
   "name": "register-printer-frontend",
   "version": "0.0.0",
+  "main": "index.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxyConfig=proxy.config.json",
     "build": "ng build --base-href=/register-printer --deploy-url=/register-printer/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start:electron": "ng build --base-href=. && electron ."
   },
   "private": true,
   "dependencies": {
