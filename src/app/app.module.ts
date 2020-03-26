@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -73,6 +74,7 @@ import { ExcelSelectorComponent } from './excel-selector/excel-selector.componen
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatCheckboxModule,
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,

@@ -12,6 +12,11 @@ export class ExcelSelectorComponent implements OnInit {
   excelPath: string;
   outputPath: string;
 
+  genDoc: boolean = true;
+  genC: boolean = true;
+  genUvm: boolean = true;
+  genRtl: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {

@@ -31,4 +31,20 @@
       <mat-icon>folder</mat-icon>
     </button>
   </form>
+
+  <div class="example-form">
+    <mat-checkbox [(ngModel)]="genDoc" name="genDoc" class="checkbox">
+      Generate register documents.
+    </mat-checkbox>
+    <mat-checkbox [(ngModel)]="genC" name="genC" class="checkbox">
+      Generate register C header files.
+    </mat-checkbox>
+    <mat-checkbox [(ngModel)]="genUvm" name="genUvm" class="checkbox">
+      Generate register UVM models.
+    </mat-checkbox>
+    <mat-checkbox [(ngModel)]="genRtl" name="genRtl" class="checkbox">
+      Generate register documents.
+    </mat-checkbox>
+  </div>
+  <button mat-raised-button>Generate</button>
 </div>
