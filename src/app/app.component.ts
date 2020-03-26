@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
 
   title = 'register-printer-frontend';
   topSys: TopSys;
+  isElectronApp: boolean = true;
   selected: TopSys | BlockType | Block | Register | Field | null;
 
   constructor(

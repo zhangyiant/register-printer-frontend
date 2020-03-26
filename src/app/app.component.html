@@ -1,17 +1,21 @@
 <h1>Register Printer</h1>
 <div [ngStyle]="{'display': 'grid', 'grid-template-columns': '25% 25% 25% 25%', 'grid-template-rows': 'auto'}">
-  <button
-    mat-raised-button
-    (click)="onOpenClicked()"
-    [ngStyle]="{'grid-area': '1 / 1 / 1 / 1'}">
-    Open...
-  </button>
-  <button
-    mat-raised-button
-    (click)="onSaveClicked()"
-    [ngStyle]="{'grid-area': '1 / 2 / 1 / 2'}">
-    Save
-  </button>
+  <div *ngIf="!isElectronApp" [ngStyle]="{'grid-area': '1 / 1 / 1 / 4'}">
+    <button
+      mat-raised-button
+      (click)="onOpenClicked()">
+      Open...
+    </button>
+    <button
+      mat-raised-button
+      (click)="onSaveClicked()">
+      Save
+    </button>
+  </div>
+  <div *ngIf="isElectronApp" [ngStyle]="{'grid-area': '1 / 1 / 1 / 4'}">
+    <app-excel-selector>
+    </app-excel-selector>
+  </div>
   <app-top-sys-tree-view
     [topSys]="topSys"
     (selected)="onSelect($event)"

@@ -37,6 +37,7 @@ import { AddressMapsNodeComponent } from './address-maps-node/address-maps-node.
 import { AddressMapNodeComponent } from './address-map-node/address-map-node.component';
 import { AddressMapViewComponent } from './address-map-view/address-map-view.component';
 import { TopSysAuthorComponent } from './top-sys-author/top-sys-author.component';
+import { ExcelSelectorComponent } from './excel-selector/excel-selector.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { TopSysAuthorComponent } from './top-sys-author/top-sys-author.component
     AddressMapsNodeComponent,
     AddressMapNodeComponent,
     AddressMapViewComponent,
-    TopSysAuthorComponent
+    TopSysAuthorComponent,
+    ExcelSelectorComponent
   ],
   imports: [
     BrowserModule,
