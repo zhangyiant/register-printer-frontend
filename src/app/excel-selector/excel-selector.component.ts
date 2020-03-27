@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { remote } from 'electron';
+import { RegisterPrinterService } from '../register-printer.service';
+
 
 @Component({
   selector: 'app-excel-selector',
@@ -17,7 +19,9 @@ export class ExcelSelectorComponent implements OnInit {
   genUvm: boolean = true;
   genRtl: boolean = true;
 
-  constructor() { }
+  constructor(
+    private registerPrinterService: RegisterPrinterService
+  ) {}
 
   ngOnInit(): void {
   }
@@ -84,6 +88,22 @@ export class ExcelSelectorComponent implements OnInit {
           this.outputPath = result.filePaths[0];
         }
       }
+    );
+    return;
+  }
+
+  onGenerateClick() {
+    const generateConfig = {
+      configFile: this.configFile,
+      excelPath: this.excelPath,
+      outputPath: this.outputPath,
+      genDoc: this.genDoc,
+      genC: this.genC,
+      genUvm: this.genUvm,
+      genRtl: this.genRtl
+    };
+    this.registerPrinterService.generate(
+      generateConfig
     );
     return;
   }

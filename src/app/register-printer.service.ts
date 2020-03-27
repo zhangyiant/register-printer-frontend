@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import {
@@ -9,6 +9,9 @@ import {
   Field
 } from '../register-printer';
 import { RegisterPrinterDoc } from './register-printer-doc';
+import * as child_process from 'child_process';
+import { remote } from 'electron';
+import * as path from 'path';
 
 @Injectable({
   providedIn: 'root'
@@ -21,10 +24,17 @@ export class RegisterPrinterService {
   documentOpenedSource = new Subject<TopSys>();
   documentOpened$ = this.documentOpenedSource.asObservable();
 
+  registerPrinterOutputSource = new Subject<string>();
+  registerPrinterOutput$ = this.registerPrinterOutputSource.asObservable();
+
+  registerPrinterStartSource = new Subject<boolean>();
+  registerPrinterStart$ = this.registerPrinterStartSource.asObservable();
+
   private registerPrinterDocsUrl = "register-printer/api/register-printer-docs";
 
   constructor(
-    private http: HttpClient) {
+    private http: HttpClient,
+    private ngZone: NgZone) {
     return;
   }
 
@@ -70,4 +80,55 @@ export class RegisterPrinterService {
     return;
   }
 
+  generate(generateConfig) {
+    this.registerPrinterStartSource.next(true);
+
+    const { app } = remote;
+
+    const registerPrinterApp = path.join(
+      app.getAppPath(),
+      'app',
+      'RegisterPrinter.exe');
+    const args: string[] = [];
+    args.push("-f");
+    args.push(generateConfig["configFile"]);
+    args.push("-p");
+    args.push(generateConfig["excelPath"]);
+    args.push("-o");
+    args.push(generateConfig["outputPath"]);
+    if (generateConfig["genDoc"]) {
+      args.push("--gen-doc");
+    }
+    if (generateConfig["genC"]) {
+      args.push("--gen-c-header");
+    }
+    if (generateConfig["genUvm"]) {
+      args.push("--gen-uvm");
+    }
+    if (generateConfig["genRtl"]) {
+      args.push("--gen-rtl")
+    }
+    const appProcess = child_process.spawn(
+      registerPrinterApp, args);
+    appProcess.stdout.on('data', (data) => {
+      this.ngZone.run(
+        () => {
+          if (data) {
+            this.registerPrinterOutputSource.next(
+              data.toString());
+          }
+        }
+      );
+    });
+    appProcess.stderr.on('data', (data) => {
+      this.ngZone.run(
+        () => {
+          if (data) {
+            this.registerPrinterOutputSource.next(
+              data.toString());
+          }
+        }
+      );
+    });
+  }
 }
