@@ -1,4 +1,5 @@
-const { app, BrowserWindow } = require('electron');
+const { app, dialog, BrowserWindow } = require('electron');
+const { autoUpdater } = require('electron-updater');
 
 function createWindow() {
   let win = new BrowserWindow({
@@ -9,9 +10,13 @@ function createWindow() {
     }
   });
 
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
   win.loadFile('dist/register-printer-frontend/index.html');
 }
 
 app.whenReady().then(createWindow);
+
+autoUpdater.logger = require("electron-log")
+autoUpdater.logger.transports.file.level = "info"
+autoUpdater.checkForUpdatesAndNotify();
