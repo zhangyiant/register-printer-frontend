@@ -55,14 +55,15 @@
   },
   "build": {
     "appId": "com.anteestudio.registerprinter",
-    "asar": false,
+    "asar": true,
     "files": [
       "index.js",
       "dist/register-printer-frontend/**/*",
       "app/*"
     ],
     "win": {
-      "target": "zip"
+      "target": "portable",
+      "icon": "registerPrinter.ico"
     }
   }
 }
