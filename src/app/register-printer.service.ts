@@ -108,7 +108,7 @@ export class RegisterPrinterService {
     if (generateConfig["genRtl"]) {
       args.push("--gen-rtl")
     }
-    const appProcess = child_process.spawn(
+    const appProcess = child_process.execFile(
       registerPrinterApp, args);
     appProcess.stdout.on('data', (data) => {
       this.ngZone.run(
