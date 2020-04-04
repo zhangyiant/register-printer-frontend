@@ -17,11 +17,13 @@
     </app-excel-selector>
   </div>
   <app-top-sys-tree-view
+    *ngIf="!isElectronApp"
     [topSys]="topSys"
     (selected)="onSelect($event)"
     [ngStyle]="{'grid-area': '2 / 1 / 2 / 1'}">
   </app-top-sys-tree-view>
   <app-top-sys-content-view
+    *ngIf="!isElectronApp"
     [registerPrinterObject]="selected"
     [ngStyle]="{'grid-area': '2 / 2 / 2 / 4'}">
   </app-top-sys-content-view>
