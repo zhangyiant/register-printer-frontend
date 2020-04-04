@@ -12,10 +12,13 @@
       Save
     </button>
   </div>
-  <div *ngIf="isElectronApp" [ngStyle]="{'grid-area': '1 / 1 / 1 / 5'}">
+  <div *ngIf="isElectronApp" [ngStyle]="{'grid-area': '1 / 1 / 2 / 5'}">
     <app-excel-selector>
     </app-excel-selector>
   </div>
+  <mat-divider
+    [ngStyle]="{'grid-area': '2 / 1 / 3 / 5'}">
+  </mat-divider>
   <app-top-sys-tree-view
     *ngIf="!isElectronApp"
     [topSys]="topSys"
