@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { RegisterPrinterService } from '../register-printer.service';
 
 @Component({
@@ -7,8 +7,12 @@ import { RegisterPrinterService } from '../register-printer.service';
   styleUrls: ['./top-sys-console-view.component.scss']
 })
 export class TopSysConsoleViewComponent implements OnInit {
+
   log: string = "";
   count: number = 1;
+  @ViewChild("mylog")
+  mylog: ElementRef;
+
   constructor(
     private registerPrinterService: RegisterPrinterService) {
   }
@@ -16,8 +20,9 @@ export class TopSysConsoleViewComponent implements OnInit {
   ngOnInit() {
     this.registerPrinterService.registerPrinterOutput$.subscribe(
       (data) => {
-        this.log += `${this.count}: ${data}`;
+        this.log += `${data}`;
         this.count += 1;
+        this.mylog.nativeElement.scrollTop = this.mylog.nativeElement.scrollHeight;
       }
     );
     this.registerPrinterService.registerPrinterStart$.subscribe(

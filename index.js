@@ -3,8 +3,8 @@ const { autoUpdater } = require('electron-updater');
 
 function createWindow() {
   let win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 900,
+    height: 900,
     webPreferences: {
       nodeIntegration: true
     }
