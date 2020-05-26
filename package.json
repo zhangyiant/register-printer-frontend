@@ -59,6 +59,9 @@
   "build": {
     "appId": "com.anteestudio.registerprinter",
     "asar": true,
+    "asarUnpack": [
+      "app/RegisterPrinter.exe"
+    ],
     "files": [
       "index.js",
       "dist/register-printer-frontend/**/*",
