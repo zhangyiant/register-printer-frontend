@@ -108,10 +108,8 @@ export class RegisterPrinterService {
     if (generateConfig["genRtl"]) {
       args.push("--gen-rtl")
     }
-    const appProcess = child_process.execFile(
-      registerPrinterApp, args, {
-        maxBuffer: 100 * 1024 * 1024
-      }
+    const appProcess = child_process.spawn(
+      registerPrinterApp, args
     );
     appProcess.stdout.on('data', (data) => {
       this.ngZone.run(
