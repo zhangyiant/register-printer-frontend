@@ -80,15 +80,39 @@ export class RegisterPrinterService {
     return;
   }
 
+  getRegisterPrinterPath() {
+    const { app } = remote;
+
+    const appPath = app.getAppPath();
+
+    const folderName = path.basename(appPath);
+    let registerPrinterApp = null;
+    if (folderName.endsWith(".asar")) {
+      const unpackedAppPath = path.join(
+        path.dirname(appPath),
+        "app.asar.unpacked"
+      )
+
+      registerPrinterApp = path.join(
+        unpackedAppPath,
+        'app',
+        'RegisterPrinter.exe');
+    } else {
+      registerPrinterApp = path.join(
+        appPath,
+        'app',
+        'RegisterPrinter.exe');
+    }
+
+    return registerPrinterApp;
+  }
+
   generate(generateConfig) {
     this.registerPrinterStartSource.next(true);
 
     const { app } = remote;
 
-    const registerPrinterApp = path.join(
-      app.getAppPath(),
-      'app',
-      'RegisterPrinter.exe');
+    const registerPrinterApp = this.getRegisterPrinterPath();
     const args: string[] = [];
     args.push("-f");
     args.push(generateConfig["configFile"]);
