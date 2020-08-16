@@ -59,18 +59,18 @@ export class TopSys {
       jsonObj["dataWidth"]);
     topSys.version = jsonObj["version"];
     topSys.author = jsonObj["author"];
-    const blockTypesJsonObj = jsonObj["blockTypes"];
-    for (let blockTypeJsonObj of blockTypesJsonObj) {
-      const blockType = BlockType.parseJson(
-        blockTypeJsonObj);
-      topSys.addBlockType(blockType);
-    }
-    const addressMapsJsonObj = jsonObj["addressMaps"];
-    for (let addressMapJsonObj of addressMapsJsonObj) {
-      const addressMap = AddressMap.parseJson(
-        addressMapJsonObj);
-      topSys.addAddressMap(addressMap);
-    }
+    // const blockTypesJsonObj = jsonObj["blockTypes"];
+    // for (let blockTypeJsonObj of blockTypesJsonObj) {
+    //   const blockType = BlockType.parseJson(
+    //     blockTypeJsonObj);
+    //   topSys.addBlockType(blockType);
+    // }
+    // const addressMapsJsonObj = jsonObj["addressMaps"];
+    // for (let addressMapJsonObj of addressMapsJsonObj) {
+    //   const addressMap = AddressMap.parseJson(
+    //     addressMapJsonObj);
+    //   topSys.addAddressMap(addressMap);
+    // }
     return topSys;
   }
 }

@@ -169,8 +169,10 @@ export class RegisterPrinterService {
           throw err;
         }
         // Converting to JSON
-        const topSys: TopSys = this.parseDoc(data.toString());
-        this.documentOpenedSource.next(topSys);
+        this.ngZone.run(() => {
+          const topSys: TopSys = this.parseDoc(data.toString());
+          this.documentOpenedSource.next(topSys);
+        });
       });
     });
   }
