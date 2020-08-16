@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AddressMap } from '../../register-printer';
+import { BlockInstance } from '../../register-printer';
 
 @Component({
   selector: 'app-address-map-view',
@@ -8,7 +8,7 @@ import { AddressMap } from '../../register-printer';
 })
 export class AddressMapViewComponent implements OnInit {
 
-  @Input() addressMap: AddressMap;
+  @Input() addressMap: BlockInstance;
 
   constructor() { }
 

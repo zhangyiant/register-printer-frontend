@@ -18,6 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTabsModule } from '@angular/material/tabs';
 import { TopSysTreeViewComponent } from './top-sys-tree-view/top-sys-tree-view.component';
 import { TopSysContentViewComponent } from './top-sys-content-view/top-sys-content-view.component';
 import { TopSysConsoleViewComponent } from './top-sys-console-view/top-sys-console-view.component';
@@ -26,7 +27,7 @@ import { TopSysNodeComponent } from './top-sys-node/top-sys-node.component';
 import { PropertyNodeComponent } from './property-node/property-node.component';
 import { RegisterPrinterNodeComponent } from './register-printer-node/register-printer-node.component';
 import { BlockTypesNodeComponent } from './block-types-node/block-types-node.component';
-import { BlockTypeNodeComponent } from './block-type-node/block-type-node.component';
+import { BlockTemplateNodeComponent } from './block-template-node/block-template-node.component';
 import { RegistersNodeComponent } from './registers-node/registers-node.component';
 import { RegisterNodeComponent } from './register-node/register-node.component';
 import { FieldsNodeComponent } from './fields-node/fields-node.component';
@@ -53,7 +54,7 @@ import { ExcelSelectorComponent } from './excel-selector/excel-selector.componen
     PropertyNodeComponent,
     RegisterPrinterNodeComponent,
     BlockTypesNodeComponent,
-    BlockTypeNodeComponent,
+    BlockTemplateNodeComponent,
     RegistersNodeComponent,
     RegisterNodeComponent,
     FieldsNodeComponent,
@@ -84,7 +85,8 @@ import { ExcelSelectorComponent } from './excel-selector/excel-selector.componen
     MatListModule,
     MatDividerModule,
     MatTreeModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule
   ],
   providers: [
   ],

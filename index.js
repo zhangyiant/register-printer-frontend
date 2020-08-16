@@ -3,21 +3,22 @@ const { autoUpdater } = require('electron-updater');
 
 function createWindow() {
   let win = new BrowserWindow({
-    width: 900,
+    width: 1200,
     height: 900,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      enableRemoteModule: true
     }
   });
 
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
   win.loadFile('dist/register-printer-frontend/index.html');
 }
 
 const template = [
   {
-    label: "RegisterPrinter",
+    label: "About",
     submenu: [
       {
         label: "About RegisterPrinter",

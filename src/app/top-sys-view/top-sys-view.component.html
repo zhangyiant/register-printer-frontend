@@ -35,7 +35,7 @@
         <td>Address Maps: </td>
         <td>
           <app-address-map-view
-            *ngFor="let addressMap of topSys.addressMaps"
+            *ngFor="let addressMap of topSys.blockInstances"
             [addressMap]="addressMap">
           </app-address-map-view>
         </td>
@@ -44,12 +44,11 @@
         <td>Block Types: </td>
         <td>
           <app-block-type-view
-            *ngFor="let blockType of topSys.blockTypes"
+            *ngFor="let blockType of topSys.blockTemplates"
             [blockType]="blockType">
           </app-block-type-view>
         </td>
       </tr>
     </tbody>
   </table>
-  {{ topSys | json }}
 </div>

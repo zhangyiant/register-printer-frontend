@@ -3,11 +3,13 @@ import { Field } from './field';
 export class Register {
     name: string;
     offset: number;
+    description: string;
     fields: Field[];
 
-    constructor(name: string, offset: number) {
+    constructor(name: string, offset: number, description: string) {
         this.name = name;
         this.offset = offset;
+        this.description = description;
         this.fields = [];
         return;
     }
@@ -32,7 +34,8 @@ export class Register {
   static parseJson(jsonObj: object): Register {
     const register = new Register(
       jsonObj["name"],
-      jsonObj["offset"]);
+      jsonObj["offset"],
+      jsonObj['description']);
     const fieldsJsonObj = jsonObj["fields"];
     for (let fieldJsonObj of fieldsJsonObj) {
       const field = Field.parseJson(

@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import {
   TopSys,
   Block,
-  AddressMap,
-  BlockType,
+  BlockInstance,
+  BlockTemplate,
   Register,
   Field
 } from '../../register-printer';
@@ -15,7 +15,7 @@ import {
 })
 export class TopSysContentViewComponent implements OnInit {
 
-  @Input() registerPrinterObject: TopSys | Block | AddressMap | BlockType | Register | Field;
+  @Input() registerPrinterObject: TopSys | Block | BlockInstance | BlockTemplate | Register | Field;
 
   constructor() { }
 
@@ -29,10 +29,10 @@ export class TopSysContentViewComponent implements OnInit {
     return (this.registerPrinterObject instanceof Block);
   }
   isAddressMap(): boolean {
-    return (this.registerPrinterObject instanceof AddressMap);
+    return (this.registerPrinterObject instanceof BlockInstance);
   }
   isBlockType(): boolean {
-    return (this.registerPrinterObject instanceof BlockType);
+    return (this.registerPrinterObject instanceof BlockTemplate);
   }
   isRegister(): boolean {
     return (this.registerPrinterObject instanceof Register);

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import {
   TopSys,
-  BlockType,
+  BlockTemplate,
   Block,
   Register,
   Field
@@ -12,6 +12,8 @@ import { RegisterPrinterDoc } from './register-printer-doc';
 import * as child_process from 'child_process';
 import { remote } from 'electron';
 import * as path from 'path';
+import * as fs from 'fs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +32,7 @@ export class RegisterPrinterService {
   registerPrinterStartSource = new Subject<boolean>();
   registerPrinterStart$ = this.registerPrinterStartSource.asObservable();
 
-  private registerPrinterDocsUrl = "register-printer/api/register-printer-docs";
+  private registerPrinterDocsUrl = 'register-printer/api/register-printer-docs';
 
   constructor(
     private http: HttpClient,
@@ -58,7 +60,7 @@ export class RegisterPrinterService {
     ).subscribe(
       doc => {
         this.registerPrinterDoc = doc;
-        let topSys: TopSys = this.parseDoc(doc.doc);
+        const topSys: TopSys = this.parseDoc(doc.doc);
         this.topSys = topSys;
         this.documentOpenedSource.next(topSys);
       });
@@ -75,7 +77,7 @@ export class RegisterPrinterService {
             console.log(doc);
           });
     } else {
-      console.log("Error");
+      console.log('Error');
     }
     return;
   }
@@ -87,11 +89,11 @@ export class RegisterPrinterService {
 
     const folderName = path.basename(appPath);
     let registerPrinterApp = null;
-    if (folderName.endsWith(".asar")) {
+    if (folderName.endsWith('.asar')) {
       const unpackedAppPath = path.join(
         path.dirname(appPath),
-        "app.asar.unpacked"
-      )
+        'app.asar.unpacked'
+      );
 
       registerPrinterApp = path.join(
         unpackedAppPath,
@@ -114,24 +116,25 @@ export class RegisterPrinterService {
 
     const registerPrinterApp = this.getRegisterPrinterPath();
     const args: string[] = [];
-    args.push("-f");
-    args.push(generateConfig["configFile"]);
-    args.push("-p");
-    args.push(generateConfig["excelPath"]);
-    args.push("-o");
-    args.push(generateConfig["outputPath"]);
-    if (generateConfig["genDoc"]) {
-      args.push("--gen-doc");
+    args.push('-f');
+    args.push(generateConfig.configFile);
+    args.push('-p');
+    args.push(generateConfig.excelPath);
+    args.push('-o');
+    args.push(generateConfig.outputPath);
+    if (generateConfig.genDoc) {
+      args.push('--gen-doc');
     }
-    if (generateConfig["genC"]) {
-      args.push("--gen-c-header");
+    if (generateConfig.genC) {
+      args.push('--gen-c-header');
     }
-    if (generateConfig["genUvm"]) {
-      args.push("--gen-uvm");
+    if (generateConfig.genUvm) {
+      args.push('--gen-uvm');
     }
-    if (generateConfig["genRtl"]) {
-      args.push("--gen-rtl")
+    if (generateConfig.genRtl) {
+      args.push('--gen-rtl');
     }
+    args.push('--gen-json');
     const appProcess = child_process.spawn(
       registerPrinterApp, args
     );
@@ -154,6 +157,23 @@ export class RegisterPrinterService {
           }
         }
       );
+    });
+    appProcess.on('exit', (code) => {
+      const filename: string = path.join(
+        generateConfig.outputPath,
+        'register_printer.json'
+      );
+      fs.readFile(filename, (err, data) => {
+        // Check for errors
+        if (err) {
+          throw err;
+        }
+        // Converting to JSON
+        this.ngZone.run(() => {
+          const topSys: TopSys = this.parseDoc(data.toString());
+          this.documentOpenedSource.next(topSys);
+        });
+      });
     });
   }
 }

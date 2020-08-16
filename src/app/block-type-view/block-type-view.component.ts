@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BlockType } from '../../register-printer';
+import { BlockTemplate } from '../../register-printer';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { BlockType } from '../../register-printer';
 })
 export class BlockTypeViewComponent implements OnInit {
 
-  @Input() blockType: BlockType;
+  @Input() blockType: BlockTemplate;
 
   constructor() { }
 
