@@ -68,18 +68,12 @@ export class TopSys {
       );
       topSys.addBlockTemplate(blockTemplate);
     }
-    // const blockTypesJsonObj = jsonObj["blockTypes"];
-    // for (let blockTypeJsonObj of blockTypesJsonObj) {
-    //   const blockType = BlockTemplate.parseJson(
-    //     blockTypeJsonObj);
-    //   topSys.addBlockType(blockType);
-    // }
-    // const addressMapsJsonObj = jsonObj["addressMaps"];
-    // for (let addressMapJsonObj of addressMapsJsonObj) {
-    //   const addressMap = AddressMap.parseJson(
-    //     addressMapJsonObj);
-    //   topSys.addAddressMap(addressMap);
-    // }
+    const blockInstancesJsonObj = jsonObj["blockInstances"];
+    for (const blockInstanceJsonObj of blockInstancesJsonObj) {
+      const blockInstance = BlockInstance.parseJson(
+        blockInstanceJsonObj);
+      topSys.addBlockInstance(blockInstance);
+    }
     return topSys;
   }
 }
