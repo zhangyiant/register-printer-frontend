@@ -3,14 +3,14 @@ const { autoUpdater } = require('electron-updater');
 
 function createWindow() {
   let win = new BrowserWindow({
-    width: 900,
+    width: 1200,
     height: 900,
     webPreferences: {
       nodeIntegration: true
     }
   });
 
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
   win.loadFile('dist/register-printer-frontend/index.html');
 }
