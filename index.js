@@ -17,7 +17,7 @@ function createWindow() {
 
 const template = [
   {
-    label: "RegisterPrinter",
+    label: "About",
     submenu: [
       {
         label: "About RegisterPrinter",
