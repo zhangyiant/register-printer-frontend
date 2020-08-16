@@ -9,6 +9,7 @@ export class TopSys {
     version: string | null;
     author: string | null;
     blockTemplates: Array<BlockTemplate>;
+    blocks: Array<Block>;
     blockInstances: Array<BlockInstance>;
 
     constructor(name: string, addressWidth: number, dataWidth: number) {
@@ -18,17 +19,18 @@ export class TopSys {
         this.version = null;
         this.author = null;
         this.blockTemplates = [];
+        this.blocks = [];
         this.blockInstances = [];
         return;
     }
 
-    addBlockType(blockType: BlockTemplate) {
-        this.blockTemplates.push(blockType);
-        return;
-    }
+  addBlockTemplate(blockTemplate: BlockTemplate) {
+    this.blockTemplates.push(blockTemplate);
+    return;
+  }
 
-  addAddressMap(addressMap: BlockInstance) {
-    this.blockInstances.push(addressMap);
+  addBlockInstance(blockInstance: BlockInstance) {
+    this.blockInstances.push(blockInstance);
     return;
   }
 
@@ -59,6 +61,13 @@ export class TopSys {
       jsonObj["dataWidth"]);
     topSys.version = jsonObj["version"];
     topSys.author = jsonObj["author"];
+    const blockTemplatesJsonObj = jsonObj['blockTemplates'];
+    for (const blockTemplateJsonObj of blockTemplatesJsonObj) {
+      const blockTemplate = BlockTemplate.parseJson(
+        blockTemplateJsonObj
+      );
+      topSys.addBlockTemplate(blockTemplate);
+    }
     // const blockTypesJsonObj = jsonObj["blockTypes"];
     // for (let blockTypeJsonObj of blockTypesJsonObj) {
     //   const blockType = BlockTemplate.parseJson(
