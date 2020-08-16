@@ -28,7 +28,7 @@
     "electron-is-dev": "^1.1.0",
     "electron-log": "^4.1.1",
     "electron-updater": "^4.2.5",
-    "rxjs": "~6.5.4",
+    "rxjs": "~6.6.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },
