@@ -1,4 +1,4 @@
-export class AddressMap {
+export class BlockInstance {
   blockType: string;
   blockInstance: string;
   baseAddress: number;
@@ -24,8 +24,8 @@ export class AddressMap {
     return jsonObj;
   }
 
-  static parseJson(jsonObj: object): AddressMap {
-    const addressMap = new AddressMap(
+  static parseJson(jsonObj: object): BlockInstance {
+    const addressMap = new BlockInstance(
       jsonObj["blockType"],
       jsonObj["blockInstance"],
       jsonObj["baseAddress"],

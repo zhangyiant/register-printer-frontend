@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
   TopSys,
-  BlockType,
+  BlockTemplate,
   Block,
   Register,
   Field
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   title = 'register-printer-frontend';
   topSys: TopSys;
   isElectronApp: boolean = true;
-  selected: TopSys | BlockType | Block | Register | Field | null;
+  selected: TopSys | BlockTemplate | Block | Register | Field | null;
 
   constructor(
     private registerPrinterService: RegisterPrinterService,
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
     return;
   }
 
-  onSelect(registerPrinterObject: TopSys | BlockType | Block | Register | Field): void {
+  onSelect(registerPrinterObject: TopSys | BlockTemplate | Block | Register | Field): void {
     this.selected = registerPrinterObject;
     return;
   }

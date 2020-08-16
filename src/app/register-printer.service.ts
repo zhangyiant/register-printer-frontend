@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import {
   TopSys,
-  BlockType,
+  BlockTemplate,
   Block,
   Register,
   Field

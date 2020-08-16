@@ -12,8 +12,8 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { RegisterPrinterService } from '../register-printer.service';
 import {
   TopSys,
-  AddressMap,
-  BlockType,
+  BlockInstance,
+  BlockTemplate,
   Block,
   Register,
   Field
@@ -53,7 +53,7 @@ export class BlockTypesTreeNode implements RegisterPrinterTreeNode {
 
 export class BlockTypeTreeNode implements RegisterPrinterTreeNode {
   type: string;
-  blockType: BlockType;
+  blockType: BlockTemplate;
   children?: RegisterPrinterTreeNode[];
   constructor() {
     this.type = 'BlockTypeNode';
@@ -70,7 +70,7 @@ export class AddressMapsTreeNode implements RegisterPrinterTreeNode {
 
 export class AddressMapTreeNode implements RegisterPrinterTreeNode {
   type: string;
-  addressMap: AddressMap;
+  addressMap: BlockInstance;
   children?: RegisterPrinterTreeNode[];
   constructor() {
     this.type = "AddressMapNode";
@@ -121,7 +121,7 @@ let TREE_DATA: RegisterPrinterTreeNode[] = [];
 export class TopSysTreeViewComponent implements OnInit, OnChanges {
 
   @Input() topSys: TopSys;
-  @Output() selected = new EventEmitter<TopSys | AddressMap | BlockType | Block | Register | Field>();
+  @Output() selected = new EventEmitter<TopSys | BlockInstance | BlockTemplate | Block | Register | Field>();
 
   treeControl = new NestedTreeControl<RegisterPrinterTreeNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<RegisterPrinterTreeNode>();
@@ -146,7 +146,7 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     const addressMapsTreeNode = new AddressMapsTreeNode();
     addressMapsTreeNode.children = [];
     topSysNode.children.push(addressMapsTreeNode);
-    for (const addressMap of topSys.addressMaps) {
+    for (const addressMap of topSys.blockInstances) {
       const addressMapTreeNode: AddressMapTreeNode = new AddressMapTreeNode();
       addressMapTreeNode.children = [];
       addressMapTreeNode.addressMap = addressMap;
@@ -155,7 +155,7 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     const blockTypesTreeNode = new BlockTypesTreeNode();
     blockTypesTreeNode.children = [];
     topSysNode.children.push(blockTypesTreeNode);
-    for (const blockType of topSys.blockTypes) {
+    for (const blockType of topSys.blockTemplates) {
       const blockTypeTreeNode: BlockTypeTreeNode = new BlockTypeTreeNode();
       blockTypeTreeNode.children = [];
       blockTypeTreeNode.blockType = blockType;

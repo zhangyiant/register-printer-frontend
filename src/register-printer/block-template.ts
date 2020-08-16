@@ -1,6 +1,6 @@
 import { Register } from './register';
 
-export class BlockType {
+export class BlockTemplate {
     name: string;
     size: number;
     addressWidth: number;
@@ -35,8 +35,8 @@ export class BlockType {
     return jsonObj;
   }
 
-  static parseJson(jsonObj: object): BlockType {
-    const blockType = new BlockType(
+  static parseJson(jsonObj: object): BlockTemplate {
+    const blockType = new BlockTemplate(
       jsonObj["name"],
       jsonObj["size"],
       jsonObj["addressWidth"],
