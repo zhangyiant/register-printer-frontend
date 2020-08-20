@@ -9,6 +9,7 @@ import {
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 import { RegisterPrinterService } from './register-printer.service';
+import { remote } from 'electron';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
 
   title = 'register-printer-frontend';
   topSys: TopSys;
-  isElectronApp: boolean = true;
+  isElectronApp = true;
   selected: TopSys | BlockTemplate | Block | Register | Field | null;
 
   constructor(
@@ -59,6 +60,29 @@ export class AppComponent implements OnInit {
   onSaveClicked() {
     this.registerPrinterService.saveDoc(
       this.topSys);
+    return;
+  }
+
+  onExportToExcelClicked() {
+    const { dialog } = remote;
+    const currentWindow = remote.getCurrentWindow();
+    dialog.showOpenDialog(
+      currentWindow,
+      {
+        properties: [
+          'openDirectory'
+        ]
+      }
+    ).then(
+      (result) => {
+        if (!result.canceled) {
+          const outputPath: string = result.filePaths[0];
+          this.registerPrinterService.exportExcels(
+            outputPath
+          );
+        }
+      }
+    );
     return;
   }
 }

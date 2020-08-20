@@ -13,6 +13,7 @@ import * as child_process from 'child_process';
 import { remote } from 'electron';
 import * as path from 'path';
 import * as fs from 'fs';
+import * as os from 'os';
 
 
 @Injectable({
@@ -107,6 +108,11 @@ export class RegisterPrinterService {
     }
 
     return registerPrinterApp;
+  }
+
+  exportExcels(output: string) {
+    console.log(os.tmpdir());
+    console.log(`output excels to ${output}`);
   }
 
   generate(generateConfig) {
