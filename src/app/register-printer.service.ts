@@ -111,8 +111,8 @@ export class RegisterPrinterService {
   }
 
   exportExcels(output: string) {
+    this.registerPrinterStartSource.next(true);
     const jsonObj = this.topSys.toJson();
-    console.log(jsonObj);
     const jsonString = JSON.stringify(jsonObj);
     const filename = path.join(os.tmpdir(), 'register-printer.json');
     fs.writeFile(filename, jsonString, err => {
@@ -126,18 +126,34 @@ export class RegisterPrinterService {
       args.push('-o');
       args.push(output);
       args.push('--gen-excel');
-      console.log(args);
       const appProcess = child_process.spawn(
         registerPrinterApp, args
       );
       appProcess.stdout.on('data', (data) => {
-        console.log(data.toString());
+        this.ngZone.run(
+          () => {
+            if (data) {
+              this.registerPrinterOutputSource.next(
+                data.toString());
+            }
+          }
+        );
       });
       appProcess.stderr.on('data', (data) => {
-        console.log(data.toString());
+        this.ngZone.run(
+          () => {
+            if (data) {
+              this.registerPrinterOutputSource.next(
+                data.toString());
+            }
+          }
+        );
       });
       appProcess.on('exit', (code) => {
-        console.log('Exported successfully');
+        this.ngZone.run(() => {
+          this.registerPrinterOutputSource.next(
+            'Exported successfully');
+        });
       });
     });
   }
