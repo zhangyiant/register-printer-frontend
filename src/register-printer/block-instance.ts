@@ -27,6 +27,8 @@ export class BlockInstance {
     jsonObj["name"] = this.name;
     jsonObj["baseAddress"] = this.baseAddress;
     jsonObj["blockSize"] = this.blockSize;
+    jsonObj['addressWidth'] = this.addressWidth;
+    jsonObj['dataWidth'] = this.dataWidth;
     return jsonObj;
   }
 

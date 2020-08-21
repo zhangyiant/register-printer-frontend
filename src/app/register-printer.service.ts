@@ -111,8 +111,35 @@ export class RegisterPrinterService {
   }
 
   exportExcels(output: string) {
-    console.log(os.tmpdir());
-    console.log(`output excels to ${output}`);
+    const jsonObj = this.topSys.toJson();
+    console.log(jsonObj);
+    const jsonString = JSON.stringify(jsonObj);
+    const filename = path.join(os.tmpdir(), 'register-printer.json');
+    fs.writeFile(filename, jsonString, err => {
+      if (err) {
+        console.log(err);
+      }
+      const registerPrinterApp = this.getRegisterPrinterPath();
+      const args: string[] = [];
+      args.push('--input-json');
+      args.push(filename);
+      args.push('-o');
+      args.push(output);
+      args.push('--gen-excel');
+      console.log(args);
+      const appProcess = child_process.spawn(
+        registerPrinterApp, args
+      );
+      appProcess.stdout.on('data', (data) => {
+        console.log(data.toString());
+      });
+      appProcess.stderr.on('data', (data) => {
+        console.log(data.toString());
+      });
+      appProcess.on('exit', (code) => {
+        console.log('Exported successfully');
+      });
+    });
   }
 
   generate(generateConfig) {
@@ -177,6 +204,7 @@ export class RegisterPrinterService {
         // Converting to JSON
         this.ngZone.run(() => {
           const topSys: TopSys = this.parseDoc(data.toString());
+          this.topSys = topSys;
           this.documentOpenedSource.next(topSys);
         });
       });

@@ -28,6 +28,7 @@ export class Register {
       const fieldJsonObj = field.toJson();
       jsonObj["fields"].push(fieldJsonObj);
     }
+    jsonObj['description'] = this.description;
     return jsonObj;
   }
 
