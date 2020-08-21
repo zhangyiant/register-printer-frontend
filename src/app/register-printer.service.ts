@@ -13,6 +13,7 @@ import * as child_process from 'child_process';
 import { remote } from 'electron';
 import * as path from 'path';
 import * as fs from 'fs';
+import * as os from 'os';
 
 
 @Injectable({
@@ -109,6 +110,54 @@ export class RegisterPrinterService {
     return registerPrinterApp;
   }
 
+  exportExcels(output: string) {
+    this.registerPrinterStartSource.next(true);
+    const jsonObj = this.topSys.toJson();
+    const jsonString = JSON.stringify(jsonObj);
+    const filename = path.join(os.tmpdir(), 'register-printer.json');
+    fs.writeFile(filename, jsonString, err => {
+      if (err) {
+        console.log(err);
+      }
+      const registerPrinterApp = this.getRegisterPrinterPath();
+      const args: string[] = [];
+      args.push('--input-json');
+      args.push(filename);
+      args.push('-o');
+      args.push(output);
+      args.push('--gen-excel');
+      const appProcess = child_process.spawn(
+        registerPrinterApp, args
+      );
+      appProcess.stdout.on('data', (data) => {
+        this.ngZone.run(
+          () => {
+            if (data) {
+              this.registerPrinterOutputSource.next(
+                data.toString());
+            }
+          }
+        );
+      });
+      appProcess.stderr.on('data', (data) => {
+        this.ngZone.run(
+          () => {
+            if (data) {
+              this.registerPrinterOutputSource.next(
+                data.toString());
+            }
+          }
+        );
+      });
+      appProcess.on('exit', (code) => {
+        this.ngZone.run(() => {
+          this.registerPrinterOutputSource.next(
+            'Exported successfully');
+        });
+      });
+    });
+  }
+
   generate(generateConfig) {
     this.registerPrinterStartSource.next(true);
 
@@ -171,6 +220,7 @@ export class RegisterPrinterService {
         // Converting to JSON
         this.ngZone.run(() => {
           const topSys: TopSys = this.parseDoc(data.toString());
+          this.topSys = topSys;
           this.documentOpenedSource.next(topSys);
         });
       });
