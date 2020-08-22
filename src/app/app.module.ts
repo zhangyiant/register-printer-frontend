@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
@@ -89,6 +89,7 @@ import { ExcelSelectorComponent } from './excel-selector/excel-selector.componen
     MatTabsModule
   ],
   providers: [
+    Title
   ],
   bootstrap: [AppComponent],
   entryComponents: [OpenDialogComponent]

@@ -83,6 +83,11 @@ export class RegisterPrinterService {
     return;
   }
 
+  getVersion(): string {
+    const { app } = remote;
+    return app.getVersion();
+  }
+
   getRegisterPrinterPath() {
     const { app } = remote;
 

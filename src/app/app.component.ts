@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import {
   TopSys,
   BlockTemplate,
@@ -26,7 +27,10 @@ export class AppComponent implements OnInit {
 
   constructor(
     private registerPrinterService: RegisterPrinterService,
+    private titleService: Title,
     private dialog: MatDialog) {
+    const version: string = registerPrinterService.getVersion();
+    titleService.setTitle('RegisterPrinter v' + version);
     return;
   }
 
