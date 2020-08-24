@@ -116,4 +116,33 @@ export class AppComponent implements OnInit {
     );
     return;
   }
+
+  onLoadFromJsonClicked() {
+    const { dialog } = remote;
+    const currentWindow = remote.getCurrentWindow();
+    dialog.showOpenDialog(
+      currentWindow,
+      {
+        properties: [
+          'openFile'
+        ],
+        filters: [
+          {
+            name: 'JSON file',
+            extensions: ['json']
+          }
+        ]
+      }
+    ).then(
+      (result) => {
+        if (!result.canceled) {
+          const jsonFilename = result.filePaths[0];
+          this.registerPrinterService.loadJson(
+            jsonFilename
+          );
+        }
+      }
+    );
+    return;
+  }
 }

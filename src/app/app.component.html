@@ -22,6 +22,11 @@
       <mat-tab label="Data">
         <button
           mat-raised-button color="primary"
+          (click)="onLoadFromJsonClicked()">
+          Load from JSON file...
+        </button>
+        <button
+          mat-raised-button color="primary"
           (click)="onExportToExcelClicked()">
           Export to Excels...
         </button>
