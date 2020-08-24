@@ -89,4 +89,31 @@ export class AppComponent implements OnInit {
     );
     return;
   }
+
+  onExportToJsonClicked() {
+    const { dialog } = remote;
+    const currentWindow = remote.getCurrentWindow();
+    dialog.showSaveDialog(
+      currentWindow,
+      {
+        title: 'Export to JSON file',
+        filters: [
+          {
+            name: 'JSON file',
+            extensions: ['json']
+          }
+        ]
+      }
+    ).then(
+      (result) => {
+        if (!result.canceled) {
+          const outputFilename: string = result.filePath;
+          this.registerPrinterService.exportJson(
+            outputFilename
+          );
+        }
+      }
+    );
+    return;
+  }
 }

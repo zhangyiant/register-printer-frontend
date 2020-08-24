@@ -231,4 +231,24 @@ export class RegisterPrinterService {
       });
     });
   }
+
+  exportJson(outputFilename: string) {
+    this.registerPrinterStartSource.next(true);
+    const jsonObj = this.topSys.toJson();
+    const jsonString = JSON.stringify(jsonObj);
+    fs.writeFile(outputFilename, jsonString, err => {
+      if (err) {
+        console.log(err);
+      } else {
+        this.ngZone.run(
+          () => {
+            this.registerPrinterOutputSource.next(
+              `JSON file is written to ${outputFilename}`
+            );
+          }
+        );
+      }
+    });
+  }
+
 }
