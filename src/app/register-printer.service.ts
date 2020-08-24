@@ -306,4 +306,55 @@ export class RegisterPrinterService {
       });
     });
   }
+
+  generateAll(outputPath: string) {
+
+    this.registerPrinterStartSource.next(true);
+    const jsonObj = this.topSys.toJson();
+    const jsonString = JSON.stringify(jsonObj);
+    const filename = path.join(os.tmpdir(), 'register-printer.json');
+    fs.writeFile(filename, jsonString, err => {
+      if (err) {
+        console.log(err);
+      }
+
+      const { app } = remote;
+
+      const registerPrinterApp = this.getRegisterPrinterPath();
+      const args: string[] = [];
+      args.push('--input-json');
+      args.push(filename);
+      args.push('-o');
+      args.push(outputPath);
+      args.push('--gen-doc');
+      args.push('--gen-c-header');
+      args.push('--gen-uvm');
+      args.push('--gen-rtl');
+      args.push('--gen-json');
+      const appProcess = child_process.spawn(
+        registerPrinterApp, args
+      );
+      appProcess.stdout.on('data', (data) => {
+        this.ngZone.run(
+          () => {
+            if (data) {
+              this.registerPrinterOutputSource.next(
+                data.toString());
+            }
+          }
+        );
+      });
+      appProcess.stderr.on('data', (data) => {
+        this.ngZone.run(
+          () => {
+            if (data) {
+              this.registerPrinterOutputSource.next(
+                data.toString());
+            }
+          }
+        );
+      });
+    });
+    return;
+  }
 }

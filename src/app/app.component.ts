@@ -145,4 +145,27 @@ export class AppComponent implements OnInit {
     );
     return;
   }
+
+  onGenerateClicked() {
+    const { dialog } = remote;
+    const currentWindow = remote.getCurrentWindow();
+    dialog.showOpenDialog(
+      currentWindow,
+      {
+        properties: [
+          'openDirectory'
+        ]
+      }
+    ).then(
+      (result) => {
+        if (!result.canceled) {
+          const outputPath: string = result.filePaths[0];
+          this.registerPrinterService.generateAll(
+            outputPath
+          );
+        }
+      }
+    );
+    return;
+  }
 }

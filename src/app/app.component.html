@@ -35,7 +35,11 @@
           (click)="onExportToJsonClicked()">
           Export to JSON file...
         </button>
-        <div [ngStyle]="{'display': 'grid', 'grid-template-columns': '25% 25% 25% 25%', 'grid-template-rows': 'auto'}">
+        <button
+          mat-raised-button color="primary"
+          (click)="onGenerateClicked()">
+          Generate...
+        </button>        <div [ngStyle]="{'display': 'grid', 'grid-template-columns': '25% 25% 25% 25%', 'grid-template-rows': 'auto'}">
           <app-top-sys-tree-view
             [topSys]="topSys"
             (selected)="onSelect($event)"
