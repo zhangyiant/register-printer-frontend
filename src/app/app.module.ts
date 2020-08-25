@@ -42,6 +42,7 @@ import { AddressMapNodeComponent } from './address-map-node/address-map-node.com
 import { AddressMapViewComponent } from './address-map-view/address-map-view.component';
 import { TopSysAuthorComponent } from './top-sys-author/top-sys-author.component';
 import { ExcelSelectorComponent } from './excel-selector/excel-selector.component';
+import { TopSysVersionComponent } from './top-sys-version/top-sys-version.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { ExcelSelectorComponent } from './excel-selector/excel-selector.componen
     AddressMapNodeComponent,
     AddressMapViewComponent,
     TopSysAuthorComponent,
-    ExcelSelectorComponent
+    ExcelSelectorComponent,
+    TopSysVersionComponent
   ],
   imports: [
     BrowserModule,
