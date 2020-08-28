@@ -10,7 +10,12 @@
     <tbody>
       <tr>
         <td>Name: </td>
-        <td>{{ topSys.name }}</td>
+        <td>
+          <app-edit-box
+            title="Name"
+            [(value)]="topSys.name">
+          </app-edit-box>
+        </td>
       </tr>
       <tr>
         <td>Version:</td>
@@ -28,11 +33,21 @@
       </tr>
       <tr>
         <td>Address Width:</td>
-        <td>{{ topSys.addressWidth }}</td>
+        <td>
+          <app-edit-box
+            title="Address Width"
+            [(value)]="topSys.addressWidth">
+          </app-edit-box>
+        </td>
       </tr>
       <tr>
         <td>Data Width:</td>
-        <td>{{ topSys.dataWidth }}</td>
+        <td>
+          <app-edit-box
+            title="Data Width"
+            [(value)]="topSys.dataWidth">
+          </app-edit-box>
+        </td>
       </tr>
     </tbody>
   </table>
