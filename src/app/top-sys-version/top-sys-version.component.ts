@@ -18,30 +18,14 @@ export class TopSysVersionComponent implements OnInit {
   @Input() version: string;
   @Output() versionChange = new EventEmitter<string>();
 
-  editingVersion: string;
-
-  isEditing = false;
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onVersionDoubleClick(event) {
-    this.isEditing = true;
-    this.editingVersion = this.version;
+  onVersionChange(newVersion: string) {
+    this.versionChange.emit(newVersion);
     return;
   }
 
-  onSubmit(event) {
-    this.version = this.editingVersion;
-    this.isEditing = false;
-    this.versionChange.emit(this.version);
-    return;
-  }
-
-  onCancel(event) {
-    this.isEditing = false;
-    return;
-  }
 }

@@ -1,17 +1,7 @@
 <ng-container>
-  <span *ngIf="!isEditing" (dblclick)="onAuthorDoubleClick($event)">
-    {{ author }}
-  </span>
-  <span *ngIf="isEditing">
-    <mat-form-field>
-      <mat-label>Author</mat-label>
-      <input matInput placeholder="Author" [(ngModel)]="editingAuthor">
-    </mat-form-field>
-    <button mat-icon-button (click)="onSubmit($event)">
-      <mat-icon>done</mat-icon>
-    </button>
-    <button mat-icon-button (click)="onCancel($event)">
-      <mat-icon>clear</mat-icon>
-    </button>
-  </span>
+  <app-edit-box
+    title="Author"
+    [value]="this.author"
+    (valueChange)="onValueChange($event)">
+  </app-edit-box>
 </ng-container>

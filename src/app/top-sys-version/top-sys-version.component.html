@@ -1,17 +1,7 @@
 <ng-container>
-  <span *ngIf="!isEditing" (dblclick)="onVersionDoubleClick($event)">
-    {{ version }}
-  </span>
-  <span *ngIf="isEditing">
-    <mat-form-field>
-      <mat-label>Version</mat-label>
-      <input matInput placeholder="Versiom" [(ngModel)]="editingVersion">
-    </mat-form-field>
-    <button mat-icon-button (click)="onSubmit($event)">
-      <mat-icon>done</mat-icon>
-    </button>
-    <button mat-icon-button (click)="onCancel($event)">
-      <mat-icon>clear</mat-icon>
-    </button>
-  </span>
+  <app-edit-box
+    title="Version"
+    [value]="this.version"
+    (valueChange)="onVersionChange($event)">
+  </app-edit-box>
 </ng-container>

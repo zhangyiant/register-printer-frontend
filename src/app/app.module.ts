@@ -43,6 +43,7 @@ import { AddressMapViewComponent } from './address-map-view/address-map-view.com
 import { TopSysAuthorComponent } from './top-sys-author/top-sys-author.component';
 import { ExcelSelectorComponent } from './excel-selector/excel-selector.component';
 import { TopSysVersionComponent } from './top-sys-version/top-sys-version.component';
+import { EditBoxComponent } from './ui-components/edit-box/edit-box.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { TopSysVersionComponent } from './top-sys-version/top-sys-version.compon
     AddressMapViewComponent,
     TopSysAuthorComponent,
     ExcelSelectorComponent,
-    TopSysVersionComponent
+    TopSysVersionComponent,
+    EditBoxComponent
   ],
   imports: [
     BrowserModule,
