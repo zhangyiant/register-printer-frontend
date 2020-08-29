@@ -142,14 +142,14 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     const topSysNode: TopSysTreeNode = new TopSysTreeNode();
     topSysNode.topSys = topSys;
     topSysNode.children = [];
-    const addressMapsTreeNode = new BlockInstancesTreeNode();
-    addressMapsTreeNode.children = [];
-    topSysNode.children.push(addressMapsTreeNode);
+    const blockInstancesTreeNode = new BlockInstancesTreeNode();
+    blockInstancesTreeNode.children = [];
+    topSysNode.children.push(blockInstancesTreeNode);
     for (const blockInstance of topSys.blockInstances) {
       const blockInstanceTreeNode: BlockInstanceTreeNode = new BlockInstanceTreeNode();
       blockInstanceTreeNode.children = [];
       blockInstanceTreeNode.blockInstance = blockInstance;
-      addressMapsTreeNode.children.push(blockInstanceTreeNode);
+      blockInstancesTreeNode.children.push(blockInstanceTreeNode);
     }
     const blockTypesTreeNode = new BlockTypesTreeNode();
     blockTypesTreeNode.children = [];
@@ -216,6 +216,14 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
   onClick(node: RegisterPrinterTreeNode) {
     if (node instanceof TopSysTreeNode) {
       this.selected.emit(node.topSys);
+    } else if (node instanceof BlockInstancesTreeNode) {
+      const blockInstances: BlockInstance[] = [];
+      for (const childNode of node.children) {
+        const blockInstanceTreeNode = <BlockInstanceTreeNode> childNode;
+        const blockInstance = blockInstanceTreeNode.blockInstance;
+        blockInstances.push(blockInstance);
+      }
+      this.selected.emit(blockInstances);
     } else if (node instanceof BlockInstanceTreeNode) {
       this.selected.emit(node.blockInstance);
     } else if (node instanceof BlockTypeTreeNode) {
