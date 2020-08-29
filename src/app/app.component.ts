@@ -1,16 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import {
-  TopSys,
-  BlockTemplate,
-  Block,
-  Register,
-  Field
-} from '../register-printer';
+import { TopSys } from '../register-printer';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 import { RegisterPrinterService } from './register-printer.service';
-import { remote } from 'electron';
 
 
 @Component({
@@ -20,10 +13,8 @@ import { remote } from 'electron';
 })
 export class AppComponent implements OnInit {
 
-  title = 'register-printer-frontend';
   topSys: TopSys;
   isElectronApp = true;
-  selected: TopSys | BlockTemplate | Block | Register | Field | null;
 
   constructor(
     private registerPrinterService: RegisterPrinterService,
@@ -41,10 +32,7 @@ export class AppComponent implements OnInit {
     return;
   }
 
-  onSelect(registerPrinterObject: TopSys | BlockTemplate | Block | Register | Field): void {
-    this.selected = registerPrinterObject;
-    return;
-  }
+
 
   onOpenClicked() {
     const dialogConfig = new MatDialogConfig();
@@ -67,105 +55,6 @@ export class AppComponent implements OnInit {
     return;
   }
 
-  onExportToExcelClicked() {
-    const { dialog } = remote;
-    const currentWindow = remote.getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openDirectory'
-        ]
-      }
-    ).then(
-      (result) => {
-        if (!result.canceled) {
-          const outputPath: string = result.filePaths[0];
-          this.registerPrinterService.exportExcels(
-            outputPath
-          );
-        }
-      }
-    );
-    return;
-  }
 
-  onExportToJsonClicked() {
-    const { dialog } = remote;
-    const currentWindow = remote.getCurrentWindow();
-    dialog.showSaveDialog(
-      currentWindow,
-      {
-        title: 'Export to JSON file',
-        filters: [
-          {
-            name: 'JSON file',
-            extensions: ['json']
-          }
-        ]
-      }
-    ).then(
-      (result) => {
-        if (!result.canceled) {
-          const outputFilename: string = result.filePath;
-          this.registerPrinterService.exportJson(
-            outputFilename
-          );
-        }
-      }
-    );
-    return;
-  }
 
-  onLoadFromJsonClicked() {
-    const { dialog } = remote;
-    const currentWindow = remote.getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openFile'
-        ],
-        filters: [
-          {
-            name: 'JSON file',
-            extensions: ['json']
-          }
-        ]
-      }
-    ).then(
-      (result) => {
-        if (!result.canceled) {
-          const jsonFilename = result.filePaths[0];
-          this.registerPrinterService.loadJson(
-            jsonFilename
-          );
-        }
-      }
-    );
-    return;
-  }
-
-  onGenerateClicked() {
-    const { dialog } = remote;
-    const currentWindow = remote.getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openDirectory'
-        ]
-      }
-    ).then(
-      (result) => {
-        if (!result.canceled) {
-          const outputPath: string = result.filePaths[0];
-          this.registerPrinterService.generateAll(
-            outputPath
-          );
-        }
-      }
-    );
-    return;
-  }
 }

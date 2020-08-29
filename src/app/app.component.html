@@ -20,36 +20,8 @@
         </div>
       </mat-tab>
       <mat-tab label="Data">
-        <button
-          mat-raised-button color="primary"
-          (click)="onLoadFromJsonClicked()">
-          Load from JSON file...
-        </button>
-        <button
-          mat-raised-button color="primary"
-          (click)="onExportToExcelClicked()">
-          Export to Excels...
-        </button>
-        <button
-          mat-raised-button color="primary"
-          (click)="onExportToJsonClicked()">
-          Export to JSON file...
-        </button>
-        <button
-          mat-raised-button color="primary"
-          (click)="onGenerateClicked()">
-          Generate...
-        </button>        <div [ngStyle]="{'display': 'grid', 'grid-template-columns': '25% 25% 25% 25%', 'grid-template-rows': 'auto'}">
-          <app-top-sys-tree-view
-            [topSys]="topSys"
-            (selected)="onSelect($event)"
-            [ngStyle]="{'grid-area': '1 / 1 / 2 / 2'}">
-          </app-top-sys-tree-view>
-          <app-top-sys-content-view
-            [registerPrinterObject]="selected"
-            [ngStyle]="{'grid-area': '1 / 2 / 2 / 5'}">
-          </app-top-sys-content-view>
-        </div>
+        <app-main-window-view [topSys]="topSys">
+        </app-main-window-view>
       </mat-tab>
     </mat-tab-group>
     <mat-divider
