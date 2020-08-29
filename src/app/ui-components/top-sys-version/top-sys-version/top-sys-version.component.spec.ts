@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddressMapViewComponent } from './address-map-view.component';
+import { TopSysVersionComponent } from './top-sys-version.component';
 
-describe('AddressMapViewComponent', () => {
-  let component: AddressMapViewComponent;
-  let fixture: ComponentFixture<AddressMapViewComponent>;
+describe('TopSysVersionComponent', () => {
+  let component: TopSysVersionComponent;
+  let fixture: ComponentFixture<TopSysVersionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddressMapViewComponent ]
+      declarations: [ TopSysVersionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddressMapViewComponent);
+    fixture = TestBed.createComponent(TopSysVersionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

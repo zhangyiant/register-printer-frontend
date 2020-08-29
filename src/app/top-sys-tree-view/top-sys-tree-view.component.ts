@@ -68,12 +68,12 @@ export class AddressMapsTreeNode implements RegisterPrinterTreeNode {
   }
 }
 
-export class AddressMapTreeNode implements RegisterPrinterTreeNode {
+export class BlockInstanceTreeNode implements RegisterPrinterTreeNode {
   type: string;
-  addressMap: BlockInstance;
+  blockInstance: BlockInstance;
   children?: RegisterPrinterTreeNode[];
   constructor() {
-    this.type = "AddressMapNode";
+    this.type = 'BlockInstanceNode';
   }
 }
 
@@ -147,9 +147,9 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     addressMapsTreeNode.children = [];
     topSysNode.children.push(addressMapsTreeNode);
     for (const addressMap of topSys.blockInstances) {
-      const addressMapTreeNode: AddressMapTreeNode = new AddressMapTreeNode();
+      const addressMapTreeNode: BlockInstanceTreeNode = new BlockInstanceTreeNode();
       addressMapTreeNode.children = [];
-      addressMapTreeNode.addressMap = addressMap;
+      addressMapTreeNode.blockInstance = addressMap;
       addressMapsTreeNode.children.push(addressMapTreeNode);
     }
     const blockTypesTreeNode = new BlockTypesTreeNode();
@@ -217,8 +217,8 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
   onClick(node: RegisterPrinterTreeNode) {
     if (node instanceof TopSysTreeNode) {
       this.selected.emit(node.topSys);
-    } else if (node instanceof AddressMapTreeNode) {
-      this.selected.emit(node.addressMap);
+    } else if (node instanceof BlockInstanceTreeNode) {
+      this.selected.emit(node.blockInstance);
     } else if (node instanceof BlockTypeTreeNode) {
       this.selected.emit(node.blockType);
     } else if (node instanceof RegisterTreeNode) {

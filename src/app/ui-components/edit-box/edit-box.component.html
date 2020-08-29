@@ -1,11 +1,11 @@
 <ng-container>
-  <span *ngIf="!isEditing" (dblclick)="onAuthorDoubleClick($event)">
-    {{ author }}
+  <span *ngIf="!isEditing" (dblclick)="onDoubleClick($event)">
+    {{ value }}
   </span>
   <span *ngIf="isEditing">
     <mat-form-field>
-      <mat-label>Author</mat-label>
-      <input matInput placeholder="Author" [(ngModel)]="editingAuthor">
+      <mat-label>{{ title }}</mat-label>
+      <input matInput placeholder="{{ title }}" [(ngModel)]="editingValue">
     </mat-form-field>
     <button mat-icon-button (click)="onSubmit($event)">
       <mat-icon>done</mat-icon>

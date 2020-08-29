@@ -10,11 +10,19 @@
     <tbody>
       <tr>
         <td>Name: </td>
-        <td>{{ topSys.name }}</td>
+        <td>
+          <app-edit-box
+            title="Name"
+            [(value)]="topSys.name">
+          </app-edit-box>
+        </td>
       </tr>
       <tr>
         <td>Version:</td>
-        <td>{{ topSys.version }}</td>
+        <td>
+          <app-top-sys-version [(version)]="topSys.version">
+          </app-top-sys-version>
+        </td>
       </tr>
       <tr>
         <td>Author:</td>
@@ -25,28 +33,20 @@
       </tr>
       <tr>
         <td>Address Width:</td>
-        <td>{{ topSys.addressWidth }}</td>
-      </tr>
-      <tr>
-        <td>Data Width:</td>
-        <td>{{ topSys.dataWidth }}</td>
-      </tr>
-      <tr>
-        <td>Address Maps: </td>
         <td>
-          <app-address-map-view
-            *ngFor="let addressMap of topSys.blockInstances"
-            [addressMap]="addressMap">
-          </app-address-map-view>
+          <app-edit-box
+            title="Address Width"
+            [(value)]="topSys.addressWidth">
+          </app-edit-box>
         </td>
       </tr>
       <tr>
-        <td>Block Types: </td>
+        <td>Data Width:</td>
         <td>
-          <app-block-type-view
-            *ngFor="let blockType of topSys.blockTemplates"
-            [blockType]="blockType">
-          </app-block-type-view>
+          <app-edit-box
+            title="Data Width"
+            [(value)]="topSys.dataWidth">
+          </app-edit-box>
         </td>
       </tr>
     </tbody>

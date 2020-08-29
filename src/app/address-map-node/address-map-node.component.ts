@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AddressMapTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
+import { BlockInstanceTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
 
 @Component({
   selector: 'app-address-map-node',
@@ -8,7 +8,7 @@ import { AddressMapTreeNode } from '../top-sys-tree-view/top-sys-tree-view.compo
 })
 export class AddressMapNodeComponent implements OnInit {
 
-  @Input() addressMapTreeNode: AddressMapTreeNode;
+  @Input() addressMapTreeNode: BlockInstanceTreeNode;
 
   constructor() { }
 
