@@ -1,5 +1,4 @@
 <div>
-    <h2>Content View</h2>
     <app-top-sys-view
       *ngIf="isTopSys()"
       [topSys]="registerPrinterObject">
@@ -9,7 +8,7 @@
       [block]="registerPrinterObject">
     </app-block-view>
     <app-block-instance-view
-      *ngIf="isAddressMap()"
+      *ngIf="isBlockInstance()"
       [blockInstance]="registerPrinterObject">
     </app-block-instance-view>
     <app-block-type-view

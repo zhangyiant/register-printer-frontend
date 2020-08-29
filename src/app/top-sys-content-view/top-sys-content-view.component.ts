@@ -28,7 +28,7 @@ export class TopSysContentViewComponent implements OnInit {
   isBlock(): boolean {
     return (this.registerPrinterObject instanceof Block);
   }
-  isAddressMap(): boolean {
+  isBlockInstance(): boolean {
     return (this.registerPrinterObject instanceof BlockInstance);
   }
   isBlockType(): boolean {
