@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddressMapViewComponent } from './address-map-view.component';
+import { BlockInstanceViewComponent } from './block-instance-view.component';
 
 describe('AddressMapViewComponent', () => {
-  let component: AddressMapViewComponent;
-  let fixture: ComponentFixture<AddressMapViewComponent>;
+  let component: BlockInstanceViewComponent;
+  let fixture: ComponentFixture<BlockInstanceViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddressMapViewComponent ]
+      declarations: [ BlockInstanceViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddressMapViewComponent);
+    fixture = TestBed.createComponent(BlockInstanceViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

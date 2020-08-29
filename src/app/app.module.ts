@@ -39,7 +39,7 @@ import { FieldViewComponent } from './field-view/field-view.component';
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 import { AddressMapsNodeComponent } from './address-maps-node/address-maps-node.component';
 import { AddressMapNodeComponent } from './address-map-node/address-map-node.component';
-import { AddressMapViewComponent } from './address-map-view/address-map-view.component';
+import { BlockInstanceViewComponent } from './block-instance-view/block-instance-view.component';
 import { TopSysAuthorComponent } from './ui-components/top-sys-author/top-sys-author/top-sys-author.component';
 import { ExcelSelectorComponent } from './excel-selector/excel-selector.component';
 import { TopSysVersionComponent } from './ui-components/top-sys-version/top-sys-version/top-sys-version.component';
@@ -68,7 +68,7 @@ import { EditBoxComponent } from './ui-components/edit-box/edit-box.component';
     OpenDialogComponent,
     AddressMapsNodeComponent,
     AddressMapNodeComponent,
-    AddressMapViewComponent,
+    BlockInstanceViewComponent,
     TopSysAuthorComponent,
     ExcelSelectorComponent,
     TopSysVersionComponent,

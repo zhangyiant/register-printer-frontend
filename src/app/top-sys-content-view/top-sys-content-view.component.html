@@ -8,10 +8,10 @@
       *ngIf="isBlock()"
       [block]="registerPrinterObject">
     </app-block-view>
-    <app-address-map-view
+    <app-block-instance-view
       *ngIf="isAddressMap()"
-      [addressMap]="registerPrinterObject">
-    </app-address-map-view>
+      [blockInstance]="registerPrinterObject">
+    </app-block-instance-view>
     <app-block-type-view
       *ngIf="isBlockType()"
       [blockType]="registerPrinterObject">

@@ -1,5 +1,5 @@
 <div>
-  <h2>Address Map: {{ addressMap.name }}</h2>
+  <h2>Block Instance: {{ blockInstance.name }}</h2>
   <table border="1">
     <thead>
       <tr>
@@ -10,15 +10,15 @@
     <tbody>
       <tr>
         <td>Block Type: </td>
-        <td>{{ addressMap.blockType }}</td>
+        <td>{{ blockInstance.blockType }}</td>
       </tr>
       <tr>
         <td>Base Address: </td>
-        <td>{{ '0x' + addressMap.baseAddress.toString(16) }}</td>
+        <td>{{ '0x' + blockInstance.baseAddress.toString(16) }}</td>
       </tr>
       <tr>
         <td>Block Size: </td>
-        <td>{{ '0x' + addressMap.blockSize.toString(16) }}</td>
+        <td>{{ '0x' + blockInstance.blockSize.toString(16) }}</td>
       </tr>
     </tbody>
   </table>
