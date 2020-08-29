@@ -9,10 +9,10 @@
   </app-property-node>
   <app-address-maps-node *ngIf="isAddressMapsTreeNode()">
   </app-address-maps-node>
-  <app-address-map-node
-    [addressMapTreeNode]="registerPrinterTreeNode"
+  <app-block-instance-node
+    [blockInstanceTreeNode]="registerPrinterTreeNode"
     *ngIf="isAddressMapTreeNode()">
-  </app-address-map-node>
+  </app-block-instance-node>
   <app-block-types-node *ngIf="isBlockTypesTreeNode()">
   </app-block-types-node>
   <app-block-type-node

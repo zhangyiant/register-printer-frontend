@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddressMapNodeComponent } from './address-map-node.component';
+import { BlockInstanceNodeComponent } from './block-instance-node.component';
 
 describe('AddressMapNodeComponent', () => {
-  let component: AddressMapNodeComponent;
-  let fixture: ComponentFixture<AddressMapNodeComponent>;
+  let component: BlockInstanceNodeComponent;
+  let fixture: ComponentFixture<BlockInstanceNodeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddressMapNodeComponent ]
+      declarations: [ BlockInstanceNodeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddressMapNodeComponent);
+    fixture = TestBed.createComponent(BlockInstanceNodeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
