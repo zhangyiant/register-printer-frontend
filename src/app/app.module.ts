@@ -19,6 +19,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
 import { TopSysTreeViewComponent } from './ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
 import { TopSysContentViewComponent } from './ui-content-view/top-sys-content-view/top-sys-content-view.component';
 import { TopSysConsoleViewComponent } from './top-sys-console-view/top-sys-console-view.component';
@@ -94,7 +95,8 @@ import { BlockInstancesViewComponent } from './ui-content-view/block-instances-v
     MatDividerModule,
     MatTreeModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
   ],
   providers: [
     Title
