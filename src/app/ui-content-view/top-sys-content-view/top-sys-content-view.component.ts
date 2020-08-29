@@ -6,7 +6,7 @@ import {
   BlockTemplate,
   Register,
   Field
-} from '../../register-printer';
+} from '../../../register-printer';
 
 @Component({
   selector: 'app-top-sys-content-view',

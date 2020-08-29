@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { RegisterPrinterService } from '../register-printer.service';
 import {
   TopSys,
   BlockInstance,
@@ -17,7 +16,7 @@ import {
   Block,
   Register,
   Field
-} from '../../register-printer';
+} from '../../../register-printer';
 
 export interface RegisterPrinterTreeNode {
   type: string;
@@ -60,11 +59,11 @@ export class BlockTypeTreeNode implements RegisterPrinterTreeNode {
   }
 }
 
-export class AddressMapsTreeNode implements RegisterPrinterTreeNode {
+export class BlockInstancesTreeNode implements RegisterPrinterTreeNode {
   type: string;
   children?: RegisterPrinterTreeNode[];
   constructor() {
-    this.type = "AddressMapsNode";
+    this.type = 'BlockInstancesNode';
   }
 }
 
@@ -121,14 +120,14 @@ let TREE_DATA: RegisterPrinterTreeNode[] = [];
 export class TopSysTreeViewComponent implements OnInit, OnChanges {
 
   @Input() topSys: TopSys;
-  @Output() selected = new EventEmitter<TopSys | BlockInstance | BlockTemplate | Block | Register | Field>();
+  @Output() selected = new EventEmitter<TopSys | BlockInstance | BlockInstance[] | BlockTemplate | Block | Register | Field>();
 
   treeControl = new NestedTreeControl<RegisterPrinterTreeNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<RegisterPrinterTreeNode>();
 
-  constructor(
-    private registerPrinterService: RegisterPrinterService) {
+  constructor() {
   }
+
   hasChild = (_: number, node: RegisterPrinterTreeNode) => !!node.children && node.children.length > 0;
 
   ngOnInit() {
@@ -143,14 +142,14 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     const topSysNode: TopSysTreeNode = new TopSysTreeNode();
     topSysNode.topSys = topSys;
     topSysNode.children = [];
-    const addressMapsTreeNode = new AddressMapsTreeNode();
+    const addressMapsTreeNode = new BlockInstancesTreeNode();
     addressMapsTreeNode.children = [];
     topSysNode.children.push(addressMapsTreeNode);
-    for (const addressMap of topSys.blockInstances) {
-      const addressMapTreeNode: BlockInstanceTreeNode = new BlockInstanceTreeNode();
-      addressMapTreeNode.children = [];
-      addressMapTreeNode.blockInstance = addressMap;
-      addressMapsTreeNode.children.push(addressMapTreeNode);
+    for (const blockInstance of topSys.blockInstances) {
+      const blockInstanceTreeNode: BlockInstanceTreeNode = new BlockInstanceTreeNode();
+      blockInstanceTreeNode.children = [];
+      blockInstanceTreeNode.blockInstance = blockInstance;
+      addressMapsTreeNode.children.push(blockInstanceTreeNode);
     }
     const blockTypesTreeNode = new BlockTypesTreeNode();
     blockTypesTreeNode.children = [];
