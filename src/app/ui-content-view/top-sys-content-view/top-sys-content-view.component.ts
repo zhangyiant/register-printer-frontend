@@ -7,6 +7,7 @@ import {
   Register,
   Field
 } from '../../../register-printer';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-top-sys-content-view',
@@ -15,7 +16,7 @@ import {
 })
 export class TopSysContentViewComponent implements OnInit {
 
-  @Input() registerPrinterObject: TopSys | Block | BlockInstance | BlockTemplate | Register | Field;
+  @Input() registerPrinterObject: TopSys | Block | BlockInstance | BlockInstance[] | BlockTemplate | Register | Field;
 
   constructor() { }
 
@@ -30,6 +31,17 @@ export class TopSysContentViewComponent implements OnInit {
   }
   isBlockInstance(): boolean {
     return (this.registerPrinterObject instanceof BlockInstance);
+  }
+  isBlockInstances(): boolean {
+    if (this.registerPrinterObject instanceof Array) {
+      if (this.registerPrinterObject.length > 0) {
+        const firstObject = this.registerPrinterObject[0];
+        return (firstObject instanceof BlockInstance);
+      } else {
+        return false;
+      }
+    }
+    return false;
   }
   isBlockType(): boolean {
     return (this.registerPrinterObject instanceof BlockTemplate);

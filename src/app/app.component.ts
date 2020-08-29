@@ -32,8 +32,6 @@ export class AppComponent implements OnInit {
     return;
   }
 
-
-
   onOpenClicked() {
     const dialogConfig = new MatDialogConfig();
     const dialogRef = this.dialog.open(
@@ -54,7 +52,4 @@ export class AppComponent implements OnInit {
       this.topSys);
     return;
   }
-
-
-
 }

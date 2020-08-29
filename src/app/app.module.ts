@@ -45,6 +45,7 @@ import { ExcelSelectorComponent } from './excel-selector/excel-selector.componen
 import { TopSysVersionComponent } from './ui-components/top-sys-version/top-sys-version/top-sys-version.component';
 import { EditBoxComponent } from './ui-components/edit-box/edit-box.component';
 import { MainWindowViewComponent } from './main-window-view/main-window-view.component';
+import { BlockInstancesViewComponent } from './ui-content-view/block-instances-view/block-instances-view.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { MainWindowViewComponent } from './main-window-view/main-window-view.com
     ExcelSelectorComponent,
     TopSysVersionComponent,
     EditBoxComponent,
-    MainWindowViewComponent
+    MainWindowViewComponent,
+    BlockInstancesViewComponent
   ],
   imports: [
     BrowserModule,

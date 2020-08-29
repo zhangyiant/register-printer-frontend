@@ -7,6 +7,10 @@
       *ngIf="isBlock()"
       [block]="registerPrinterObject">
     </app-block-view>
+  <app-block-instances-view
+    *ngIf="isBlockInstances()"
+    [blockInstances]="registerPrinterObject">
+  </app-block-instances-view>
     <app-block-instance-view
       *ngIf="isBlockInstance()"
       [blockInstance]="registerPrinterObject">
