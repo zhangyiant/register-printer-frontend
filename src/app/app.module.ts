@@ -37,7 +37,7 @@ import { BlockTypeViewComponent } from './block-type-view/block-type-view.compon
 import { RegisterViewComponent } from './register-view/register-view.component';
 import { FieldViewComponent } from './field-view/field-view.component';
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
-import { AddressMapsNodeComponent } from './address-maps-node/address-maps-node.component';
+import { BlockInstancesNodeComponent } from './block-instances-node/block-instances-node.component';
 import { BlockInstanceNodeComponent } from './block-instance-node/block-instance-node.component';
 import { BlockInstanceViewComponent } from './block-instance-view/block-instance-view.component';
 import { TopSysAuthorComponent } from './ui-components/top-sys-author/top-sys-author/top-sys-author.component';
@@ -67,7 +67,7 @@ import { MainWindowViewComponent } from './main-window-view/main-window-view.com
     RegisterViewComponent,
     FieldViewComponent,
     OpenDialogComponent,
-    AddressMapsNodeComponent,
+    BlockInstancesNodeComponent,
     BlockInstanceNodeComponent,
     BlockInstanceViewComponent,
     TopSysAuthorComponent,

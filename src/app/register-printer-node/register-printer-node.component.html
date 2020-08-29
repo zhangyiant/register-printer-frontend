@@ -7,8 +7,8 @@
     [propertyTreeNode]="registerPrinterTreeNode"
     *ngIf="registerPrinterTreeNode.type === 'PropertyNode'">
   </app-property-node>
-  <app-address-maps-node *ngIf="isAddressMapsTreeNode()">
-  </app-address-maps-node>
+  <app-block-instances-node *ngIf="isAddressMapsTreeNode()">
+  </app-block-instances-node>
   <app-block-instance-node
     [blockInstanceTreeNode]="registerPrinterTreeNode"
     *ngIf="isAddressMapTreeNode()">
