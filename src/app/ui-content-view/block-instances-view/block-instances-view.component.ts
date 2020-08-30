@@ -9,7 +9,15 @@ import {BlockInstance} from '../../../register-printer';
 export class BlockInstancesViewComponent implements OnInit {
 
   @Input() blockInstances: BlockInstance[];
-  displayedColumns: string[] = ['name', 'baseAddress'];
+  displayedColumns: string[] = [
+    'name',
+    'blockType',
+    'baseAddress',
+    'blockSize',
+    'addressWidth',
+    'dataWidth'
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
