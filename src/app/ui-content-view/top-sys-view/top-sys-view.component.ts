@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { TopSys } from '../../register-printer';
+import {Component, OnInit, Input} from '@angular/core';
+import { TopSys } from '../../../register-printer';
 
 @Component({
   selector: 'app-top-sys-view',
@@ -8,12 +8,10 @@ import { TopSys } from '../../register-printer';
 })
 export class TopSysViewComponent implements OnInit {
   @Input() topSys: TopSys;
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-    console.log("submitted");
-  }
 }

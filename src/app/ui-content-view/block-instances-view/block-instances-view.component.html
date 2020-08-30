@@ -4,7 +4,8 @@
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let blockInstance">
-        {{ blockInstance.name }}
+        <app-edit-box [(value)]="blockInstance.name">
+        </app-edit-box>
       </td>
     </ng-container>
     <ng-container matColumnDef="baseAddress">
