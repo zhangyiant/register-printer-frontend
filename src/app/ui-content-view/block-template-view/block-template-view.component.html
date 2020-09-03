@@ -7,26 +7,19 @@
         {{ register.name }}
       </td>
     </ng-container>
+    <ng-container matColumnDef="offset">
+      <th mat-header-cell *matHeaderCellDef>Offset</th>
+      <td mat-cell *matCellDef="let register">
+        {{ '0x' + register.offset.toString(16) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let register">
+        {{ register.description }}
+      </td>
+    </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  <table border="1">
-    <thead>
-      <tr>
-        <th>name</th>
-        <th>value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Registers</td>
-        <td>
-          <app-register-view
-            *ngFor="let register of blockTemplate.registers"
-            [register]="register">
-          </app-register-view>
-        </td>
-      </tr>
-    </tbody>
   </table>
 </div>

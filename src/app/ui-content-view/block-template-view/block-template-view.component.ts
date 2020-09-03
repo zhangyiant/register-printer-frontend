@@ -11,7 +11,9 @@ export class BlockTemplateViewComponent implements OnInit {
 
   @Input() blockTemplate: BlockTemplate;
   displayedColumns: string[] = [
-    'name'
+    'name',
+    'offset',
+    'description'
   ];
   constructor() { }
 
