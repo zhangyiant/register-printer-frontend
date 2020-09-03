@@ -170,30 +170,6 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
           fieldTreeNode.field = field;
           fieldTreeNode.children = [];
           registerTreeNode.children.push(fieldTreeNode);
-          let propertyTreeNode = new PropertyTreeNode();
-          propertyTreeNode.name = 'name';
-          propertyTreeNode.value = field.name;
-          fieldTreeNode.children.push(propertyTreeNode);
-          propertyTreeNode = new PropertyTreeNode();
-          propertyTreeNode.name = 'msb';
-          propertyTreeNode.value = field.msb;
-          fieldTreeNode.children.push(propertyTreeNode);
-          propertyTreeNode = new PropertyTreeNode();
-          propertyTreeNode.name = 'lsb';
-          propertyTreeNode.value = field.lsb;
-          fieldTreeNode.children.push(propertyTreeNode);
-          propertyTreeNode = new PropertyTreeNode();
-          propertyTreeNode.name = 'default value';
-          propertyTreeNode.value = field.defaultValue;
-          fieldTreeNode.children.push(propertyTreeNode);
-          propertyTreeNode = new PropertyTreeNode();
-          propertyTreeNode.name = 'access';
-          propertyTreeNode.value = field.access;
-          fieldTreeNode.children.push(propertyTreeNode);
-          propertyTreeNode = new PropertyTreeNode();
-          propertyTreeNode.name = 'description';
-          propertyTreeNode.value = field.description;
-          fieldTreeNode.children.push(propertyTreeNode);
         }
       }
     }
