@@ -42,20 +42,20 @@ export class PropertyTreeNode implements RegisterPrinterTreeNode {
   }
 }
 
-export class BlockTypesTreeNode implements RegisterPrinterTreeNode {
+export class BlockTemplatesTreeNode implements RegisterPrinterTreeNode {
   type: string;
   children?: RegisterPrinterTreeNode[];
   constructor() {
-    this.type = 'BlockTypesNode';
+    this.type = 'BlockTemplatesNode';
   }
 }
 
-export class BlockTypeTreeNode implements RegisterPrinterTreeNode {
+export class BlockTemplateTreeNode implements RegisterPrinterTreeNode {
   type: string;
   blockType: BlockTemplate;
   children?: RegisterPrinterTreeNode[];
   constructor() {
-    this.type = 'BlockTypeNode';
+    this.type = 'BlockTemplateNode';
   }
 }
 
@@ -151,11 +151,11 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
       blockInstanceTreeNode.blockInstance = blockInstance;
       blockInstancesTreeNode.children.push(blockInstanceTreeNode);
     }
-    const blockTypesTreeNode = new BlockTypesTreeNode();
+    const blockTypesTreeNode = new BlockTemplatesTreeNode();
     blockTypesTreeNode.children = [];
     topSysNode.children.push(blockTypesTreeNode);
     for (const blockType of topSys.blockTemplates) {
-      const blockTypeTreeNode: BlockTypeTreeNode = new BlockTypeTreeNode();
+      const blockTypeTreeNode: BlockTemplateTreeNode = new BlockTemplateTreeNode();
       blockTypeTreeNode.children = [];
       blockTypeTreeNode.blockType = blockType;
       const registersTreeNode = new RegistersTreeNode();
@@ -226,7 +226,7 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
       this.selected.emit(blockInstances);
     } else if (node instanceof BlockInstanceTreeNode) {
       this.selected.emit(node.blockInstance);
-    } else if (node instanceof BlockTypeTreeNode) {
+    } else if (node instanceof BlockTemplateTreeNode) {
       this.selected.emit(node.blockType);
     } else if (node instanceof RegisterTreeNode) {
       this.selected.emit(node.register);

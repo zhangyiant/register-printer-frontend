@@ -3,8 +3,8 @@ import {
   RegisterPrinterTreeNode,
   BlockInstancesTreeNode,
   BlockInstanceTreeNode,
-  BlockTypesTreeNode,
-  BlockTypeTreeNode,
+  BlockTemplatesTreeNode,
+  BlockTemplateTreeNode,
   RegistersTreeNode,
   RegisterTreeNode,
   FieldsTreeNode,
@@ -31,10 +31,10 @@ export class RegisterPrinterNodeComponent implements OnInit {
   }
 
   isBlockTypesTreeNode() {
-    return this.registerPrinterTreeNode instanceof BlockTypesTreeNode;
+    return this.registerPrinterTreeNode instanceof BlockTemplatesTreeNode;
   }
   isBlockTypeTreeNode() {
-    return this.registerPrinterTreeNode instanceof BlockTypeTreeNode;
+    return this.registerPrinterTreeNode instanceof BlockTemplateTreeNode;
   }
   isRegistersTreeNode() {
     return this.registerPrinterTreeNode instanceof RegistersTreeNode;
