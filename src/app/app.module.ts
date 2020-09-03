@@ -34,7 +34,7 @@ import { RegisterNodeComponent } from './register-node/register-node.component';
 import { FieldsNodeComponent } from './fields-node/fields-node.component';
 import { FieldNodeComponent } from './field-node/field-node.component';
 import { BlockViewComponent } from './block-view/block-view.component';
-import { BlockTypeViewComponent } from './block-type-view/block-type-view.component';
+import { BlockTemplateViewComponent } from './ui-content-view/block-template-view/block-template-view.component';
 import { RegisterViewComponent } from './register-view/register-view.component';
 import { FieldViewComponent } from './field-view/field-view.component';
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
@@ -65,7 +65,7 @@ import { BlockInstancesViewComponent } from './ui-content-view/block-instances-v
     FieldsNodeComponent,
     FieldNodeComponent,
     BlockViewComponent,
-    BlockTypeViewComponent,
+    BlockTemplateViewComponent,
     RegisterViewComponent,
     FieldViewComponent,
     OpenDialogComponent,

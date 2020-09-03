@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlockTypeViewComponent } from './block-type-view.component';
+import { BlockTemplateViewComponent } from './block-template-view.component';
 
 describe('BlockTypeViewComponent', () => {
-  let component: BlockTypeViewComponent;
-  let fixture: ComponentFixture<BlockTypeViewComponent>;
+  let component: BlockTemplateViewComponent;
+  let fixture: ComponentFixture<BlockTemplateViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlockTypeViewComponent ]
+      declarations: [ BlockTemplateViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BlockTypeViewComponent);
+    fixture = TestBed.createComponent(BlockTemplateViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
