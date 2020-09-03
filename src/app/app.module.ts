@@ -35,7 +35,7 @@ import { FieldsNodeComponent } from './fields-node/fields-node.component';
 import { FieldNodeComponent } from './field-node/field-node.component';
 import { BlockViewComponent } from './block-view/block-view.component';
 import { BlockTemplateViewComponent } from './ui-content-view/block-template-view/block-template-view.component';
-import { RegisterViewComponent } from './register-view/register-view.component';
+import { RegisterViewComponent } from './ui-content-view/register-view/register-view.component';
 import { FieldViewComponent } from './field-view/field-view.component';
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 import { BlockInstancesNodeComponent } from './ui-tree-view/block-instances-node/block-instances-node.component';

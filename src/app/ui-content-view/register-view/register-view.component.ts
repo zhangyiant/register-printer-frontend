@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Register } from '../../register-printer';
+import { Register } from '../../../register-printer';
 
 
 @Component({
@@ -10,7 +10,14 @@ import { Register } from '../../register-printer';
 export class RegisterViewComponent implements OnInit {
 
   @Input() register: Register;
-
+  displayedColumns: string[] = [
+    'name',
+    'msb',
+    'lsb',
+    'defaultValue',
+    'access',
+    'description'
+  ];
   constructor() { }
 
   ngOnInit() {
