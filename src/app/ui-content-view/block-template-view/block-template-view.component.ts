@@ -9,8 +9,10 @@ import { BlockTemplate } from '../../../register-printer';
 })
 export class BlockTemplateViewComponent implements OnInit {
 
-  @Input() blockType: BlockTemplate;
-
+  @Input() blockTemplate: BlockTemplate;
+  displayedColumns: string[] = [
+    'name'
+  ];
   constructor() { }
 
   ngOnInit() {

@@ -43,7 +43,7 @@ export class TopSysContentViewComponent implements OnInit {
     }
     return false;
   }
-  isBlockType(): boolean {
+  isBlockTemplate(): boolean {
     return (this.registerPrinterObject instanceof BlockTemplate);
   }
   isRegister(): boolean {
