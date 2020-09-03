@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlockTypesNodeComponent } from './block-types-node.component';
+import { BlockTemplatesNodeComponent } from './block-templates-node.component';
 
 describe('BlockTypesNodeComponent', () => {
-  let component: BlockTypesNodeComponent;
-  let fixture: ComponentFixture<BlockTypesNodeComponent>;
+  let component: BlockTemplatesNodeComponent;
+  let fixture: ComponentFixture<BlockTemplatesNodeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlockTypesNodeComponent ]
+      declarations: [ BlockTemplatesNodeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BlockTypesNodeComponent);
+    fixture = TestBed.createComponent(BlockTemplatesNodeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

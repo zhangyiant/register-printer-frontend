@@ -27,7 +27,7 @@ import { TopSysViewComponent } from './ui-content-view/top-sys-view/top-sys-view
 import { TopSysNodeComponent } from './top-sys-node/top-sys-node.component';
 import { PropertyNodeComponent } from './property-node/property-node.component';
 import { RegisterPrinterNodeComponent } from './ui-tree-view/register-printer-node/register-printer-node.component';
-import { BlockTypesNodeComponent } from './block-types-node/block-types-node.component';
+import { BlockTemplatesNodeComponent } from './ui-tree-view/block-templates-node/block-templates-node.component';
 import { BlockTemplateNodeComponent } from './block-template-node/block-template-node.component';
 import { RegistersNodeComponent } from './registers-node/registers-node.component';
 import { RegisterNodeComponent } from './register-node/register-node.component';
@@ -58,7 +58,7 @@ import { BlockInstancesViewComponent } from './ui-content-view/block-instances-v
     TopSysNodeComponent,
     PropertyNodeComponent,
     RegisterPrinterNodeComponent,
-    BlockTypesNodeComponent,
+    BlockTemplatesNodeComponent,
     BlockTemplateNodeComponent,
     RegistersNodeComponent,
     RegisterNodeComponent,
