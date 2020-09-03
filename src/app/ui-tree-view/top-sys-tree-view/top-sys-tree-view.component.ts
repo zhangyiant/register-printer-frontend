@@ -52,7 +52,7 @@ export class BlockTemplatesTreeNode implements RegisterPrinterTreeNode {
 
 export class BlockTemplateTreeNode implements RegisterPrinterTreeNode {
   type: string;
-  blockType: BlockTemplate;
+  blockTemplate: BlockTemplate;
   children?: RegisterPrinterTreeNode[];
   constructor() {
     this.type = 'BlockTemplateNode';
@@ -157,7 +157,7 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     for (const blockType of topSys.blockTemplates) {
       const blockTypeTreeNode: BlockTemplateTreeNode = new BlockTemplateTreeNode();
       blockTypeTreeNode.children = [];
-      blockTypeTreeNode.blockType = blockType;
+      blockTypeTreeNode.blockTemplate = blockType;
       const registersTreeNode = new RegistersTreeNode();
       registersTreeNode.children = [];
       blockTypeTreeNode.children.push(registersTreeNode);
@@ -227,7 +227,7 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     } else if (node instanceof BlockInstanceTreeNode) {
       this.selected.emit(node.blockInstance);
     } else if (node instanceof BlockTemplateTreeNode) {
-      this.selected.emit(node.blockType);
+      this.selected.emit(node.blockTemplate);
     } else if (node instanceof RegisterTreeNode) {
       this.selected.emit(node.register);
     } else if (node instanceof FieldTreeNode) {
