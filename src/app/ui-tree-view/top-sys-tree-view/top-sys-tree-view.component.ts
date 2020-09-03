@@ -158,16 +158,13 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
       const blockTemplateTreeNode: BlockTemplateTreeNode = new BlockTemplateTreeNode();
       blockTemplateTreeNode.children = [];
       blockTemplateTreeNode.blockTemplate = blockType;
-      const registersTreeNode = new RegistersTreeNode();
-      registersTreeNode.children = [];
-      blockTemplateTreeNode.children.push(registersTreeNode);
 
       blockTypesTreeNode.children.push(blockTemplateTreeNode);
       for (const register of blockType.registers) {
         const registerTreeNode = new RegisterTreeNode();
         registerTreeNode.register = register;
         registerTreeNode.children = [];
-        registersTreeNode.children.push(registerTreeNode);
+        blockTemplateTreeNode.children.push(registerTreeNode);
         const fieldsTreeNode = new FieldsTreeNode();
         fieldsTreeNode.children = [];
         registerTreeNode.children.push(fieldsTreeNode);
