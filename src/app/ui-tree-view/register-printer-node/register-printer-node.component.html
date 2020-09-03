@@ -1,0 +1,37 @@
+<span>
+  <app-top-sys-node
+    [topSysTreeNode]="registerPrinterTreeNode"
+    *ngIf="registerPrinterTreeNode.type === 'TopSysNode'">
+  </app-top-sys-node>
+  <app-property-node
+    [propertyTreeNode]="registerPrinterTreeNode"
+    *ngIf="registerPrinterTreeNode.type === 'PropertyNode'">
+  </app-property-node>
+  <app-block-instances-node
+    *ngIf="isAddressMapsTreeNode()">
+  </app-block-instances-node>
+  <app-block-instance-node
+    [blockInstanceTreeNode]="registerPrinterTreeNode"
+    *ngIf="isAddressMapTreeNode()">
+  </app-block-instance-node>
+  <app-block-templates-node *ngIf="isBlockTypesTreeNode()">
+  </app-block-templates-node>
+  <app-block-type-node
+    [blockTypeTreeNode]="registerPrinterTreeNode"
+    *ngIf="isBlockTypeTreeNode()">
+  </app-block-type-node>
+  <app-registers-node
+    *ngIf="isRegistersTreeNode()">
+  </app-registers-node>
+  <app-register-node
+    [registerTreeNode]="registerPrinterTreeNode"
+    *ngIf="isRegisterTreeNode()">
+  </app-register-node>
+  <app-fields-node
+    *ngIf="isFieldsTreeNode()">
+  </app-fields-node>
+  <app-field-node
+    [fieldTreeNode]="registerPrinterTreeNode"
+    *ngIf="isFieldTreeNode()">
+  </app-field-node>
+</span>

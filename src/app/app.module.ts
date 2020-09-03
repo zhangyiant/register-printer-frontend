@@ -19,32 +19,34 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTabsModule } from '@angular/material/tabs';
-import { TopSysTreeViewComponent } from './top-sys-tree-view/top-sys-tree-view.component';
-import { TopSysContentViewComponent } from './top-sys-content-view/top-sys-content-view.component';
+import { MatTableModule } from '@angular/material/table';
+import { TopSysTreeViewComponent } from './ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
+import { TopSysContentViewComponent } from './ui-content-view/top-sys-content-view/top-sys-content-view.component';
 import { TopSysConsoleViewComponent } from './top-sys-console-view/top-sys-console-view.component';
-import { TopSysViewComponent } from './top-sys-view/top-sys-view.component';
+import { TopSysViewComponent } from './ui-content-view/top-sys-view/top-sys-view.component';
 import { TopSysNodeComponent } from './top-sys-node/top-sys-node.component';
 import { PropertyNodeComponent } from './property-node/property-node.component';
-import { RegisterPrinterNodeComponent } from './register-printer-node/register-printer-node.component';
-import { BlockTypesNodeComponent } from './block-types-node/block-types-node.component';
+import { RegisterPrinterNodeComponent } from './ui-tree-view/register-printer-node/register-printer-node.component';
+import { BlockTemplatesNodeComponent } from './ui-tree-view/block-templates-node/block-templates-node.component';
 import { BlockTemplateNodeComponent } from './block-template-node/block-template-node.component';
 import { RegistersNodeComponent } from './registers-node/registers-node.component';
 import { RegisterNodeComponent } from './register-node/register-node.component';
 import { FieldsNodeComponent } from './fields-node/fields-node.component';
 import { FieldNodeComponent } from './field-node/field-node.component';
 import { BlockViewComponent } from './block-view/block-view.component';
-import { BlockTypeViewComponent } from './block-type-view/block-type-view.component';
-import { RegisterViewComponent } from './register-view/register-view.component';
+import { BlockTemplateViewComponent } from './ui-content-view/block-template-view/block-template-view.component';
+import { RegisterViewComponent } from './ui-content-view/register-view/register-view.component';
 import { FieldViewComponent } from './field-view/field-view.component';
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
-import { AddressMapsNodeComponent } from './address-maps-node/address-maps-node.component';
-import { AddressMapNodeComponent } from './address-map-node/address-map-node.component';
+import { BlockInstancesNodeComponent } from './ui-tree-view/block-instances-node/block-instances-node.component';
+import { BlockInstanceNodeComponent } from './block-instance-node/block-instance-node.component';
 import { BlockInstanceViewComponent } from './block-instance-view/block-instance-view.component';
 import { TopSysAuthorComponent } from './ui-components/top-sys-author/top-sys-author/top-sys-author.component';
 import { ExcelSelectorComponent } from './excel-selector/excel-selector.component';
 import { TopSysVersionComponent } from './ui-components/top-sys-version/top-sys-version/top-sys-version.component';
 import { EditBoxComponent } from './ui-components/edit-box/edit-box.component';
 import { MainWindowViewComponent } from './main-window-view/main-window-view.component';
+import { BlockInstancesViewComponent } from './ui-content-view/block-instances-view/block-instances-view.component';
 
 @NgModule({
   declarations: [
@@ -56,25 +58,26 @@ import { MainWindowViewComponent } from './main-window-view/main-window-view.com
     TopSysNodeComponent,
     PropertyNodeComponent,
     RegisterPrinterNodeComponent,
-    BlockTypesNodeComponent,
+    BlockTemplatesNodeComponent,
     BlockTemplateNodeComponent,
     RegistersNodeComponent,
     RegisterNodeComponent,
     FieldsNodeComponent,
     FieldNodeComponent,
     BlockViewComponent,
-    BlockTypeViewComponent,
+    BlockTemplateViewComponent,
     RegisterViewComponent,
     FieldViewComponent,
     OpenDialogComponent,
-    AddressMapsNodeComponent,
-    AddressMapNodeComponent,
+    BlockInstancesNodeComponent,
+    BlockInstanceNodeComponent,
     BlockInstanceViewComponent,
     TopSysAuthorComponent,
     ExcelSelectorComponent,
     TopSysVersionComponent,
     EditBoxComponent,
-    MainWindowViewComponent
+    MainWindowViewComponent,
+    BlockInstancesViewComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +95,8 @@ import { MainWindowViewComponent } from './main-window-view/main-window-view.com
     MatDividerModule,
     MatTreeModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
   ],
   providers: [
     Title

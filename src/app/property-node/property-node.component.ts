@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PropertyTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
+import { PropertyTreeNode } from '../ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
 
 @Component({
   selector: 'app-property-node',

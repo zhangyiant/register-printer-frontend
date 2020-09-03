@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BlockTypeTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
+import { BlockTemplateTreeNode } from '../ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
 
 @Component({
   selector: 'app-block-type-node',
@@ -8,7 +8,7 @@ import { BlockTypeTreeNode } from '../top-sys-tree-view/top-sys-tree-view.compon
 })
 export class BlockTemplateNodeComponent implements OnInit {
 
-  @Input() blockTypeTreeNode: BlockTypeTreeNode;
+  @Input() blockTypeTreeNode: BlockTemplateTreeNode;
 
   constructor() { }
 

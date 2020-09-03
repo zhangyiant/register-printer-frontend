@@ -1,0 +1,30 @@
+<div>
+    <app-top-sys-view
+      *ngIf="isTopSys()"
+      [topSys]="registerPrinterObject">
+    </app-top-sys-view>
+    <app-block-view
+      *ngIf="isBlock()"
+      [block]="registerPrinterObject">
+    </app-block-view>
+  <app-block-instances-view
+    *ngIf="isBlockInstances()"
+    [blockInstances]="registerPrinterObject">
+  </app-block-instances-view>
+    <app-block-instance-view
+      *ngIf="isBlockInstance()"
+      [blockInstance]="registerPrinterObject">
+    </app-block-instance-view>
+    <app-block-template-view
+      *ngIf="isBlockTemplate()"
+      [blockTemplate]="registerPrinterObject">
+    </app-block-template-view>
+    <app-register-view
+      *ngIf="isRegister()"
+      [register]="registerPrinterObject">
+    </app-register-view>
+    <app-field-view
+      *ngIf="isField()"
+      [field]="registerPrinterObject">
+    </app-field-view>
+</div>
