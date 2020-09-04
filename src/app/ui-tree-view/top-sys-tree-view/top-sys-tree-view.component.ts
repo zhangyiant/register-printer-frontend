@@ -205,4 +205,9 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     }
     return;
   }
+
+  onDblClick(node: RegisterPrinterTreeNode) {
+    this.treeControl.toggle(node);
+    return;
+  }
 }
