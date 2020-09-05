@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BlockTemplateTreeNode } from '../ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
+import { BlockTemplateTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
 
 @Component({
   selector: 'app-block-type-node',

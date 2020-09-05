@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FieldTreeNode } from '../ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
+import { FieldTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
 
 @Component({
   selector: 'app-field-node',
