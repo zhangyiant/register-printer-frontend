@@ -17,6 +17,7 @@
       </button>
       <app-register-printer-node
         (click)="onClick(node)"
+        (dblclick)="onDblClick(node)"
         [registerPrinterTreeNode]="node">
       </app-register-printer-node>
       <div [class.example-tree-invisible]="!treeControl.isExpanded(node)">
