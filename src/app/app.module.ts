@@ -24,7 +24,7 @@ import { TopSysTreeViewComponent } from './ui-tree-view/top-sys-tree-view/top-sy
 import { TopSysContentViewComponent } from './ui-content-view/top-sys-content-view/top-sys-content-view.component';
 import { TopSysConsoleViewComponent } from './top-sys-console-view/top-sys-console-view.component';
 import { TopSysViewComponent } from './ui-content-view/top-sys-view/top-sys-view.component';
-import { TopSysNodeComponent } from './top-sys-node/top-sys-node.component';
+import { TopSysNodeComponent } from './ui-tree-view/top-sys-node/top-sys-node.component';
 import { PropertyNodeComponent } from './property-node/property-node.component';
 import { RegisterPrinterNodeComponent } from './ui-tree-view/register-printer-node/register-printer-node.component';
 import { BlockTemplatesNodeComponent } from './ui-tree-view/block-templates-node/block-templates-node.component';
