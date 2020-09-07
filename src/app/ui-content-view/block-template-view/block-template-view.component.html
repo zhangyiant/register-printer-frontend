@@ -1,6 +1,10 @@
 <div>
   <h2>Block Template: {{ blockTemplate.blockType }}</h2>
-  <table mat-table [dataSource]="blockTemplate.registers" class="mat-elevation-z8">
+  <table
+    mat-table
+    [dataSource]="blockTemplate.registers"
+    class="mat-elevation-z8"
+    multiTemplateDataRows>
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let register">
@@ -19,7 +23,52 @@
         {{ register.description }}
       </td>
     </ng-container>
+    <ng-container matColumnDef="fields">
+      <td mat-cell *matCellDef="let register" [attr.colspan]="displayedColumns.length">
+        <table mat-table [dataSource]="register.fields" class="mat-elevation-z8">
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let field">
+              {{ field.name }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="msb">
+            <th mat-header-cell *matHeaderCellDef>MSB</th>
+            <td mat-cell *matCellDef="let field">
+              {{ field.msb }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="lsb">
+            <th mat-header-cell *matHeaderCellDef>LSB</th>
+            <td mat-cell *matCellDef="let field">
+              {{ field.lsb }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="defaultValue">
+            <th mat-header-cell *matHeaderCellDef>Default Value</th>
+            <td mat-cell *matCellDef="let field">
+              {{ '0x' + field.defaultValue.toString(16) }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="access">
+            <th mat-header-cell *matHeaderCellDef>Access</th>
+            <td mat-cell *matCellDef="let field">
+              {{ field.access }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <td mat-cell *matCellDef="let field">
+              {{ field.description }}
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="['name', 'msb','lsb', 'defaultValue', 'access', 'description']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['name', 'msb','lsb', 'defaultValue', 'access', 'description'];"></tr>
+        </table>
+      </td>
+    </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['fields'];"></tr>
   </table>
 </div>
