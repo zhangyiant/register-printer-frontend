@@ -1,0 +1,12 @@
+mat-tab-group {
+  height: 100%
+}
+
+::ng-deep .mat-tab-body-wrapper {
+  flex-grow: 1
+}
+
+app-main-window-view {
+  display: block;
+  height: 100%;
+}

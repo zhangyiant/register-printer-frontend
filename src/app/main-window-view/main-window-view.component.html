@@ -21,7 +21,7 @@
       Generate...
     </button>
   </div>
-  <div [ngStyle]="{'display': 'grid', 'grid-template-columns': '25% 25% 25% 25%', 'grid-template-rows': '100%'}">
+  <div class='content'>
     <app-top-sys-tree-view
       [topSys]="topSys"
       (selected)="onSelect($event)"

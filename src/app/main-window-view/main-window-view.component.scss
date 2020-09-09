@@ -4,4 +4,18 @@
 .main-window {
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+.content {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+}
+app-top-sys-tree-view {
+  overflow: scroll;
+}
+app-top-sys-content-view {
+  overflow: scroll;
 }
