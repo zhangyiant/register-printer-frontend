@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TopSysTreeNode } from '../ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
+import { TopSysTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
 
 @Component({
   selector: 'app-top-sys-node',

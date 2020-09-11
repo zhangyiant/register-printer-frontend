@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RegisterTreeNode } from '../ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
+import { RegisterTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
 
 @Component({
   selector: 'app-register-node',

@@ -61,6 +61,7 @@ export class BlockTemplateTreeNode implements RegisterPrinterTreeNode {
 
 export class BlockInstancesTreeNode implements RegisterPrinterTreeNode {
   type: string;
+  blockInstances: BlockInstance[];
   children?: RegisterPrinterTreeNode[];
   constructor() {
     this.type = 'BlockInstancesNode';
@@ -144,28 +145,17 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     topSysNode.children = [];
     const blockInstancesTreeNode = new BlockInstancesTreeNode();
     blockInstancesTreeNode.children = [];
+    blockInstancesTreeNode.blockInstances = topSys.blockInstances;
     topSysNode.children.push(blockInstancesTreeNode);
-    for (const blockInstance of topSys.blockInstances) {
-      const blockInstanceTreeNode: BlockInstanceTreeNode = new BlockInstanceTreeNode();
-      blockInstanceTreeNode.children = [];
-      blockInstanceTreeNode.blockInstance = blockInstance;
-      blockInstancesTreeNode.children.push(blockInstanceTreeNode);
-    }
+
     const blockTemplatesTreeNode = new BlockTemplatesTreeNode();
     blockTemplatesTreeNode.children = [];
     topSysNode.children.push(blockTemplatesTreeNode);
-    for (const blockType of topSys.blockTemplates) {
+    for (const blockTemplate of topSys.blockTemplates) {
       const blockTemplateTreeNode: BlockTemplateTreeNode = new BlockTemplateTreeNode();
       blockTemplateTreeNode.children = [];
-      blockTemplateTreeNode.blockTemplate = blockType;
-
+      blockTemplateTreeNode.blockTemplate = blockTemplate;
       blockTemplatesTreeNode.children.push(blockTemplateTreeNode);
-      for (const register of blockType.registers) {
-        const registerTreeNode = new RegisterTreeNode();
-        registerTreeNode.register = register;
-        registerTreeNode.children = [];
-        blockTemplateTreeNode.children.push(registerTreeNode);
-      }
     }
     TREE_DATA.push(topSysNode);
     this.dataSource.data = TREE_DATA;
@@ -181,13 +171,7 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     if (node instanceof TopSysTreeNode) {
       this.selected.emit(node.topSys);
     } else if (node instanceof BlockInstancesTreeNode) {
-      const blockInstances: BlockInstance[] = [];
-      for (const childNode of node.children) {
-        const blockInstanceTreeNode = <BlockInstanceTreeNode> childNode;
-        const blockInstance = blockInstanceTreeNode.blockInstance;
-        blockInstances.push(blockInstance);
-      }
-      this.selected.emit(blockInstances);
+      this.selected.emit(node.blockInstances);
     } else if (node instanceof BlockInstanceTreeNode) {
       this.selected.emit(node.blockInstance);
     } else if (node instanceof BlockTemplateTreeNode) {

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Block } from "../../register-printer";
+import { Block } from "../../../register-printer";
 
 @Component({
   selector: 'app-block-view',
