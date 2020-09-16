@@ -47,6 +47,7 @@ import { TopSysVersionComponent } from './ui-components/top-sys-version/top-sys-
 import { EditBoxComponent } from './ui-components/edit-box/edit-box.component';
 import { MainWindowViewComponent } from './main-window-view/main-window-view.component';
 import { BlockInstancesViewComponent } from './ui-content-view/block-instances-view/block-instances-view.component';
+import { NumberEditBoxComponent } from './ui-components/number-edit-box/number-edit-box.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { BlockInstancesViewComponent } from './ui-content-view/block-instances-v
     TopSysVersionComponent,
     EditBoxComponent,
     MainWindowViewComponent,
-    BlockInstancesViewComponent
+    BlockInstancesViewComponent,
+    NumberEditBoxComponent
   ],
   imports: [
     BrowserModule,
