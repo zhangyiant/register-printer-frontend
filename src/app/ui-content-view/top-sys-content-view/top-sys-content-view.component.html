@@ -9,6 +9,7 @@
     </app-block-view>
   <app-block-instances-view
     *ngIf="isBlockInstances()"
+    [topSys]="topSys"
     [blockInstances]="registerPrinterObject">
   </app-block-instances-view>
     <app-block-instance-view

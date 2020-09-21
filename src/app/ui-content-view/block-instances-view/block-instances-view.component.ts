@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {BlockInstance} from '../../../register-printer';
+import {BlockInstance, TopSys} from '../../../register-printer';
 
 @Component({
   selector: 'app-block-instances-view',
@@ -9,6 +9,7 @@ import {BlockInstance} from '../../../register-printer';
 export class BlockInstancesViewComponent implements OnInit {
 
   @Input() blockInstances: BlockInstance[];
+  @Input() topSys: TopSys;
   displayedColumns: string[] = [
     'name',
     'blockType',

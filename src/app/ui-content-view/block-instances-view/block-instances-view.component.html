@@ -13,7 +13,7 @@
       <td mat-cell *matCellDef="let blockInstance">
         <app-block-type-selector
           [(blockType)]="blockInstance.blockType"
-          (blockTemplates)="[]">
+          [blockTemplates]="topSys.blockTemplates">
         </app-block-type-selector>
       </td>
     </ng-container>

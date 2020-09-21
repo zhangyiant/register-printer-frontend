@@ -16,6 +16,7 @@ import {first} from 'rxjs/operators';
 })
 export class TopSysContentViewComponent implements OnInit {
 
+  @Input() topSys: TopSys;
   @Input() registerPrinterObject: TopSys | Block | BlockInstance | BlockInstance[] | BlockTemplate | Register | Field;
 
   constructor() { }
