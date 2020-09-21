@@ -11,7 +11,10 @@
     <ng-container matColumnDef="blockType">
       <th mat-header-cell *matHeaderCellDef>Block Type</th>
       <td mat-cell *matCellDef="let blockInstance">
-        {{ blockInstance.blockType }}
+        <app-block-type-selector
+          [(blockType)]="blockInstance.blockType"
+          (blockTemplates)="[]">
+        </app-block-type-selector>
       </td>
     </ng-container>
     <ng-container matColumnDef="baseAddress">

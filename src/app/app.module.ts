@@ -48,6 +48,7 @@ import { EditBoxComponent } from './ui-components/edit-box/edit-box.component';
 import { MainWindowViewComponent } from './main-window-view/main-window-view.component';
 import { BlockInstancesViewComponent } from './ui-content-view/block-instances-view/block-instances-view.component';
 import { NumberEditBoxComponent } from './ui-components/number-edit-box/number-edit-box.component';
+import { BlockTypeSelectorComponent } from './ui-components/block-type-selector/block-type-selector.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { NumberEditBoxComponent } from './ui-components/number-edit-box/number-e
     EditBoxComponent,
     MainWindowViewComponent,
     BlockInstancesViewComponent,
-    NumberEditBoxComponent
+    NumberEditBoxComponent,
+    BlockTypeSelectorComponent
   ],
   imports: [
     BrowserModule,
