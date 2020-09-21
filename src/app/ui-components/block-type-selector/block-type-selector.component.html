@@ -1,8 +1,9 @@
 <ng-container>
-  {{ blockType }}
-  <ol>
-    <li *ngFor="let blockTemplate of blockTemplates">
-      {{ blockTemplate.blockType }}
-    </li>
-  </ol>
+  <mat-form-field appearance="fill">
+    <mat-select [value]="blockType" (valueChange)="blockTypeChange.emit($event)">
+      <mat-option *ngFor="let blockTemplate of blockTemplates" [value]="blockTemplate.blockType">
+        {{ blockTemplate.blockType }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </ng-container>
