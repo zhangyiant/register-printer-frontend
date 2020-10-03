@@ -12,10 +12,6 @@
     [topSys]="topSys"
     [blockInstances]="registerPrinterObject">
   </app-block-instances-view>
-    <app-block-instance-view
-      *ngIf="isBlockInstance()"
-      [blockInstance]="registerPrinterObject">
-    </app-block-instance-view>
     <app-block-template-view
       *ngIf="isBlockTemplate()"
       [blockTemplate]="registerPrinterObject">

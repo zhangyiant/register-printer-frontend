@@ -40,7 +40,6 @@ import { FieldViewComponent } from './ui-content-view/field-view/field-view.comp
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 import { BlockInstancesNodeComponent } from './ui-tree-view/block-instances-node/block-instances-node.component';
 import { BlockInstanceNodeComponent } from './ui-tree-view/block-instance-node/block-instance-node.component';
-import { BlockInstanceViewComponent } from './ui-content-view/block-instance-view/block-instance-view.component';
 import { TopSysAuthorComponent } from './ui-components/top-sys-author/top-sys-author/top-sys-author.component';
 import { ExcelSelectorComponent } from './excel-selector/excel-selector.component';
 import { TopSysVersionComponent } from './ui-components/top-sys-version/top-sys-version/top-sys-version.component';
@@ -74,7 +73,6 @@ import { HexEditBoxComponent } from './ui-components/hex-editor-box/hex-edit-box
     OpenDialogComponent,
     BlockInstancesNodeComponent,
     BlockInstanceNodeComponent,
-    BlockInstanceViewComponent,
     TopSysAuthorComponent,
     ExcelSelectorComponent,
     TopSysVersionComponent,
