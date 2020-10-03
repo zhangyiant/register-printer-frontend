@@ -8,7 +8,7 @@
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let register">
-        {{ register.name }}
+        <app-edit-box [(value)]="register.name"></app-edit-box>
       </td>
     </ng-container>
     <ng-container matColumnDef="offset">
@@ -29,19 +29,19 @@
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
             <td mat-cell *matCellDef="let field">
-              {{ field.name }}
+              <app-edit-box [(value)]="field.name"></app-edit-box>
             </td>
           </ng-container>
           <ng-container matColumnDef="msb">
             <th mat-header-cell *matHeaderCellDef>MSB</th>
             <td mat-cell *matCellDef="let field">
-              {{ field.msb }}
+              <app-number-edit-box [(value)]="field.msb"></app-number-edit-box>
             </td>
           </ng-container>
           <ng-container matColumnDef="lsb">
             <th mat-header-cell *matHeaderCellDef>LSB</th>
             <td mat-cell *matCellDef="let field">
-              {{ field.lsb }}
+              <app-number-edit-box [(value)]="field.lsb"></app-number-edit-box>
             </td>
           </ng-container>
           <ng-container matColumnDef="defaultValue">
