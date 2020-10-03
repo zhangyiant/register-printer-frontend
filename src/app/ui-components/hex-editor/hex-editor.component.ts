@@ -43,9 +43,6 @@ export class HexEditorComponent implements OnInit, OnChanges {
     this.hexString = this.editingValue;
     this.isEditing = false;
     const tmpValue: number = parseInt(this.hexString, 16);
-    console.log("submit");
-    console.log(this.hexString);
-    console.log(tmpValue);
     this.valueChange.emit(tmpValue);
     return;
   }
