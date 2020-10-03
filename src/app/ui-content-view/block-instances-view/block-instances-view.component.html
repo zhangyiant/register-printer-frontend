@@ -20,13 +20,15 @@
     <ng-container matColumnDef="baseAddress">
       <th mat-header-cell *matHeaderCellDef>Base Address</th>
       <td mat-cell *matCellDef="let blockInstance">
-        {{ '0x' + blockInstance.baseAddress.toString(16) }}
+        <app-hex-editor [(value)]="blockInstance.baseAddress">
+        </app-hex-editor>
       </td>
     </ng-container>
     <ng-container matColumnDef="blockSize">
       <th mat-header-cell *matHeaderCellDef>Block Size</th>
       <td mat-cell *matCellDef="let blockInstance">
-        {{ '0x' + blockInstance.blockSize.toString(16) }}
+        <app-hex-editor [(value)]="blockInstance.blockSize">
+        </app-hex-editor>
       </td>
     </ng-container>
     <ng-container matColumnDef="addressWidth">
