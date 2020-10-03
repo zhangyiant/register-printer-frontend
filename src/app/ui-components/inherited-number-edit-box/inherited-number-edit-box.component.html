@@ -1,0 +1,21 @@
+<ng-container>
+  <span *ngIf="!isEditing" (dblclick)="onDoubleClick($event)">
+    {{ displayValue }}
+  </span>
+  <span *ngIf="isEditing">
+    <form>
+      <mat-form-field>
+        <input matInput [disabled]="editingIsInherited" name="editingValue" [(ngModel)]="editingValue">
+      </mat-form-field>
+      <mat-checkbox [(ngModel)]="editingIsInherited" name="isInherited" class="checkbox" (change)="onCheckBoxChange()">
+        inherited
+      </mat-checkbox>
+    </form>
+    <button mat-icon-button (click)="onSubmit($event)">
+      <mat-icon>done</mat-icon>
+    </button>
+    <button mat-icon-button (click)="onCancel($event)">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </span>
+</ng-container>

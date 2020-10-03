@@ -40,13 +40,16 @@ import { FieldViewComponent } from './ui-content-view/field-view/field-view.comp
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 import { BlockInstancesNodeComponent } from './ui-tree-view/block-instances-node/block-instances-node.component';
 import { BlockInstanceNodeComponent } from './ui-tree-view/block-instance-node/block-instance-node.component';
-import { BlockInstanceViewComponent } from './ui-content-view/block-instance-view/block-instance-view.component';
 import { TopSysAuthorComponent } from './ui-components/top-sys-author/top-sys-author/top-sys-author.component';
 import { ExcelSelectorComponent } from './excel-selector/excel-selector.component';
 import { TopSysVersionComponent } from './ui-components/top-sys-version/top-sys-version/top-sys-version.component';
 import { EditBoxComponent } from './ui-components/edit-box/edit-box.component';
 import { MainWindowViewComponent } from './main-window-view/main-window-view.component';
 import { BlockInstancesViewComponent } from './ui-content-view/block-instances-view/block-instances-view.component';
+import { NumberEditBoxComponent } from './ui-components/number-edit-box/number-edit-box.component';
+import { BlockTypeSelectorComponent } from './ui-components/block-type-selector/block-type-selector.component';
+import { HexEditBoxComponent } from './ui-components/hex-editor-box/hex-edit-box.component';
+import { InheritedNumberEditBoxComponent } from './ui-components/inherited-number-edit-box/inherited-number-edit-box.component';
 
 @NgModule({
   declarations: [
@@ -71,13 +74,16 @@ import { BlockInstancesViewComponent } from './ui-content-view/block-instances-v
     OpenDialogComponent,
     BlockInstancesNodeComponent,
     BlockInstanceNodeComponent,
-    BlockInstanceViewComponent,
     TopSysAuthorComponent,
     ExcelSelectorComponent,
     TopSysVersionComponent,
     EditBoxComponent,
     MainWindowViewComponent,
-    BlockInstancesViewComponent
+    BlockInstancesViewComponent,
+    NumberEditBoxComponent,
+    BlockTypeSelectorComponent,
+    HexEditBoxComponent,
+    InheritedNumberEditBoxComponent
   ],
   imports: [
     BrowserModule,

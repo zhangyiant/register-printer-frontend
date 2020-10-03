@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlockInstanceViewComponent } from './block-instance-view.component';
+import { NumberEditBoxComponent } from './number-edit-box.component';
 
-describe('AddressMapViewComponent', () => {
-  let component: BlockInstanceViewComponent;
-  let fixture: ComponentFixture<BlockInstanceViewComponent>;
+describe('NumberEditBoxComponent', () => {
+  let component: NumberEditBoxComponent;
+  let fixture: ComponentFixture<NumberEditBoxComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlockInstanceViewComponent ]
+      declarations: [ NumberEditBoxComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BlockInstanceViewComponent);
+    fixture = TestBed.createComponent(NumberEditBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

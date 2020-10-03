@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {BlockInstance} from '../../../register-printer';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import {BlockInstance, TopSys} from '../../../register-printer';
+import { MatTable } from '@angular/material/table'
 
 @Component({
   selector: 'app-block-instances-view',
@@ -9,6 +10,7 @@ import {BlockInstance} from '../../../register-printer';
 export class BlockInstancesViewComponent implements OnInit {
 
   @Input() blockInstances: BlockInstance[];
+  @Input() topSys: TopSys;
   displayedColumns: string[] = [
     'name',
     'blockType',
@@ -18,9 +20,25 @@ export class BlockInstancesViewComponent implements OnInit {
     'dataWidth'
   ];
 
+  @ViewChild(MatTable)
+  table: MatTable<any>;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onAddBlockInstance() {
+    const blockInstance = new BlockInstance(
+      null,
+      "NewBlockInstance",
+      0,
+      0,
+      null,
+      null
+    );
+    this.blockInstances.push(blockInstance);
+    this.table.renderRows();
   }
 
 }
