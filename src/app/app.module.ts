@@ -49,7 +49,7 @@ import { MainWindowViewComponent } from './main-window-view/main-window-view.com
 import { BlockInstancesViewComponent } from './ui-content-view/block-instances-view/block-instances-view.component';
 import { NumberEditBoxComponent } from './ui-components/number-edit-box/number-edit-box.component';
 import { BlockTypeSelectorComponent } from './ui-components/block-type-selector/block-type-selector.component';
-import { HexEditorComponent } from './ui-components/hex-editor/hex-editor.component';
+import { HexEditBoxComponent } from './ui-components/hex-editor-box/hex-edit-box.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +83,7 @@ import { HexEditorComponent } from './ui-components/hex-editor/hex-editor.compon
     BlockInstancesViewComponent,
     NumberEditBoxComponent,
     BlockTypeSelectorComponent,
-    HexEditorComponent
+    HexEditBoxComponent
   ],
   imports: [
     BrowserModule,

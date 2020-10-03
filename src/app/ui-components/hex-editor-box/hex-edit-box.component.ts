@@ -9,11 +9,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-hex-editor',
-  templateUrl: './hex-editor.component.html',
-  styleUrls: ['./hex-editor.component.scss']
+  selector: 'app-hex-edit-box',
+  templateUrl: './hex-edit-box.component.html',
+  styleUrls: ['./hex-edit-box.component.scss']
 })
-export class HexEditorComponent implements OnInit, OnChanges {
+export class HexEditBoxComponent implements OnInit, OnChanges {
 
   @Input() value: number;
   @Output() valueChange = new EventEmitter<number>();
