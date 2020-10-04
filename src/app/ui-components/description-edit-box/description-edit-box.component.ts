@@ -30,6 +30,7 @@ export class DescriptionEditBoxComponent implements OnInit {
   onDoubleClick() {
     const matDialogConfig = new MatDialogConfig();
     matDialogConfig.disableClose = true;
+    matDialogConfig.width = "800px";
     matDialogConfig.data = {
       description: this.value
     };
@@ -37,5 +38,10 @@ export class DescriptionEditBoxComponent implements OnInit {
       DescriptionEditDlgComponent,
       matDialogConfig
     );
+    dlg.afterClosed().subscribe(result => {
+      if (result) {
+        this.valueChange.emit(result);
+      }
+    })
   }
 }
