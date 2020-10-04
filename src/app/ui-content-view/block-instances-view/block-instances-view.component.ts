@@ -1,6 +1,12 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import {BlockInstance, TopSys} from '../../../register-printer';
 import { MatTable } from '@angular/material/table'
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
+import {
+  SelectBlockInstanceDlgComponent,
+  DialogData
+} from '../../ui-dialogs/select-block-instance-dlg/select-block-instance-dlg.component'
+import * as _ from 'lodash'
 
 @Component({
   selector: 'app-block-instances-view',
@@ -23,7 +29,7 @@ export class BlockInstancesViewComponent implements OnInit {
   @ViewChild(MatTable)
   table: MatTable<any>;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -42,6 +48,23 @@ export class BlockInstancesViewComponent implements OnInit {
   }
 
   onDeleteBlockInstance() {
-    console.log("Delete Block Instance.")
+    const matDialogConfig = new MatDialogConfig();
+    matDialogConfig.disableClose = true;
+    matDialogConfig.data = {
+      blockInstances: this.blockInstances
+    }
+    const dlg = this.dialog.open(
+      SelectBlockInstanceDlgComponent,
+      matDialogConfig);
+
+    dlg.afterClosed().subscribe(result => {
+      if (result) {
+        _.remove(this.blockInstances,
+          (item) => {
+            return item.name === result.name;
+          });
+        this.table.renderRows();
+      }
+    });
   }
 }
