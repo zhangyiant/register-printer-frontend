@@ -51,6 +51,7 @@ import { BlockTypeSelectorComponent } from './ui-components/block-type-selector/
 import { HexEditBoxComponent } from './ui-components/hex-editor-box/hex-edit-box.component';
 import { InheritedNumberEditBoxComponent } from './ui-components/inherited-number-edit-box/inherited-number-edit-box.component';
 import { SelectBlockInstanceDlgComponent } from './ui-dialogs/select-block-instance-dlg/select-block-instance-dlg.component';
+import { DescriptionEditBoxComponent } from './ui-components/description-edit-box/description-edit-box.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { SelectBlockInstanceDlgComponent } from './ui-dialogs/select-block-insta
     BlockTypeSelectorComponent,
     HexEditBoxComponent,
     InheritedNumberEditBoxComponent,
-    SelectBlockInstanceDlgComponent
+    SelectBlockInstanceDlgComponent,
+    DescriptionEditBoxComponent
   ],
   imports: [
     BrowserModule,

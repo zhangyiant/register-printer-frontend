@@ -20,7 +20,8 @@
     <ng-container matColumnDef="description">
       <th mat-header-cell *matHeaderCellDef>Description</th>
       <td mat-cell *matCellDef="let register">
-        {{ register.description }}
+        <app-description-edit-box [(value)]="register.description">
+        </app-description-edit-box>
       </td>
     </ng-container>
     <ng-container matColumnDef="fields">
@@ -59,7 +60,8 @@
           <ng-container matColumnDef="description">
             <th mat-header-cell *matHeaderCellDef>Description</th>
             <td mat-cell *matCellDef="let field">
-              {{ field.description }}
+              <app-description-edit-box [(value)]="field.description">
+              </app-description-edit-box>
             </td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="['name', 'msb','lsb', 'defaultValue', 'access', 'description']"></tr>
