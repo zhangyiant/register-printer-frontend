@@ -41,4 +41,7 @@ export class BlockInstancesViewComponent implements OnInit {
     this.table.renderRows();
   }
 
+  onDeleteBlockInstance() {
+    console.log("Delete Block Instance.")
+  }
 }
