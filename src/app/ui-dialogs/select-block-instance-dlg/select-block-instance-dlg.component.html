@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Select a block instance...</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Block Instance</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option *ngFor="let blockInstance of data.blockInstances" [value]="blockInstance">
+        {{ blockInstance.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="selected" cdkFocusInitial>Ok</button>
+</div>
+
