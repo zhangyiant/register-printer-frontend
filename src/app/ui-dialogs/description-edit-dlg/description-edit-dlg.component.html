@@ -1,1 +1,12 @@
-<p>description-edit-dlg works!</p>
+<h1 mat-dialog-title>
+  Edit description...
+</h1>
+<div mat-dialog-content>
+  {{ data.description }}
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <!--
+  <button mat-button [mat-dialog-close]="selected" cdkFocusInitial>Ok</button>
+  -->
+</div>

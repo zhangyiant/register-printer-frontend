@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from '@angular/material/dialog'
+
+export interface DescriptionDialogData {
+  description: string
+}
 
 @Component({
   selector: 'app-description-edit-dlg',
@@ -7,9 +15,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DescriptionEditDlgComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private matDialogRef: MatDialogRef<DescriptionEditDlgComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DescriptionDialogData
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
+  onCancelClick() {
+    this.matDialogRef.close();
+  }
 }

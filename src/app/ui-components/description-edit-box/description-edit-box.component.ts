@@ -5,6 +5,8 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
+import { DescriptionEditDlgComponent } from '../../ui-dialogs/description-edit-dlg/description-edit-dlg.component'
 
 @Component({
   selector: 'app-description-edit-box',
@@ -16,12 +18,24 @@ export class DescriptionEditBoxComponent implements OnInit {
   @Input() value: string;
   @Output() valueChange = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog
+  ) {
+
+  }
 
   ngOnInit(): void {
   }
 
   onDoubleClick() {
-    console.log("on double click");
+    const matDialogConfig = new MatDialogConfig();
+    matDialogConfig.disableClose = true;
+    matDialogConfig.data = {
+      description: this.value
+    };
+    const dlg = this.dialog.open(
+      DescriptionEditDlgComponent,
+      matDialogConfig
+    );
   }
 }
