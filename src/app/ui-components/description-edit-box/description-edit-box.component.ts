@@ -21,4 +21,7 @@ export class DescriptionEditBoxComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onDoubleClick() {
+    console.log("on double click");
+  }
 }
