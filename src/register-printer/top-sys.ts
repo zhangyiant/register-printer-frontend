@@ -1,4 +1,3 @@
-import { Block } from './block';
 import { BlockTemplate } from './block-template';
 import { BlockInstance } from './block-instance';
 
@@ -9,7 +8,6 @@ export class TopSys {
     version: string | null;
     author: string | null;
     blockTemplates: Array<BlockTemplate>;
-    blocks: Array<Block>;
     blockInstances: Array<BlockInstance>;
 
     constructor(name: string, addressWidth: number, dataWidth: number) {
@@ -19,7 +17,6 @@ export class TopSys {
         this.version = null;
         this.author = null;
         this.blockTemplates = [];
-        this.blocks = [];
         this.blockInstances = [];
         return;
     }

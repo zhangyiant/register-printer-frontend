@@ -3,10 +3,6 @@
       *ngIf="isTopSys()"
       [topSys]="registerPrinterObject">
     </app-top-sys-view>
-    <app-block-view
-      *ngIf="isBlock()"
-      [block]="registerPrinterObject">
-    </app-block-view>
   <app-block-instances-view
     *ngIf="isBlockInstances()"
     [topSys]="topSys"

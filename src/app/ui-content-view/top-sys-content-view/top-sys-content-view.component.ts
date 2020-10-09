@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {
   TopSys,
-  Block,
   BlockInstance,
   BlockTemplate,
   Register,
@@ -17,7 +16,7 @@ import {first} from 'rxjs/operators';
 export class TopSysContentViewComponent implements OnInit {
 
   @Input() topSys: TopSys;
-  @Input() registerPrinterObject: TopSys | Block | BlockInstance | BlockInstance[] | BlockTemplate | Register | Field;
+  @Input() registerPrinterObject: TopSys | BlockInstance | BlockInstance[] | BlockTemplate | Register | Field;
 
   constructor() { }
 
@@ -27,9 +26,7 @@ export class TopSysContentViewComponent implements OnInit {
   isTopSys(): boolean {
     return (this.registerPrinterObject instanceof TopSys);
   }
-  isBlock(): boolean {
-    return (this.registerPrinterObject instanceof Block);
-  }
+
   isBlockInstance(): boolean {
     return (this.registerPrinterObject instanceof BlockInstance);
   }

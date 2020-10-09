@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ViewChild} from '@angular/core';
 import {
-  Block,
   BlockTemplate,
   Field,
   Register,
@@ -18,7 +17,7 @@ import {RegisterPrinterService} from '../register-printer.service';
 export class MainWindowViewComponent implements OnInit {
 
   @Input() topSys: TopSys | null;
-  selected: TopSys | BlockTemplate | Block | Register | Field | null;
+  selected: TopSys | BlockTemplate | Register | Field | null;
 
   @ViewChild(TopSysTreeViewComponent) treeView: TopSysTreeViewComponent;
 
@@ -29,7 +28,7 @@ export class MainWindowViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelect(registerPrinterObject: TopSys | BlockTemplate | Block | Register | Field): void {
+  onSelect(registerPrinterObject: TopSys | BlockTemplate | Register | Field): void {
     this.selected = registerPrinterObject;
     return;
   }

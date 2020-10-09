@@ -4,7 +4,6 @@ import { Observable, Subject } from 'rxjs';
 import {
   TopSys,
   BlockTemplate,
-  Block,
   Register,
   Field
 } from '../register-printer';
@@ -14,6 +13,7 @@ import { remote } from 'electron';
 import * as path from 'path';
 import * as fs from 'fs';
 import * as os from 'os';
+import * as _ from 'lodash';
 
 
 @Injectable({
@@ -363,5 +363,17 @@ export class RegisterPrinterService {
     this.topSys.blockTemplates.push(blockTemplate);
     this.documentOpenedSource.next(this.topSys);
     return;
+  }
+
+  removeBlockTemplate(blockTemplate: BlockTemplate) {
+    _.remove(this.topSys.blockInstances,
+      (item) => {
+        return item.blockType === blockTemplate.blockType;
+      });
+    _.remove(this.topSys.blockTemplates,
+      (item) => {
+        return item === blockTemplate;
+      });
+    this.documentOpenedSource.next(this.topSys);
   }
 }
