@@ -44,6 +44,7 @@ export class PropertyTreeNode implements RegisterPrinterTreeNode {
 
 export class BlockTemplatesTreeNode implements RegisterPrinterTreeNode {
   type: string;
+  blockTemplates: BlockTemplate[];
   children?: RegisterPrinterTreeNode[];
   constructor() {
     this.type = 'BlockTemplatesNode';
@@ -134,6 +135,11 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
+  refresh() {
+    this.updateTopSys(this.topSys);
+    return;
+  }
+
   updateTopSys(topSys: TopSys | null) {
     TREE_DATA = [];
     if (!topSys) {
@@ -149,6 +155,7 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     topSysNode.children.push(blockInstancesTreeNode);
 
     const blockTemplatesTreeNode = new BlockTemplatesTreeNode();
+    blockTemplatesTreeNode.blockTemplates = topSys.blockTemplates;
     blockTemplatesTreeNode.children = [];
     topSysNode.children.push(blockTemplatesTreeNode);
     for (const blockTemplate of topSys.blockTemplates) {

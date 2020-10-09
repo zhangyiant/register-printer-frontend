@@ -357,4 +357,11 @@ export class RegisterPrinterService {
     });
     return;
   }
+
+  addBlockTemplate(blockType: string) {
+    const blockTemplate = new BlockTemplate(blockType);
+    this.topSys.blockTemplates.push(blockTemplate);
+    this.documentOpenedSource.next(this.topSys);
+    return;
+  }
 }

@@ -16,6 +16,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -53,6 +54,7 @@ import { InheritedNumberEditBoxComponent } from './ui-components/inherited-numbe
 import { SelectBlockInstanceDlgComponent } from './ui-dialogs/select-block-instance-dlg/select-block-instance-dlg.component';
 import { DescriptionEditBoxComponent } from './ui-components/description-edit-box/description-edit-box.component';
 import { DescriptionEditDlgComponent } from './ui-dialogs/description-edit-dlg/description-edit-dlg.component';
+import { AddBlockTemplateDlgComponent } from './ui-dialogs/add-block-template-dlg/add-block-template-dlg.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +91,8 @@ import { DescriptionEditDlgComponent } from './ui-dialogs/description-edit-dlg/d
     InheritedNumberEditBoxComponent,
     SelectBlockInstanceDlgComponent,
     DescriptionEditBoxComponent,
-    DescriptionEditDlgComponent
+    DescriptionEditDlgComponent,
+    AddBlockTemplateDlgComponent
   ],
   imports: [
     BrowserModule,
@@ -104,6 +107,7 @@ import { DescriptionEditDlgComponent } from './ui-dialogs/description-edit-dlg/d
     MatInputModule,
     MatSelectModule,
     MatListModule,
+    MatMenuModule,
     MatDividerModule,
     MatTreeModule,
     MatDialogModule,
