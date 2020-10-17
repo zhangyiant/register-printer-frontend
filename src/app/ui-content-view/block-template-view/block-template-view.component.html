@@ -1,5 +1,16 @@
 <div>
   <h2>Block Template: {{ blockTemplate.blockType }}</h2>
+  <button
+    mat-raised-button color="primary"
+    (click)="onAddRegister()">
+    Add Register
+  </button>
+  <button
+    mat-raised-button color="primary"
+    (click)="onDeleteRegister()">
+    Delete Register
+  </button>
+
   <table
     mat-table
     [dataSource]="blockTemplate.registers"
