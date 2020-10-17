@@ -59,6 +59,7 @@ import { AddRegisterDlgComponent } from './ui-dialogs/add-register-dlg/add-regis
 import { SelectRegisterDlgComponent } from './ui-dialogs/select-register-dlg/select-register-dlg.component';
 import { FieldsViewComponent } from './ui-content-view/fields-view/fields-view.component';
 import { AddFieldDlgComponent } from './ui-dialogs/add-field-dlg/add-field-dlg.component';
+import { SelectFieldDlgComponent } from './ui-dialogs/select-field-dlg/select-field-dlg.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { AddFieldDlgComponent } from './ui-dialogs/add-field-dlg/add-field-dlg.c
     AddRegisterDlgComponent,
     SelectRegisterDlgComponent,
     FieldsViewComponent,
-    AddFieldDlgComponent
+    AddFieldDlgComponent,
+    SelectFieldDlgComponent
   ],
   imports: [
     BrowserModule,
