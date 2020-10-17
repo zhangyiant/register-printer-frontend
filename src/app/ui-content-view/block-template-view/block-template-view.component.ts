@@ -5,6 +5,10 @@ import { BlockTemplate } from '../../../register-printer';
 import {
   AddRegisterDlgComponent
 } from '../../ui-dialogs/add-register-dlg/add-register-dlg.component'
+import {
+  SelectRegisterDlgComponent
+} from '../../ui-dialogs/select-register-dlg/select-register-dlg.component';
+import * as _ from 'lodash';
 
 
 @Component({
@@ -46,6 +50,23 @@ export class BlockTemplateViewComponent implements OnInit {
   }
 
   onDeleteRegister() {
-    console.log("Delete Register");
+    const matDialogConfig = new MatDialogConfig();
+    matDialogConfig.disableClose = true;
+    matDialogConfig.data = {
+      registers: this.blockTemplate.registers
+    }
+    const dlg = this.dialog.open(
+      SelectRegisterDlgComponent,
+      matDialogConfig);
+
+    dlg.afterClosed().subscribe(result => {
+      if (result) {
+        _.remove(this.blockTemplate.registers,
+          (item) => {
+            return item.name === result.name;
+          });
+        this.table.renderRows();
+      }
+    });
   }
 }

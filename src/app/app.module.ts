@@ -56,6 +56,7 @@ import { DescriptionEditDlgComponent } from './ui-dialogs/description-edit-dlg/d
 import { AddBlockTemplateDlgComponent } from './ui-dialogs/add-block-template-dlg/add-block-template-dlg.component';
 import { SelectBlockTemplateDlgComponent } from './ui-dialogs/select-block-template-dlg/select-block-template-dlg.component';
 import { AddRegisterDlgComponent } from './ui-dialogs/add-register-dlg/add-register-dlg.component';
+import { SelectRegisterDlgComponent } from './ui-dialogs/select-register-dlg/select-register-dlg.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { AddRegisterDlgComponent } from './ui-dialogs/add-register-dlg/add-regis
     DescriptionEditDlgComponent,
     AddBlockTemplateDlgComponent,
     SelectBlockTemplateDlgComponent,
-    AddRegisterDlgComponent
+    AddRegisterDlgComponent,
+    SelectRegisterDlgComponent
   ],
   imports: [
     BrowserModule,
