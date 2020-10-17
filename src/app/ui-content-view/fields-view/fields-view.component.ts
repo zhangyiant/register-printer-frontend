@@ -16,4 +16,11 @@ export class FieldsViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAddField(): void {
+
+  }
+
+  onDeleteField(): void {
+
+  }
 }

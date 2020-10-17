@@ -1,3 +1,13 @@
+<button
+  mat-raised-button color="primary"
+  (click)="onAddField()">
+  Add Field
+</button>
+<button
+  mat-raised-button color="primary"
+  (click)="onDeleteField()">
+  Delete Field
+</button>
 <table mat-table [dataSource]="fields" class="mat-elevation-z2">
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Name</th>
