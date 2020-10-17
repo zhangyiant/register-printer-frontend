@@ -6,6 +6,18 @@
     <mat-label>Name</mat-label>
     <input matInput [(ngModel)]="field.name">
   </mat-form-field>
+  <div>
+    <span>MSB: </span>
+    <app-number-edit-box [(value)]="field.msb"></app-number-edit-box>
+  </div>
+  <div>
+    <span>LSB: </span>
+    <app-number-edit-box [(value)]="field.lsb"></app-number-edit-box>
+  </div>
+  <div>
+    <span>Default Value: </span>
+    <app-hex-edit-box [(value)]="field.defaultValue"></app-hex-edit-box>
+  </div>
   <mat-form-field appearance="fill">
     <mat-label>Description</mat-label>
     <textarea matInput [(ngModel)]="field.description" rows="10">
