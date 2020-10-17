@@ -18,6 +18,11 @@
     <span>Default Value: </span>
     <app-hex-edit-box [(value)]="field.defaultValue"></app-hex-edit-box>
   </div>
+  <div>
+    <span>Access: </span>
+    <app-access-selector [(access)]="field.access">
+    </app-access-selector>
+  </div>
   <mat-form-field appearance="fill">
     <mat-label>Description</mat-label>
     <textarea matInput [(ngModel)]="field.description" rows="10">
