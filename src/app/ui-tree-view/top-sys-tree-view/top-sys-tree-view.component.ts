@@ -13,7 +13,6 @@ import {
   TopSys,
   BlockInstance,
   BlockTemplate,
-  Block,
   Register,
   Field
 } from '../../../register-printer';
@@ -44,6 +43,7 @@ export class PropertyTreeNode implements RegisterPrinterTreeNode {
 
 export class BlockTemplatesTreeNode implements RegisterPrinterTreeNode {
   type: string;
+  blockTemplates: BlockTemplate[];
   children?: RegisterPrinterTreeNode[];
   constructor() {
     this.type = 'BlockTemplatesNode';
@@ -121,7 +121,7 @@ let TREE_DATA: RegisterPrinterTreeNode[] = [];
 export class TopSysTreeViewComponent implements OnInit, OnChanges {
 
   @Input() topSys: TopSys;
-  @Output() selected = new EventEmitter<TopSys | BlockInstance | BlockInstance[] | BlockTemplate | Block | Register | Field>();
+  @Output() selected = new EventEmitter<TopSys | BlockInstance | BlockInstance[] | BlockTemplate | Register | Field>();
 
   treeControl = new NestedTreeControl<RegisterPrinterTreeNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<RegisterPrinterTreeNode>();
@@ -132,6 +132,11 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
   hasChild = (_: number, node: RegisterPrinterTreeNode) => !!node.children && node.children.length > 0;
 
   ngOnInit() {
+  }
+
+  refresh() {
+    this.updateTopSys(this.topSys);
+    return;
   }
 
   updateTopSys(topSys: TopSys | null) {
@@ -149,6 +154,7 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     topSysNode.children.push(blockInstancesTreeNode);
 
     const blockTemplatesTreeNode = new BlockTemplatesTreeNode();
+    blockTemplatesTreeNode.blockTemplates = topSys.blockTemplates;
     blockTemplatesTreeNode.children = [];
     topSysNode.children.push(blockTemplatesTreeNode);
     for (const blockTemplate of topSys.blockTemplates) {

@@ -1,12 +1,12 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, ViewChild} from '@angular/core';
 import {
-  Block,
   BlockTemplate,
   Field,
   Register,
   TopSys
 } from '../../register-printer';
 import { remote } from 'electron';
+import { TopSysTreeViewComponent } from '../ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
 import {RegisterPrinterService} from '../register-printer.service';
 
 @Component({
@@ -17,7 +17,9 @@ import {RegisterPrinterService} from '../register-printer.service';
 export class MainWindowViewComponent implements OnInit {
 
   @Input() topSys: TopSys | null;
-  selected: TopSys | BlockTemplate | Block | Register | Field | null;
+  selected: TopSys | BlockTemplate | Register | Field | null;
+
+  @ViewChild(TopSysTreeViewComponent) treeView: TopSysTreeViewComponent;
 
   constructor(
     private registerPrinterService: RegisterPrinterService
@@ -26,7 +28,7 @@ export class MainWindowViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelect(registerPrinterObject: TopSys | BlockTemplate | Block | Register | Field): void {
+  onSelect(registerPrinterObject: TopSys | BlockTemplate | Register | Field): void {
     this.selected = registerPrinterObject;
     return;
   }
@@ -130,5 +132,9 @@ export class MainWindowViewComponent implements OnInit {
       }
     );
     return;
+  }
+
+  refresh() {
+    this.treeView.refresh();
   }
 }

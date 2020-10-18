@@ -14,7 +14,9 @@
     [blockInstanceTreeNode]="registerPrinterTreeNode"
     *ngIf="isAddressMapTreeNode()">
   </app-block-instance-node>
-  <app-block-templates-node *ngIf="isBlockTypesTreeNode()">
+  <app-block-templates-node
+    [blockTemplatesTreeNode]="registerPrinterTreeNode"
+    *ngIf="isBlockTypesTreeNode()">
   </app-block-templates-node>
   <app-block-type-node
     [blockTypeTreeNode]="registerPrinterTreeNode"

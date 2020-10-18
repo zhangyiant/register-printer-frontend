@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlockViewComponent } from './block-view.component';
+import { FieldsViewComponent } from './fields-view.component';
 
-describe('BlockViewComponent', () => {
-  let component: BlockViewComponent;
-  let fixture: ComponentFixture<BlockViewComponent>;
+describe('FieldsViewComponent', () => {
+  let component: FieldsViewComponent;
+  let fixture: ComponentFixture<FieldsViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlockViewComponent ]
+      declarations: [ FieldsViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BlockViewComponent);
+    fixture = TestBed.createComponent(FieldsViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

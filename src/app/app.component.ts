@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { TopSys } from '../register-printer';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 import { RegisterPrinterService } from './register-printer.service';
+import { MainWindowViewComponent } from './main-window-view/main-window-view.component';
 
 
 @Component({
@@ -16,6 +17,8 @@ export class AppComponent implements OnInit {
   topSys: TopSys;
   isElectronApp = true;
 
+  @ViewChild(MainWindowViewComponent) mainWindowView: MainWindowViewComponent;
+
   constructor(
     private registerPrinterService: RegisterPrinterService,
     private titleService: Title,
@@ -27,7 +30,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.registerPrinterService.documentOpened$.subscribe(
-      (topSys: TopSys) => this.topSys = topSys
+      (topSys: TopSys) => {
+        if (this.topSys === topSys) {
+          this.mainWindowView.refresh();
+        } else {
+          this.topSys = topSys;
+        }
+      }
     );
     return;
   }

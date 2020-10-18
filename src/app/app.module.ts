@@ -16,6 +16,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -33,7 +34,6 @@ import { RegistersNodeComponent } from './ui-tree-view/registers-node/registers-
 import { RegisterNodeComponent } from './ui-tree-view/register-node/register-node.component';
 import { FieldsNodeComponent } from './ui-tree-view/fields-node/fields-node.component';
 import { FieldNodeComponent } from './ui-tree-view/field-node/field-node.component';
-import { BlockViewComponent } from './ui-content-view/block-view/block-view.component';
 import { BlockTemplateViewComponent } from './ui-content-view/block-template-view/block-template-view.component';
 import { RegisterViewComponent } from './ui-content-view/register-view/register-view.component';
 import { FieldViewComponent } from './ui-content-view/field-view/field-view.component';
@@ -51,6 +51,16 @@ import { BlockTypeSelectorComponent } from './ui-components/block-type-selector/
 import { HexEditBoxComponent } from './ui-components/hex-editor-box/hex-edit-box.component';
 import { InheritedNumberEditBoxComponent } from './ui-components/inherited-number-edit-box/inherited-number-edit-box.component';
 import { SelectBlockInstanceDlgComponent } from './ui-dialogs/select-block-instance-dlg/select-block-instance-dlg.component';
+import { DescriptionEditBoxComponent } from './ui-components/description-edit-box/description-edit-box.component';
+import { DescriptionEditDlgComponent } from './ui-dialogs/description-edit-dlg/description-edit-dlg.component';
+import { AddBlockTemplateDlgComponent } from './ui-dialogs/add-block-template-dlg/add-block-template-dlg.component';
+import { SelectBlockTemplateDlgComponent } from './ui-dialogs/select-block-template-dlg/select-block-template-dlg.component';
+import { AddRegisterDlgComponent } from './ui-dialogs/add-register-dlg/add-register-dlg.component';
+import { SelectRegisterDlgComponent } from './ui-dialogs/select-register-dlg/select-register-dlg.component';
+import { FieldsViewComponent } from './ui-content-view/fields-view/fields-view.component';
+import { AddFieldDlgComponent } from './ui-dialogs/add-field-dlg/add-field-dlg.component';
+import { SelectFieldDlgComponent } from './ui-dialogs/select-field-dlg/select-field-dlg.component';
+import { AccessSelectorComponent } from './ui-components/access-selector/access-selector.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +78,6 @@ import { SelectBlockInstanceDlgComponent } from './ui-dialogs/select-block-insta
     RegisterNodeComponent,
     FieldsNodeComponent,
     FieldNodeComponent,
-    BlockViewComponent,
     BlockTemplateViewComponent,
     RegisterViewComponent,
     FieldViewComponent,
@@ -85,7 +94,17 @@ import { SelectBlockInstanceDlgComponent } from './ui-dialogs/select-block-insta
     BlockTypeSelectorComponent,
     HexEditBoxComponent,
     InheritedNumberEditBoxComponent,
-    SelectBlockInstanceDlgComponent
+    SelectBlockInstanceDlgComponent,
+    DescriptionEditBoxComponent,
+    DescriptionEditDlgComponent,
+    AddBlockTemplateDlgComponent,
+    SelectBlockTemplateDlgComponent,
+    AddRegisterDlgComponent,
+    SelectRegisterDlgComponent,
+    FieldsViewComponent,
+    AddFieldDlgComponent,
+    SelectFieldDlgComponent,
+    AccessSelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -100,6 +119,7 @@ import { SelectBlockInstanceDlgComponent } from './ui-dialogs/select-block-insta
     MatInputModule,
     MatSelectModule,
     MatListModule,
+    MatMenuModule,
     MatDividerModule,
     MatTreeModule,
     MatDialogModule,

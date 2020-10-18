@@ -1,0 +1,9 @@
+<ng-container>
+  <mat-form-field appearance="fill">
+    <mat-select [value]="access" (valueChange)="accessChange.emit($event)">
+      <mat-option *ngFor="let accessString of accessStrings" [value]="accessString">
+        {{ accessString }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</ng-container>

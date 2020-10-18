@@ -1,67 +1,60 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Field } from '../../../register-printer';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
 import { MatTable } from '@angular/material/table'
-import { BlockTemplate } from '../../../register-printer';
+import { AddFieldDlgComponent } from '../../ui-dialogs/add-field-dlg/add-field-dlg.component';
 import {
-  AddRegisterDlgComponent
-} from '../../ui-dialogs/add-register-dlg/add-register-dlg.component'
-import {
-  SelectRegisterDlgComponent
-} from '../../ui-dialogs/select-register-dlg/select-register-dlg.component';
+  SelectFieldDlgComponent
+} from '../../ui-dialogs/select-field-dlg/select-field-dlg.component';
 import * as _ from 'lodash';
-
+import {SelectRegisterDlgComponent} from '../../ui-dialogs/select-register-dlg/select-register-dlg.component';
 
 @Component({
-  selector: 'app-block-template-view',
-  templateUrl: './block-template-view.component.html',
-  styleUrls: ['./block-template-view.component.scss']
+  selector: 'app-fields-view',
+  templateUrl: './fields-view.component.html',
+  styleUrls: ['./fields-view.component.scss']
 })
-export class BlockTemplateViewComponent implements OnInit {
+export class FieldsViewComponent implements OnInit {
 
-  @Input() blockTemplate: BlockTemplate;
-  displayedColumns: string[] = [
-    'name',
-    'offset',
-    'description'
-  ];
+  @Input() fields: Field[];
 
   @ViewChild(MatTable)
   table: MatTable<any>;
 
   constructor(private dialog: MatDialog) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  onAddRegister() {
+  onAddField(): void {
     const matDialogConfig = new MatDialogConfig();
     matDialogConfig.disableClose = true;
     matDialogConfig.width = "800px";
     const dlg = this.dialog.open(
-      AddRegisterDlgComponent,
+      AddFieldDlgComponent,
       matDialogConfig);
 
     dlg.afterClosed().subscribe(result => {
       if (result) {
-        this.blockTemplate.registers.push(result);
+        this.fields.push(result);
         this.table.renderRows();
       }
     });
   }
 
-  onDeleteRegister() {
+  onDeleteField(): void {
     const matDialogConfig = new MatDialogConfig();
     matDialogConfig.disableClose = true;
     matDialogConfig.data = {
-      registers: this.blockTemplate.registers
+      fields: this.fields
     }
     const dlg = this.dialog.open(
-      SelectRegisterDlgComponent,
+      SelectFieldDlgComponent,
       matDialogConfig);
 
     dlg.afterClosed().subscribe(result => {
       if (result) {
-        _.remove(this.blockTemplate.registers,
+        _.remove(this.fields,
           (item) => {
             return item.name === result.name;
           });
