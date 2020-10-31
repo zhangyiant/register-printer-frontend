@@ -34,7 +34,7 @@ export class MainWindowViewComponent implements OnInit {
   }
 
   onNewClicked() {
-    console.log("new clicked");
+    this.registerPrinterService.newDoc();
   }
 
   onExportToExcelClicked() {
