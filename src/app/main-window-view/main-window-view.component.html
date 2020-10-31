@@ -2,6 +2,11 @@
   <div class="toolbar">
     <button
       mat-raised-button color="primary"
+      (click)="onNewClicked()">
+      New project...
+    </button>
+    <button
+      mat-raised-button color="primary"
       (click)="onLoadFromJsonClicked()">
       Load from JSON file...
     </button>

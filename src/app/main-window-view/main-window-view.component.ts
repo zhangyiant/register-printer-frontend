@@ -32,6 +32,11 @@ export class MainWindowViewComponent implements OnInit {
     this.selected = registerPrinterObject;
     return;
   }
+
+  onNewClicked() {
+    console.log("new clicked");
+  }
+
   onExportToExcelClicked() {
     const { dialog } = remote;
     const currentWindow = remote.getCurrentWindow();
