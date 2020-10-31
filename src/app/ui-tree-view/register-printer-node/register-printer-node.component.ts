@@ -22,7 +22,7 @@ export class RegisterPrinterNodeComponent implements OnInit {
 
   constructor() { }
 
-  isAddressMapsTreeNode() {
+  isBlockInstancesTreeNode() {
     return this.registerPrinterTreeNode instanceof BlockInstancesTreeNode;
   }
 
