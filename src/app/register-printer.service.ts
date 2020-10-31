@@ -257,6 +257,8 @@ export class RegisterPrinterService {
       32,
       32
     );
+    topSys.version = "1.0.0";
+    topSys.author = "Unknown";
     return topSys;
   }
 
