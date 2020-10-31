@@ -251,6 +251,24 @@ export class RegisterPrinterService {
     });
   }
 
+  createDoc(): TopSys {
+    const topSys: TopSys = new TopSys(
+      'NewTopSys',
+      32,
+      32
+    );
+    topSys.version = "1.0.0";
+    topSys.author = "Unknown";
+    return topSys;
+  }
+
+  newDoc() {
+    this.ngZone.run(() => {
+      const topSys: TopSys = this.createDoc();
+      this.topSys = topSys;
+      this.documentOpenedSource.next(topSys);
+    });
+  }
   loadJson(jsonFilename: string) {
 
     this.registerPrinterStartSource.next(true);

@@ -8,6 +8,7 @@ import {
 import { remote } from 'electron';
 import { TopSysTreeViewComponent } from '../ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
 import {RegisterPrinterService} from '../register-printer.service';
+import { SelectEvent } from '../select-event';
 
 @Component({
   selector: 'app-main-window-view',
@@ -17,7 +18,7 @@ import {RegisterPrinterService} from '../register-printer.service';
 export class MainWindowViewComponent implements OnInit {
 
   @Input() topSys: TopSys | null;
-  selected: TopSys | BlockTemplate | Register | Field | null;
+  selected: SelectEvent | null;
 
   @ViewChild(TopSysTreeViewComponent) treeView: TopSysTreeViewComponent;
 
@@ -28,10 +29,15 @@ export class MainWindowViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelect(registerPrinterObject: TopSys | BlockTemplate | Register | Field): void {
-    this.selected = registerPrinterObject;
+  onSelect(selectEvent: SelectEvent): void {
+    this.selected = selectEvent;
     return;
   }
+
+  onNewClicked() {
+    this.registerPrinterService.newDoc();
+  }
+
   onExportToExcelClicked() {
     const { dialog } = remote;
     const currentWindow = remote.getCurrentWindow();

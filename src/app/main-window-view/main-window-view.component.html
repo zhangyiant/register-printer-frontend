@@ -2,6 +2,11 @@
   <div class="toolbar">
     <button
       mat-raised-button color="primary"
+      (click)="onNewClicked()">
+      New project...
+    </button>
+    <button
+      mat-raised-button color="primary"
       (click)="onLoadFromJsonClicked()">
       Load from JSON file...
     </button>
@@ -29,7 +34,7 @@
     </app-top-sys-tree-view>
     <app-top-sys-content-view
       [topSys]="topSys"
-      [registerPrinterObject]="selected"
+      [selected]="selected"
       [ngStyle]="{'grid-area': '1 / 2 / 2 / 5'}">
     </app-top-sys-content-view>
   </div>
