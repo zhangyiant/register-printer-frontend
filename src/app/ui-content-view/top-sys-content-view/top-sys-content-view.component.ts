@@ -6,6 +6,9 @@ import {
   Register,
   Field
 } from '../../../register-printer';
+import {
+  SelectEvent
+} from '../../select-event';
 import {first} from 'rxjs/operators';
 
 @Component({
@@ -16,7 +19,7 @@ import {first} from 'rxjs/operators';
 export class TopSysContentViewComponent implements OnInit {
 
   @Input() topSys: TopSys;
-  @Input() registerPrinterObject: TopSys | BlockInstance | BlockInstance[] | BlockTemplate | Register | Field;
+  @Input() selected: SelectEvent;
 
   constructor() { }
 
@@ -24,30 +27,40 @@ export class TopSysContentViewComponent implements OnInit {
   }
 
   isTopSys(): boolean {
-    return (this.registerPrinterObject instanceof TopSys);
+    if (this.selected?.nodeType === 'topSys') {
+      return true;
+    }
+    return false;
   }
 
   isBlockInstance(): boolean {
-    return (this.registerPrinterObject instanceof BlockInstance);
+    if (this.selected?.nodeType === 'blockInstance') {
+      return true;
+    }
+    return false;
   }
   isBlockInstances(): boolean {
-    if (this.registerPrinterObject instanceof Array) {
-      if (this.registerPrinterObject.length > 0) {
-        const firstObject = this.registerPrinterObject[0];
-        return (firstObject instanceof BlockInstance);
-      } else {
-        return false;
-      }
+    if (this.selected?.nodeType === 'blockInstances') {
+      return true;
     }
     return false;
   }
   isBlockTemplate(): boolean {
-    return (this.registerPrinterObject instanceof BlockTemplate);
+    if (this.selected?.nodeType === 'blockTemplate') {
+      return true;
+    }
+    return false;
   }
   isRegister(): boolean {
-    return (this.registerPrinterObject instanceof Register);
+    if (this.selected?.nodeType === 'register') {
+      return true;
+    }
+    return false;
   }
   isField(): boolean {
-    return (this.registerPrinterObject instanceof Field);
+    if (this.selected?.nodeType === 'field') {
+      return true;
+    }
+    return false;
   }
 }

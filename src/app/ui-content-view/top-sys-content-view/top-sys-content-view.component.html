@@ -1,23 +1,23 @@
 <div>
     <app-top-sys-view
       *ngIf="isTopSys()"
-      [topSys]="registerPrinterObject">
+      [topSys]="selected.nodeValue">
     </app-top-sys-view>
   <app-block-instances-view
     *ngIf="isBlockInstances()"
     [topSys]="topSys"
-    [blockInstances]="registerPrinterObject">
+    [blockInstances]="selected.nodeValue">
   </app-block-instances-view>
     <app-block-template-view
       *ngIf="isBlockTemplate()"
-      [blockTemplate]="registerPrinterObject">
+      [blockTemplate]="selected.nodeValue">
     </app-block-template-view>
     <app-register-view
       *ngIf="isRegister()"
-      [register]="registerPrinterObject">
+      [register]="selected.nodeValue">
     </app-register-view>
     <app-field-view
       *ngIf="isField()"
-      [field]="registerPrinterObject">
+      [field]="selected.nodeValue">
     </app-field-view>
 </div>

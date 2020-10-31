@@ -16,6 +16,7 @@ import {
   Register,
   Field
 } from '../../../register-printer';
+import { SelectEvent } from '../../select-event';
 
 export interface RegisterPrinterTreeNode {
   type: string;
@@ -113,6 +114,8 @@ export class FieldTreeNode implements RegisterPrinterTreeNode {
 
 let TREE_DATA: RegisterPrinterTreeNode[] = [];
 
+
+
 @Component({
   selector: 'app-top-sys-tree-view',
   templateUrl: './top-sys-tree-view.component.html',
@@ -121,7 +124,7 @@ let TREE_DATA: RegisterPrinterTreeNode[] = [];
 export class TopSysTreeViewComponent implements OnInit, OnChanges {
 
   @Input() topSys: TopSys;
-  @Output() selected = new EventEmitter<TopSys | BlockInstance | BlockInstance[] | BlockTemplate | Register | Field>();
+  @Output() selected = new EventEmitter<SelectEvent>();
 
   treeControl = new NestedTreeControl<RegisterPrinterTreeNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<RegisterPrinterTreeNode>();
@@ -175,17 +178,41 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
   }
   onClick(node: RegisterPrinterTreeNode) {
     if (node instanceof TopSysTreeNode) {
-      this.selected.emit(node.topSys);
+      this.selected.emit(
+        {
+          nodeType: "topSys",
+          nodeValue: node.topSys
+        });
     } else if (node instanceof BlockInstancesTreeNode) {
-      this.selected.emit(node.blockInstances);
+      this.selected.emit(
+        {
+          nodeType: "blockInstances",
+          nodeValue: node.blockInstances
+        });
     } else if (node instanceof BlockInstanceTreeNode) {
-      this.selected.emit(node.blockInstance);
+      this.selected.emit(
+        {
+          nodeType: 'blockInstance',
+          nodeValue: node.blockInstance
+        });
     } else if (node instanceof BlockTemplateTreeNode) {
-      this.selected.emit(node.blockTemplate);
+      this.selected.emit(
+        {
+          nodeType: 'blockTemplate',
+          nodeValue: node.blockTemplate
+        });
     } else if (node instanceof RegisterTreeNode) {
-      this.selected.emit(node.register);
+      this.selected.emit(
+        {
+          nodeType: 'register',
+          nodeValue: node.register
+        });
     } else if (node instanceof FieldTreeNode) {
-      this.selected.emit(node.field);
+      this.selected.emit(
+        {
+          nodeType: 'field',
+          nodeValue: node.field
+        });
     }
     return;
   }
