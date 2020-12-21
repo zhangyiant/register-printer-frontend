@@ -64,7 +64,8 @@
     "appId": "com.anteestudio.registerprinter",
     "asar": true,
     "asarUnpack": [
-      "app/RegisterPrinter.exe"
+      "app/RegisterPrinter.exe",
+      "app/RegisterPrinter"
     ],
     "files": [
       "index.js",
@@ -74,6 +75,9 @@
     "win": {
       "target": "nsis",
       "icon": "registerPrinter.ico"
+    },
+    "mac": {
+      "target": "dmg"
     },
     "publish": {
       "provider": "generic",
