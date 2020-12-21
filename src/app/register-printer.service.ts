@@ -14,6 +14,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as _ from 'lodash';
+import * as process from 'process';
 
 
 @Injectable({
@@ -93,6 +94,15 @@ export class RegisterPrinterService {
 
     const appPath = app.getAppPath();
 
+    let appName;
+
+    if (process.platform === 'darwin') {
+      appName = 'RegisterPrinter';
+    } else if (process.platform === 'win32') {
+      appName = 'RegisterPrinter.exe';
+    } else {
+      throw new Error('Unsupported OS');
+    }
     const folderName = path.basename(appPath);
     let registerPrinterApp = null;
     if (folderName.endsWith('.asar')) {
@@ -104,12 +114,12 @@ export class RegisterPrinterService {
       registerPrinterApp = path.join(
         unpackedAppPath,
         'app',
-        'RegisterPrinter.exe');
+        appName);
     } else {
       registerPrinterApp = path.join(
         appPath,
         'app',
-        'RegisterPrinter.exe');
+        appName);
     }
 
     return registerPrinterApp;
