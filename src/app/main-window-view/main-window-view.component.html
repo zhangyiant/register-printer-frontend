@@ -28,13 +28,13 @@
   </div>
   <div class='content'>
     <as-split direction="horizontal">
-      <as-split-area>
+      <as-split-area [size]="30">
         <app-top-sys-tree-view
           [topSys]="topSys"
           (selected)="onSelect($event)">
         </app-top-sys-tree-view>
       </as-split-area>
-      <as-split-area>
+      <as-split-area [size]="70">
         <app-top-sys-content-view
           [topSys]="topSys"
           [selected]="selected">
