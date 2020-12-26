@@ -27,15 +27,19 @@
     </button>
   </div>
   <div class='content'>
-    <app-top-sys-tree-view
-      [topSys]="topSys"
-      (selected)="onSelect($event)"
-      [ngStyle]="{'grid-area': '1 / 1 / 2 / 2'}">
-    </app-top-sys-tree-view>
-    <app-top-sys-content-view
-      [topSys]="topSys"
-      [selected]="selected"
-      [ngStyle]="{'grid-area': '1 / 2 / 2 / 5'}">
-    </app-top-sys-content-view>
+    <as-split direction="horizontal">
+      <as-split-area [size]="30">
+        <app-top-sys-tree-view
+          [topSys]="topSys"
+          (selected)="onSelect($event)">
+        </app-top-sys-tree-view>
+      </as-split-area>
+      <as-split-area [size]="70">
+        <app-top-sys-content-view
+          [topSys]="topSys"
+          [selected]="selected">
+        </app-top-sys-content-view>
+      </as-split-area>
+    </as-split>
   </div>
 </div>
