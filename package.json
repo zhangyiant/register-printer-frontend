@@ -1,6 +1,6 @@
 {
   "name": "register-printer-frontend",
-  "version": "0.2.17",
+  "version": "0.3.0",
   "author": "antee",
   "description": "A UI tool to generate Register related codes.",
   "main": "index.js",
