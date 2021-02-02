@@ -1,5 +1,7 @@
 const { app, Menu, dialog, BrowserWindow } = require('electron');
 const { autoUpdater } = require('electron-updater');
+const { getRegisterPrinterVersion } = require('./get-register-printer-version');
+
 
 function createWindow() {
   let win = new BrowserWindow({
@@ -27,7 +29,8 @@ const template = [
             {
               type: "info",
               title: "About RegisterPrinter",
-              message: "Version: " + app.getVersion()
+              message: "Version: " + app.getVersion() + "\n" +
+                "RegisterPrinter Version: " + getRegisterPrinterVersion()
             }
           );
         }
