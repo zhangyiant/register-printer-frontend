@@ -70,6 +70,7 @@
     ],
     "files": [
       "index.js",
+      "get-register-printer-version.js",
       "dist/register-printer-frontend/**/*",
       "app/*"
     ],
