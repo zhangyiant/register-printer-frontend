@@ -3,9 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import {
   TopSys,
-  BlockTemplate,
-  Register,
-  Field
+  BlockTemplate
 } from '../register-printer';
 import { RegisterPrinterDoc } from './register-printer-doc';
 import * as child_process from 'child_process';
