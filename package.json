@@ -83,7 +83,7 @@
     },
     "publish": {
       "provider": "generic",
-      "url": "http://zhangyiant.oicp.net:9000"
+      "url": "http://zhangyiant.tpddns.cn:9000/"
     }
   }
 }
