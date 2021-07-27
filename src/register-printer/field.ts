@@ -1,4 +1,4 @@
-export const ACCESS_STRINGS: string[] = ['RW', 'RO', 'WO', 'RS', 'W1C', "W0C", 'RC', 'WRC', 'WRS', 'WSC', 'WC', '-'];
+export const ACCESS_STRINGS: string[] = ['RW', 'RWP', 'RO', 'WO', 'RS', 'W1C', "W0C", 'RC', 'WRC', 'WRS', 'WSC', 'WC', '-'];
 
 export class Field {
     constructor(
