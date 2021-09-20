@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TopSysViewComponent } from './top-sys-view.component';
 
@@ -6,7 +6,7 @@ describe('TopSysViewComponent', () => {
   let component: TopSysViewComponent;
   let fixture: ComponentFixture<TopSysViewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TopSysViewComponent ]
     })
