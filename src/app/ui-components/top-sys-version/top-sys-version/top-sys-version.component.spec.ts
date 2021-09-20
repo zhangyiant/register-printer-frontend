@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TopSysVersionComponent } from './top-sys-version.component';
 
@@ -6,7 +6,7 @@ describe('TopSysVersionComponent', () => {
   let component: TopSysVersionComponent;
   let fixture: ComponentFixture<TopSysVersionComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TopSysVersionComponent ]
     })

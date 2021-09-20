@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BlockInstanceNodeComponent } from './block-instance-node.component';
 
@@ -6,7 +6,7 @@ describe('AddressMapNodeComponent', () => {
   let component: BlockInstanceNodeComponent;
   let fixture: ComponentFixture<BlockInstanceNodeComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ BlockInstanceNodeComponent ]
     })

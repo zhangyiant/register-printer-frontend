@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AddFieldDlgComponent } from './add-field-dlg.component';
 
@@ -6,7 +6,7 @@ describe('AddFieldDlgComponent', () => {
   let component: AddFieldDlgComponent;
   let fixture: ComponentFixture<AddFieldDlgComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AddFieldDlgComponent ]
     })

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { InheritedNumberEditBoxComponent } from './inherited-number-edit-box.component';
 
@@ -6,7 +6,7 @@ describe('InheritedNumberEditBoxComponent', () => {
   let component: InheritedNumberEditBoxComponent;
   let fixture: ComponentFixture<InheritedNumberEditBoxComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ InheritedNumberEditBoxComponent ]
     })

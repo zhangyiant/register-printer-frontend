@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PropertyNodeComponent } from './property-node.component';
 
@@ -6,7 +6,7 @@ describe('PropertyNodeComponent', () => {
   let component: PropertyNodeComponent;
   let fixture: ComponentFixture<PropertyNodeComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PropertyNodeComponent ]
     })

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TopSysAuthorComponent } from './top-sys-author.component';
 
@@ -6,7 +6,7 @@ describe('TopSysAuthorComponent', () => {
   let component: TopSysAuthorComponent;
   let fixture: ComponentFixture<TopSysAuthorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TopSysAuthorComponent ]
     })

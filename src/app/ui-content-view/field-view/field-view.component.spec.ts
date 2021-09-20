@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FieldViewComponent } from './field-view.component';
 
@@ -6,7 +6,7 @@ describe('FieldViewComponent', () => {
   let component: FieldViewComponent;
   let fixture: ComponentFixture<FieldViewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ FieldViewComponent ]
     })

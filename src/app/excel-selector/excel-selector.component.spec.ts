@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ExcelSelectorComponent } from './excel-selector.component';
 
@@ -6,7 +6,7 @@ describe('ExcelSelectorComponent', () => {
   let component: ExcelSelectorComponent;
   let fixture: ComponentFixture<ExcelSelectorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ExcelSelectorComponent ]
     })

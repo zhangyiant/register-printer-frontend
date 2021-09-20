@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BlockTemplateViewComponent } from './block-template-view.component';
 
@@ -6,7 +6,7 @@ describe('BlockTypeViewComponent', () => {
   let component: BlockTemplateViewComponent;
   let fixture: ComponentFixture<BlockTemplateViewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ BlockTemplateViewComponent ]
     })
