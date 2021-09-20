@@ -7,7 +7,7 @@ import {
 } from '../register-printer';
 import { RegisterPrinterDoc } from './register-printer-doc';
 import * as child_process from 'child_process';
-import { remote } from 'electron';
+import { app } from '@electron/remote';
 import * as path from 'path';
 import * as fs from 'fs';
 import * as os from 'os';
@@ -83,13 +83,10 @@ export class RegisterPrinterService {
   }
 
   getVersion(): string {
-    const { app } = remote;
     return app.getVersion();
   }
 
   getRegisterPrinterPath() {
-    const { app } = remote;
-
     const appPath = app.getAppPath();
 
     let appName;
@@ -173,8 +170,6 @@ export class RegisterPrinterService {
 
   generate(generateConfig) {
     this.registerPrinterStartSource.next(true);
-
-    const { app } = remote;
 
     const registerPrinterApp = this.getRegisterPrinterPath();
     const args: string[] = [];
@@ -281,8 +276,6 @@ export class RegisterPrinterService {
 
     this.registerPrinterStartSource.next(true);
 
-    const { app } = remote;
-
     const registerPrinterApp = this.getRegisterPrinterPath();
     const args: string[] = [];
     args.push('--input-json');
@@ -343,8 +336,6 @@ export class RegisterPrinterService {
       if (err) {
         console.log(err);
       }
-
-      const { app } = remote;
 
       const registerPrinterApp = this.getRegisterPrinterPath();
       const args: string[] = [];

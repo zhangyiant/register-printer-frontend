@@ -43,10 +43,13 @@ function getRegisterPrinterVersion() {
   const args = [];
   args.push('-v');
   const appProcess = child_process.spawnSync(
-    appPath, args
+    appPath, args,
+    {
+      'encoding': 'utf8'
+    }
   );
   const result = appProcess.stdout;
-  return result;
+  return result.trim();
 }
 
 exports.getRegisterPrinterVersion = getRegisterPrinterVersion;

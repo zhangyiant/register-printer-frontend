@@ -1,5 +1,6 @@
 const { app, Menu, dialog, BrowserWindow } = require('electron');
 const { autoUpdater } = require('electron-updater');
+const remoteMain = require("@electron/remote/main");
 const { getRegisterPrinterVersion } = require('./get-register-printer-version');
 
 
@@ -9,11 +10,14 @@ function createWindow() {
     height: 900,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
       enableRemoteModule: true
     }
   });
 
   // win.webContents.openDevTools();
+
+  remoteMain.enable(win.webContents);
 
   win.loadFile('dist/register-printer-frontend/index.html');
 }
@@ -30,7 +34,8 @@ const template = [
               type: "info",
               title: "About RegisterPrinter",
               message: "Version: " + app.getVersion() + "\n" +
-                "RegisterPrinter Version: " + getRegisterPrinterVersion()
+                "RegisterPrinter Version: " + getRegisterPrinterVersion() + "\n" +
+                "Electronjs Version: " + process.versions.electron
             }
           );
         }
@@ -38,6 +43,9 @@ const template = [
     ]
   }
 ];
+
+remoteMain.initialize();
+
 const menu = Menu.buildFromTemplate(template);
 Menu.setApplicationMenu(menu);
 

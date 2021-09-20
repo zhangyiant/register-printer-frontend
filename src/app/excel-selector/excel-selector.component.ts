@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { remote } from 'electron';
+import { dialog, getCurrentWindow } from '@electron/remote';
 import { RegisterPrinterService } from '../register-printer.service';
 
 
@@ -27,8 +27,7 @@ export class ExcelSelectorComponent implements OnInit {
   }
 
   onConfigFileClicked() {
-    const { dialog } = remote;
-    const currentWindow = remote.getCurrentWindow();
+    const currentWindow = getCurrentWindow();
     dialog.showOpenDialog(
       currentWindow,
       {
@@ -53,8 +52,7 @@ export class ExcelSelectorComponent implements OnInit {
   }
 
   onExcelPathClicked() {
-    const { dialog } = remote;
-    const currentWindow = remote.getCurrentWindow();
+    const currentWindow = getCurrentWindow();
     dialog.showOpenDialog(
       currentWindow,
       {
@@ -73,8 +71,7 @@ export class ExcelSelectorComponent implements OnInit {
   }
 
   onOutputPathClicked() {
-    const { dialog } = remote;
-    const currentWindow = remote.getCurrentWindow();
+    const currentWindow = getCurrentWindow();
     dialog.showOpenDialog(
       currentWindow,
       {
