@@ -5,7 +5,7 @@ import {
   Register,
   TopSys
 } from '../../register-printer';
-import { remote } from 'electron';
+import { dialog, getCurrentWindow } from '@electron/remote';
 import { TopSysTreeViewComponent } from '../ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
 import {RegisterPrinterService} from '../register-printer.service';
 import { SelectEvent } from '../select-event';
@@ -39,8 +39,7 @@ export class MainWindowViewComponent implements OnInit {
   }
 
   onExportToExcelClicked() {
-    const { dialog } = remote;
-    const currentWindow = remote.getCurrentWindow();
+    const currentWindow = getCurrentWindow();
     dialog.showOpenDialog(
       currentWindow,
       {
@@ -62,8 +61,7 @@ export class MainWindowViewComponent implements OnInit {
   }
 
   onExportToJsonClicked() {
-    const { dialog } = remote;
-    const currentWindow = remote.getCurrentWindow();
+    const currentWindow = getCurrentWindow();
     dialog.showSaveDialog(
       currentWindow,
       {
@@ -89,8 +87,7 @@ export class MainWindowViewComponent implements OnInit {
   }
 
   onLoadFromJsonClicked() {
-    const { dialog } = remote;
-    const currentWindow = remote.getCurrentWindow();
+    const currentWindow = getCurrentWindow();
     dialog.showOpenDialog(
       currentWindow,
       {
@@ -118,8 +115,7 @@ export class MainWindowViewComponent implements OnInit {
   }
 
   onGenerateClicked() {
-    const { dialog } = remote;
-    const currentWindow = remote.getCurrentWindow();
+    const currentWindow = getCurrentWindow();
     dialog.showOpenDialog(
       currentWindow,
       {

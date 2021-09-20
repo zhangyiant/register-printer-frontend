@@ -9,12 +9,13 @@ function createWindow() {
     height: 900,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
       enableRemoteModule: true
     }
   });
 
-  // win.webContents.openDevTools();
-
+  win.webContents.openDevTools();
+  require("@electron/remote/main").enable(win.webContents);
   win.loadFile('dist/register-printer-frontend/index.html');
 }
 
@@ -38,6 +39,9 @@ const template = [
     ]
   }
 ];
+
+require('@electron/remote/main').initialize();
+
 const menu = Menu.buildFromTemplate(template);
 Menu.setApplicationMenu(menu);
 
