@@ -38,7 +38,7 @@ function getRegisterPrinterPath() {
   return registerPrinterApp;
 }
 
-function getRegisterPrinterVersion() {
+export function getRegisterPrinterVersion() {
   const appPath = getRegisterPrinterPath();
   const args = [];
   args.push('-v');
@@ -51,6 +51,3 @@ function getRegisterPrinterVersion() {
   const result = appProcess.stdout;
   return result.trim();
 }
-
-exports.getRegisterPrinterVersion = getRegisterPrinterVersion;
-

@@ -3,7 +3,7 @@
   "version": "0.3.3",
   "author": "antee",
   "description": "A UI tool to generate Register related codes.",
-  "main": "index.js",
+  "main": "./dist/electron/index.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxyConfig=proxy.config.json",
@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:electron": "ng build --base-href=. && electron .",
+    "start:electron": "tsc --build tsconfig.electron.json && ng build --base-href=. && electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
@@ -70,8 +70,7 @@
       "app/RegisterPrinter"
     ],
     "files": [
-      "index.js",
-      "get-register-printer-version.js",
+      "dist/electron/*",
       "dist/register-printer-frontend/**/*",
       "app/*"
     ],
