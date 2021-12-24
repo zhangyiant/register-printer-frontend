@@ -1,20 +1,23 @@
 const { app, Menu, dialog, BrowserWindow } = require('electron');
+import * as path from "path";
 const { autoUpdater } = require('electron-updater');
 const remoteMain = require("@electron/remote/main");
 const { getRegisterPrinterVersion } = require('./get-register-printer-version');
 
 
 function createWindow() {
+  const preloadScriptPath = path.join(__dirname, 'preload.js');
   let win = new BrowserWindow({
     width: 1200,
     height: 900,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false
+      contextIsolation: true,
+      preload: preloadScriptPath
     }
   });
 
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
   remoteMain.enable(win.webContents);
 

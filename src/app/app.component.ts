@@ -6,6 +6,10 @@ import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 import { RegisterPrinterService } from './register-printer.service';
 import { MainWindowViewComponent } from './main-window-view/main-window-view.component';
 
+function _window() : any {
+  // return the global native browser window object
+  return window;
+}
 
 @Component({
   selector: 'app-root',
@@ -38,6 +42,7 @@ export class AppComponent implements OnInit {
         }
       }
     );
+    console.log(_window().mytest);
     return;
   }
 
