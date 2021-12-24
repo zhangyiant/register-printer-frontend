@@ -7,7 +7,7 @@ import {
 } from '../register-printer';
 import { RegisterPrinterDoc } from './register-printer-doc';
 import * as child_process from 'child_process';
-import { app } from '@electron/remote';
+// import { app } from '@electron/remote';
 import * as path from 'path';
 import * as fs from 'fs';
 import * as os from 'os';
@@ -83,7 +83,8 @@ export class RegisterPrinterService {
   }
 
   getVersion(): string {
-    return app.getVersion();
+    return '';
+    // return app.getVersion();
   }
 
   getRegisterPrinterPath() {

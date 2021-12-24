@@ -39,100 +39,100 @@ export class MainWindowViewComponent implements OnInit {
   }
 
   onExportToExcelClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openDirectory'
-        ]
-      }
-    ).then(
-      (result) => {
-        if (!result.canceled) {
-          const outputPath: string = result.filePaths[0];
-          this.registerPrinterService.exportExcels(
-            outputPath
-          );
-        }
-      }
-    );
+    // const currentWindow = getCurrentWindow();
+    // dialog.showOpenDialog(
+    //   currentWindow,
+    //   {
+    //     properties: [
+    //       'openDirectory'
+    //     ]
+    //   }
+    // ).then(
+    //   (result) => {
+    //     if (!result.canceled) {
+    //       const outputPath: string = result.filePaths[0];
+    //       this.registerPrinterService.exportExcels(
+    //         outputPath
+    //       );
+    //     }
+    //   }
+    // );
     return;
   }
 
   onExportToJsonClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showSaveDialog(
-      currentWindow,
-      {
-        title: 'Export to JSON file',
-        filters: [
-          {
-            name: 'JSON file',
-            extensions: ['json']
-          }
-        ]
-      }
-    ).then(
-      (result) => {
-        if (!result.canceled) {
-          const outputFilename: string = result.filePath;
-          this.registerPrinterService.exportJson(
-            outputFilename
-          );
-        }
-      }
-    );
+    // const currentWindow = getCurrentWindow();
+    // dialog.showSaveDialog(
+    //   currentWindow,
+    //   {
+    //     title: 'Export to JSON file',
+    //     filters: [
+    //       {
+    //         name: 'JSON file',
+    //         extensions: ['json']
+    //       }
+    //     ]
+    //   }
+    // ).then(
+    //   (result) => {
+    //     if (!result.canceled) {
+    //       const outputFilename: string = result.filePath;
+    //       this.registerPrinterService.exportJson(
+    //         outputFilename
+    //       );
+    //     }
+    //   }
+    // );
     return;
   }
 
   onLoadFromJsonClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openFile'
-        ],
-        filters: [
-          {
-            name: 'JSON file',
-            extensions: ['json']
-          }
-        ]
-      }
-    ).then(
-      (result) => {
-        if (!result.canceled) {
-          const jsonFilename = result.filePaths[0];
-          this.registerPrinterService.loadJson(
-            jsonFilename
-          );
-        }
-      }
-    );
+    // const currentWindow = getCurrentWindow();
+    // dialog.showOpenDialog(
+    //   currentWindow,
+    //   {
+    //     properties: [
+    //       'openFile'
+    //     ],
+    //     filters: [
+    //       {
+    //         name: 'JSON file',
+    //         extensions: ['json']
+    //       }
+    //     ]
+    //   }
+    // ).then(
+    //   (result) => {
+    //     if (!result.canceled) {
+    //       const jsonFilename = result.filePaths[0];
+    //       this.registerPrinterService.loadJson(
+    //         jsonFilename
+    //       );
+    //     }
+    //   }
+    // );
     return;
   }
 
   onGenerateClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openDirectory'
-        ]
-      }
-    ).then(
-      (result) => {
-        if (!result.canceled) {
-          const outputPath: string = result.filePaths[0];
-          this.registerPrinterService.generateAll(
-            outputPath
-          );
-        }
-      }
-    );
+    // const currentWindow = getCurrentWindow();
+    // dialog.showOpenDialog(
+    //   currentWindow,
+    //   {
+    //     properties: [
+    //       'openDirectory'
+    //     ]
+    //   }
+    // ).then(
+    //   (result) => {
+    //     if (!result.canceled) {
+    //       const outputPath: string = result.filePaths[0];
+    //       this.registerPrinterService.generateAll(
+    //         outputPath
+    //       );
+    //     }
+    //   }
+    // );
     return;
   }
 

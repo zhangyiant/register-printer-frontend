@@ -15,8 +15,8 @@
       "prefix": "app",
       "architect": {
         "build": {
-          // "builder": "@angular-devkit/build-angular:browser",
-          "builder": "@angular-guru/electron-builder:build",
+          "builder": "@angular-devkit/build-angular:browser",
+          // "builder": "@angular-guru/electron-builder:build",
           "options": {
             "outputPath": "dist/register-printer-frontend",
             "index": "src/index.html",
