@@ -12,7 +12,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as _ from 'lodash';
-import * as process from 'process';
+import { getRegisterPrinterPath } from 'src/register-printer-app';
 
 
 @Injectable({
@@ -86,40 +86,6 @@ export class RegisterPrinterService {
     return app.getVersion();
   }
 
-  getRegisterPrinterPath() {
-    const appPath = app.getAppPath();
-
-    let appName;
-
-    if (process.platform === 'darwin') {
-      appName = 'RegisterPrinter';
-    } else if (process.platform === 'win32') {
-      appName = 'RegisterPrinter.exe';
-    } else {
-      throw new Error('Unsupported OS');
-    }
-    const folderName = path.basename(appPath);
-    let registerPrinterApp = null;
-    if (folderName.endsWith('.asar')) {
-      const unpackedAppPath = path.join(
-        path.dirname(appPath),
-        'app.asar.unpacked'
-      );
-
-      registerPrinterApp = path.join(
-        unpackedAppPath,
-        'app',
-        appName);
-    } else {
-      registerPrinterApp = path.join(
-        appPath,
-        'app',
-        appName);
-    }
-
-    return registerPrinterApp;
-  }
-
   exportExcels(output: string) {
     this.registerPrinterStartSource.next(true);
     const jsonObj = this.topSys.toJson();
@@ -129,7 +95,7 @@ export class RegisterPrinterService {
       if (err) {
         console.log(err);
       }
-      const registerPrinterApp = this.getRegisterPrinterPath();
+      const registerPrinterApp = getRegisterPrinterPath();
       const args: string[] = [];
       args.push('--input-json');
       args.push(filename);
@@ -171,7 +137,7 @@ export class RegisterPrinterService {
   generate(generateConfig) {
     this.registerPrinterStartSource.next(true);
 
-    const registerPrinterApp = this.getRegisterPrinterPath();
+    const registerPrinterApp = getRegisterPrinterPath();
     const args: string[] = [];
     args.push('-f');
     args.push(generateConfig.configFile);
@@ -276,7 +242,7 @@ export class RegisterPrinterService {
 
     this.registerPrinterStartSource.next(true);
 
-    const registerPrinterApp = this.getRegisterPrinterPath();
+    const registerPrinterApp = getRegisterPrinterPath();
     const args: string[] = [];
     args.push('--input-json');
     args.push(jsonFilename);
@@ -337,7 +303,7 @@ export class RegisterPrinterService {
         console.log(err);
       }
 
-      const registerPrinterApp = this.getRegisterPrinterPath();
+      const registerPrinterApp = getRegisterPrinterPath();
       const args: string[] = [];
       args.push('--input-json');
       args.push(filename);
