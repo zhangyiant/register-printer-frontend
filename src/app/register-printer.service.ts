@@ -7,12 +7,11 @@ import {
 } from '../register-printer';
 import { RegisterPrinterDoc } from './register-printer-doc';
 import * as child_process from 'child_process';
-import { app } from '@electron/remote';
 import * as path from 'path';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as _ from 'lodash';
-import { getRegisterPrinterPath } from 'src/register-printer-app';
+import { getRegisterPrinterPath, getVersion as _getVersion } from 'src/register-printer-app';
 
 
 @Injectable({
@@ -83,7 +82,7 @@ export class RegisterPrinterService {
   }
 
   getVersion(): string {
-    return app.getVersion();
+    return _getVersion();
   }
 
   exportExcels(output: string) {

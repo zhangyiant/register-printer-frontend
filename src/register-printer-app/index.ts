@@ -1,6 +1,7 @@
 import { app } from '@electron/remote';
 import * as process from 'process';
 import * as path from 'path';
+import { getSystemVersion } from 'process';
 
 export function getRegisterPrinterPath() {
     const appPath = app.getAppPath();
@@ -34,4 +35,8 @@ export function getRegisterPrinterPath() {
     }
 
     return registerPrinterApp;
+}
+
+export function getVersion(): string {
+    return app.getVersion();
 }
