@@ -15,7 +15,8 @@ import {
   getRegisterPrinterPath,
   getVersion as _getVersion,
   exportExcels as _exportExcels,
-  generate as _generate
+  generate as _generate,
+  loadJson as _loadJson
 } from 'src/register-printer-app';
 
 
@@ -179,54 +180,26 @@ export class RegisterPrinterService {
 
     this.registerPrinterStartSource.next(true);
 
-    const registerPrinterApp = getRegisterPrinterPath();
-    const args: string[] = [];
-    args.push('--input-json');
-    args.push(jsonFilename);
-    args.push('-o');
-    args.push(os.tmpdir());
-    args.push('--gen-json');
-    const appProcess = child_process.spawn(
-      registerPrinterApp, args
-    );
-    appProcess.stdout.on('data', (data) => {
-      this.ngZone.run(
-        () => {
-          if (data) {
-            this.registerPrinterOutputSource.next(
-              data.toString());
+    _loadJson(jsonFilename,
+      (data) => {
+        this.ngZone.run(
+          () => {
+            if (data) {
+              this.registerPrinterOutputSource.next(
+                data.toString());
+            }
           }
-        }
-      );
-    });
-    appProcess.stderr.on('data', (data) => {
-      this.ngZone.run(
-        () => {
-          if (data) {
-            this.registerPrinterOutputSource.next(
-              data.toString());
-          }
-        }
-      );
-    });
-    appProcess.on('exit', (code) => {
-      const filename: string = path.join(
-        os.tmpdir(),
-        'register_printer.json'
-      );
-      fs.readFile(filename, (err, data) => {
-        // Check for errors
-        if (err) {
-          throw err;
-        }
+        );
+      },
+      (data) => {
         // Converting to JSON
         this.ngZone.run(() => {
           const topSys: TopSys = this.parseDoc(data.toString());
           this.topSys = topSys;
           this.documentOpenedSource.next(topSys);
         });
-      });
-    });
+      }
+    );
   }
 
   generateAll(outputPath: string) {

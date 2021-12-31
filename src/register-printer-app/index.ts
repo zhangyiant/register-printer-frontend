@@ -106,3 +106,31 @@ export function generate(generateConfig: any, dataCallback: (data: any) => void,
     });
   });
 }
+
+export function loadJson(jsonFilename: string, dataCallback: (data: any) => void, exitCallback: (data: any) => void) {
+  const registerPrinterApp = getRegisterPrinterPath();
+  const args: string[] = [];
+  args.push('--input-json');
+  args.push(jsonFilename);
+  args.push('-o');
+  args.push(os.tmpdir());
+  args.push('--gen-json');
+  const appProcess = child_process.spawn(
+    registerPrinterApp, args
+  );
+  appProcess.stdout.on('data', dataCallback);
+  appProcess.stderr.on('data', dataCallback);
+  appProcess.on('exit', (code) => {
+    const filename: string = path.join(
+      os.tmpdir(),
+      'register_printer.json'
+    );
+    fs.readFile(filename, (err, data) => {
+      // Check for errors
+      if (err) {
+        throw err;
+      }
+      exitCallback(data);
+    });
+  });
+}
