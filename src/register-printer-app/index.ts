@@ -64,3 +64,45 @@ export function exportExcels(jsonString: string, outputFolder: string, dataCallb
     appProcess.on('exit', exitCallback);
   });
 }
+
+export function generate(generateConfig: any, dataCallback: (data: any) => void, exitCallback: (data: any) => void) {
+  const registerPrinterApp = getRegisterPrinterPath();
+  const args: string[] = [];
+  args.push('-f');
+  args.push(generateConfig.configFile);
+  args.push('-p');
+  args.push(generateConfig.excelPath);
+  args.push('-o');
+  args.push(generateConfig.outputPath);
+  if (generateConfig.genDoc) {
+    args.push('--gen-doc');
+  }
+  if (generateConfig.genC) {
+    args.push('--gen-c-header');
+  }
+  if (generateConfig.genUvm) {
+    args.push('--gen-uvm');
+  }
+  if (generateConfig.genRtl) {
+    args.push('--gen-rtl');
+  }
+  args.push('--gen-json');
+  const appProcess = child_process.spawn(
+    registerPrinterApp, args
+  );
+  appProcess.stdout.on('data', dataCallback);
+  appProcess.stderr.on('data', dataCallback);
+  appProcess.on('exit', (code) => {
+    const filename: string = path.join(
+      generateConfig.outputPath,
+      'register_printer.json'
+    );
+    fs.readFile(filename, (err, data) => {
+      // Check for errors
+      if (err) {
+        throw err;
+      }
+      exitCallback(data);
+    });
+  });
+}

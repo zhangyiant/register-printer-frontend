@@ -14,7 +14,8 @@ import * as _ from 'lodash';
 import {
   getRegisterPrinterPath,
   getVersion as _getVersion,
-  exportExcels as _exportExcels
+  exportExcels as _exportExcels,
+  generate as _generate
 } from 'src/register-printer-app';
 
 
@@ -114,69 +115,27 @@ export class RegisterPrinterService {
 
   generate(generateConfig) {
     this.registerPrinterStartSource.next(true);
-
-    const registerPrinterApp = getRegisterPrinterPath();
-    const args: string[] = [];
-    args.push('-f');
-    args.push(generateConfig.configFile);
-    args.push('-p');
-    args.push(generateConfig.excelPath);
-    args.push('-o');
-    args.push(generateConfig.outputPath);
-    if (generateConfig.genDoc) {
-      args.push('--gen-doc');
-    }
-    if (generateConfig.genC) {
-      args.push('--gen-c-header');
-    }
-    if (generateConfig.genUvm) {
-      args.push('--gen-uvm');
-    }
-    if (generateConfig.genRtl) {
-      args.push('--gen-rtl');
-    }
-    args.push('--gen-json');
-    const appProcess = child_process.spawn(
-      registerPrinterApp, args
-    );
-    appProcess.stdout.on('data', (data) => {
-      this.ngZone.run(
-        () => {
-          if (data) {
-            this.registerPrinterOutputSource.next(
-              data.toString());
+    _generate(
+      generateConfig,
+      (data) => {
+        this.ngZone.run(
+          () => {
+            if (data) {
+              this.registerPrinterOutputSource.next(
+                data.toString());
+            }
           }
-        }
-      );
-    });
-    appProcess.stderr.on('data', (data) => {
-      this.ngZone.run(
-        () => {
-          if (data) {
-            this.registerPrinterOutputSource.next(
-              data.toString());
-          }
-        }
-      );
-    });
-    appProcess.on('exit', (code) => {
-      const filename: string = path.join(
-        generateConfig.outputPath,
-        'register_printer.json'
-      );
-      fs.readFile(filename, (err, data) => {
-        // Check for errors
-        if (err) {
-          throw err;
-        }
+        );
+      },
+      (data) => {
         // Converting to JSON
         this.ngZone.run(() => {
           const topSys: TopSys = this.parseDoc(data.toString());
           this.topSys = topSys;
           this.documentOpenedSource.next(topSys);
         });
-      });
-    });
+      }
+    );
   }
 
   exportJson(outputFilename: string) {
