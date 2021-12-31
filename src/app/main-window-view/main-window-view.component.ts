@@ -1,8 +1,5 @@
 import { Component, OnInit, Input, ViewChild} from '@angular/core';
 import {
-  BlockTemplate,
-  Field,
-  Register,
   TopSys
 } from '../../register-printer';
 import { dialog, getCurrentWindow } from '@electron/remote';
