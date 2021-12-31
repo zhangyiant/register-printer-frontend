@@ -1,7 +1,9 @@
 import { app } from '@electron/remote';
 import * as process from 'process';
 import * as path from 'path';
-import { getSystemVersion } from 'process';
+import * as fs from 'fs';
+import * as os from 'os';
+import * as child_process from 'child_process';
 
 export function getRegisterPrinterPath() {
     const appPath = app.getAppPath();
@@ -39,4 +41,26 @@ export function getRegisterPrinterPath() {
 
 export function getVersion(): string {
     return app.getVersion();
+}
+
+export function exportExcels(jsonString: string, outputFolder: string, dataCallback: (data: any) => void, exitCallback: (data: any) => void) {
+  const filename = path.join(os.tmpdir(), 'register-printer.json');
+  fs.writeFile(filename, jsonString, err => {
+    if (err) {
+      console.log(err);
+    }
+    const registerPrinterApp = getRegisterPrinterPath();
+    const args: string[] = [];
+    args.push('--input-json');
+    args.push(filename);
+    args.push('-o');
+    args.push(outputFolder);
+    args.push('--gen-excel');
+    const appProcess = child_process.spawn(
+      registerPrinterApp, args
+    );
+    appProcess.stdout.on('data', dataCallback);
+    appProcess.stderr.on('data', dataCallback);
+    appProcess.on('exit', exitCallback);
+  });
 }

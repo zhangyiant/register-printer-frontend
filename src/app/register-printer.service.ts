@@ -11,7 +11,11 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as _ from 'lodash';
-import { getRegisterPrinterPath, getVersion as _getVersion } from 'src/register-printer-app';
+import {
+  getRegisterPrinterPath,
+  getVersion as _getVersion,
+  exportExcels as _exportExcels
+} from 'src/register-printer-app';
 
 
 @Injectable({
@@ -89,22 +93,8 @@ export class RegisterPrinterService {
     this.registerPrinterStartSource.next(true);
     const jsonObj = this.topSys.toJson();
     const jsonString = JSON.stringify(jsonObj);
-    const filename = path.join(os.tmpdir(), 'register-printer.json');
-    fs.writeFile(filename, jsonString, err => {
-      if (err) {
-        console.log(err);
-      }
-      const registerPrinterApp = getRegisterPrinterPath();
-      const args: string[] = [];
-      args.push('--input-json');
-      args.push(filename);
-      args.push('-o');
-      args.push(output);
-      args.push('--gen-excel');
-      const appProcess = child_process.spawn(
-        registerPrinterApp, args
-      );
-      appProcess.stdout.on('data', (data) => {
+    _exportExcels(jsonString, output, 
+      (data) => {
         this.ngZone.run(
           () => {
             if (data) {
@@ -112,25 +102,14 @@ export class RegisterPrinterService {
                 data.toString());
             }
           }
-        );
-      });
-      appProcess.stderr.on('data', (data) => {
-        this.ngZone.run(
-          () => {
-            if (data) {
-              this.registerPrinterOutputSource.next(
-                data.toString());
-            }
-          }
-        );
-      });
-      appProcess.on('exit', (code) => {
+      )},
+      (code) => {
         this.ngZone.run(() => {
           this.registerPrinterOutputSource.next(
             'Exported successfully');
         });
-      });
-    });
+      }
+    );
   }
 
   generate(generateConfig) {
