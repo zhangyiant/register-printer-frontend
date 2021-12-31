@@ -107,6 +107,16 @@ export function generate(generateConfig: any, dataCallback: (data: any) => void,
   });
 }
 
+export function exportJson(jsonString: string, outputFilename: string, exitCallback: (filename: string) => void) {
+  fs.writeFile(outputFilename, jsonString, err => {
+    if (err) {
+      console.log(err);
+    } else {
+      exitCallback(outputFilename);
+    }
+  });
+}
+
 export function loadJson(jsonFilename: string, dataCallback: (data: any) => void, exitCallback: (data: any) => void) {
   const registerPrinterApp = getRegisterPrinterPath();
   const args: string[] = [];

@@ -16,6 +16,7 @@ import {
   getVersion as _getVersion,
   exportExcels as _exportExcels,
   generate as _generate,
+  exportJson as _exportJson,
   loadJson as _loadJson
 } from 'src/register-printer-app';
 
@@ -143,18 +144,14 @@ export class RegisterPrinterService {
     this.registerPrinterStartSource.next(true);
     const jsonObj = this.topSys.toJson();
     const jsonString = JSON.stringify(jsonObj);
-    fs.writeFile(outputFilename, jsonString, err => {
-      if (err) {
-        console.log(err);
-      } else {
-        this.ngZone.run(
-          () => {
-            this.registerPrinterOutputSource.next(
-              `JSON file is written to ${outputFilename}`
-            );
-          }
-        );
-      }
+    _exportJson(jsonString, outputFilename, (filename: string) => {
+      this.ngZone.run(
+        () => {
+          this.registerPrinterOutputSource.next(
+            `JSON file is written to ${outputFilename}`
+          );
+        }
+      );
     });
   }
 
