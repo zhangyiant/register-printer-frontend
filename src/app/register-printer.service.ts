@@ -1,23 +1,19 @@
 import { Injectable, NgZone } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import {
   TopSys,
   BlockTemplate
 } from '../register-printer';
 import { RegisterPrinterDoc } from './register-printer-doc';
-import * as child_process from 'child_process';
-import * as path from 'path';
-import * as fs from 'fs';
-import * as os from 'os';
 import * as _ from 'lodash';
 import {
-  getRegisterPrinterPath,
   getVersion as _getVersion,
   exportExcels as _exportExcels,
   generate as _generate,
   exportJson as _exportJson,
-  loadJson as _loadJson
+  loadJson as _loadJson,
+  generateAll as _generateAll
 } from 'src/register-printer-app';
 
 
@@ -200,50 +196,18 @@ export class RegisterPrinterService {
   }
 
   generateAll(outputPath: string) {
-
     this.registerPrinterStartSource.next(true);
     const jsonObj = this.topSys.toJson();
     const jsonString = JSON.stringify(jsonObj);
-    const filename = path.join(os.tmpdir(), 'register-printer.json');
-    fs.writeFile(filename, jsonString, err => {
-      if (err) {
-        console.log(err);
-      }
-
-      const registerPrinterApp = getRegisterPrinterPath();
-      const args: string[] = [];
-      args.push('--input-json');
-      args.push(filename);
-      args.push('-o');
-      args.push(outputPath);
-      args.push('--gen-doc');
-      args.push('--gen-c-header');
-      args.push('--gen-uvm');
-      args.push('--gen-rtl');
-      args.push('--gen-json');
-      const appProcess = child_process.spawn(
-        registerPrinterApp, args
+    _generateAll(jsonString, outputPath, (data) => {
+      this.ngZone.run(
+        () => {
+          if (data) {
+            this.registerPrinterOutputSource.next(
+              data.toString());
+          }
+        }
       );
-      appProcess.stdout.on('data', (data) => {
-        this.ngZone.run(
-          () => {
-            if (data) {
-              this.registerPrinterOutputSource.next(
-                data.toString());
-            }
-          }
-        );
-      });
-      appProcess.stderr.on('data', (data) => {
-        this.ngZone.run(
-          () => {
-            if (data) {
-              this.registerPrinterOutputSource.next(
-                data.toString());
-            }
-          }
-        );
-      });
     });
     return;
   }
