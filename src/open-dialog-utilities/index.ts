@@ -41,5 +41,14 @@ export function openExcelPathDialog(callback: (result: any) => void) {
     ipcRenderer.send("open-excel-path-dialog");
     ipcRenderer.once("open-excel-path-dialog-reply", (event, result) => {
         callback(result);
-    })
+    });
+    return;
+}
+
+export function openOutputPathDialog(callback: (result: any) => void) {
+    ipcRenderer.send("open-output-path-dialog");
+    ipcRenderer.once("open-output-path-dialog-reply", (event, result) => {
+        callback(result);
+    });
+    return;
 }

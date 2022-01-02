@@ -3,7 +3,8 @@ import { dialog, getCurrentWindow } from '@electron/remote';
 import { RegisterPrinterService } from '../register-printer.service';
 import {
   openConfigFileDialog,
-  openExcelPathDialog
+  openExcelPathDialog,
+  openOutputPathDialog
 } from '../../open-dialog-utilities';
 
 
@@ -58,18 +59,12 @@ export class ExcelSelectorComponent implements OnInit {
   }
 
   onOutputPathClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openDirectory'
-        ]
-      }
-    ).then(
+    openOutputPathDialog(
       (result) => {
         if (!result.canceled) {
-          this.outputPath = result.filePaths[0];
+          this.ngZone.run( () => {
+            this.outputPath = result.filePaths[0];
+          });
         }
       }
     );

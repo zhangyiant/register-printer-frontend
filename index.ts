@@ -128,6 +128,21 @@ function createWindow() {
     );
   });
 
+  ipcMain.on("open-output-path-dialog", (event) => {
+    dialog.showOpenDialog(
+      win,
+      {
+        properties: [
+          'openDirectory'
+        ]
+      }
+    ).then(
+      (result) => {
+        event.reply("open-output-path-dialog-reply", result);
+      }
+    );
+  });
+
   win.webContents.openDevTools();
 
   remoteMain.enable(win.webContents);
