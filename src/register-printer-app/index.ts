@@ -1,4 +1,3 @@
-import { app } from '@electron/remote';
 import { ipcRenderer } from 'electron';
 import * as process from 'process';
 import * as path from 'path';
