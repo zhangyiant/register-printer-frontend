@@ -28,3 +28,11 @@ export function openGenerateDialog(callback: (result: any) => void) {
         callback(result);
     })
 }
+
+export function openConfigFileDialog(callback: (result: any) => void) {
+    ipcRenderer.send("open-config-file-dialog");
+    ipcRenderer.once("open-config-file-dialog-reply", (event, result) => {
+        callback(result);
+    });
+    return;
+}

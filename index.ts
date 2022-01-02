@@ -91,7 +91,28 @@ function createWindow() {
       }
     );
   });
-  // win.webContents.openDevTools();
+
+  ipcMain.on("open-config-file-dialog", (event) => {
+    dialog.showOpenDialog(
+      win,
+      {
+        properties: [
+          'openFile'
+        ],
+        filters: [
+          {
+            name: 'Excel files',
+            extensions: ['xlsx']
+          }
+        ]
+      }
+    ).then(
+      (result) => {
+        event.reply("open-config-file-dialog-reply", result);
+      }
+    );
+  })
+  win.webContents.openDevTools();
 
   remoteMain.enable(win.webContents);
 

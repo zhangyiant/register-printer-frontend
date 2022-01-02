@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { dialog, getCurrentWindow } from '@electron/remote';
 import { RegisterPrinterService } from '../register-printer.service';
+import { openConfigFileDialog } from '../../open-dialog-utilities';
 
 
 @Component({
@@ -20,32 +21,22 @@ export class ExcelSelectorComponent implements OnInit {
   genRtl: boolean = true;
 
   constructor(
-    private registerPrinterService: RegisterPrinterService
+    private registerPrinterService: RegisterPrinterService,
+    private ngZone: NgZone
   ) {}
 
   ngOnInit(): void {
   }
 
   onConfigFileClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openFile'
-        ],
-        filters: [
-          {
-            name: 'Excel files',
-            extensions: ['xlsx']
-          }
-        ]
-      }
-    ).then(
+    openConfigFileDialog(
       (result) => {
-        if (!result.canceled) {
-          this.configFile = result.filePaths[0];
-        }
+        console.log(result);
+        this.ngZone.run(() => {
+          if (!result.canceled) {
+            this.configFile = result.filePaths[0];
+          }
+        });
       }
     );
     return;
