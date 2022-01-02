@@ -14,7 +14,7 @@ function createWindow() {
     }
   });
 
-  ipcMain.on("open-export-excel-dialog", (event) => {
+  ipcMain.on("open-export-to-excel-dialog", (event) => {
     dialog.showOpenDialog(
       win,
       {
@@ -24,7 +24,7 @@ function createWindow() {
       }
     ).then(
       (result) => {
-        event.reply("open-export-excel-dialog-reply", result);
+        event.reply("open-export-to-excel-dialog-reply", result);
       }
     );
   });
