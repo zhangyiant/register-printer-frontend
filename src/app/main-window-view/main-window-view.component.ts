@@ -2,7 +2,6 @@ import { Component, OnInit, Input, ViewChild} from '@angular/core';
 import {
   TopSys
 } from '../../register-printer';
-import { dialog, getCurrentWindow } from '@electron/remote';
 import { TopSysTreeViewComponent } from '../ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
 import {RegisterPrinterService} from '../register-printer.service';
 import { SelectEvent } from '../select-event';
