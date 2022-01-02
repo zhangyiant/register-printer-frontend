@@ -36,3 +36,10 @@ export function openConfigFileDialog(callback: (result: any) => void) {
     });
     return;
 }
+
+export function openExcelPathDialog(callback: (result: any) => void) {
+    ipcRenderer.send("open-excel-path-dialog");
+    ipcRenderer.once("open-excel-path-dialog-reply", (event, result) => {
+        callback(result);
+    })
+}

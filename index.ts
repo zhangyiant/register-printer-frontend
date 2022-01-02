@@ -111,7 +111,23 @@ function createWindow() {
         event.reply("open-config-file-dialog-reply", result);
       }
     );
-  })
+  });
+
+  ipcMain.on("open-excel-path-dialog", (event) => {
+    dialog.showOpenDialog(
+      win,
+      {
+        properties: [
+          'openDirectory'
+        ]
+      }
+    ).then(
+      (result) => {
+        event.reply("open-excel-path-dialog-reply", result);
+      }
+    );
+  });
+
   win.webContents.openDevTools();
 
   remoteMain.enable(win.webContents);
