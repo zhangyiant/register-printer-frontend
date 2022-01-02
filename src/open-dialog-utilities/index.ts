@@ -14,3 +14,10 @@ export function openExportToJsonDialog(callback: (result: any) => void) {
         callback(result);
     });
 }
+
+export function openLoadFromJsonDialog(callback: (result: any) => void) {
+    ipcRenderer.send("open-load-from-json-dialog");
+    ipcRenderer.once("open-load-from-json-dialog-reply", (event, result) => {
+        callback(result);
+    });
+}

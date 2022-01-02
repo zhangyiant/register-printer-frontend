@@ -48,6 +48,27 @@ function createWindow() {
     );
   });
 
+  ipcMain.on("open-load-from-json-dialog", (event) => {
+    dialog.showOpenDialog(
+      win,
+      {
+        properties: [
+          'openFile'
+        ],
+        filters: [
+          {
+            name: 'JSON file',
+            extensions: ['json']
+          }
+        ]
+      }
+    ).then(
+      (result) => {
+        event.reply("open-load-from-json-dialog-reply", result);
+      }
+    );
+  });
+
   // win.webContents.openDevTools();
 
   remoteMain.enable(win.webContents);

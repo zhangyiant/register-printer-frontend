@@ -8,7 +8,8 @@ import {RegisterPrinterService} from '../register-printer.service';
 import { SelectEvent } from '../select-event';
 import {
   openExportToExcelDialog,
-  openExportToJsonDialog
+  openExportToJsonDialog,
+  openLoadFromJsonDialog
 } from '../../open-dialog-utilities';
 
 @Component({
@@ -68,21 +69,7 @@ export class MainWindowViewComponent implements OnInit {
   }
 
   onLoadFromJsonClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openFile'
-        ],
-        filters: [
-          {
-            name: 'JSON file',
-            extensions: ['json']
-          }
-        ]
-      }
-    ).then(
+    openLoadFromJsonDialog(
       (result) => {
         if (!result.canceled) {
           const jsonFilename = result.filePaths[0];
