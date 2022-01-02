@@ -1,4 +1,4 @@
-const { app, Menu, dialog, BrowserWindow } = require('electron');
+const { app, Menu, dialog, ipcMain, BrowserWindow } = require('electron');
 const { autoUpdater } = require('electron-updater');
 const remoteMain = require("@electron/remote/main");
 const { getRegisterPrinterVersion } = require('./get-register-printer-version');
@@ -12,6 +12,21 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false
     }
+  });
+
+  ipcMain.on("open-export-excel-dialog", (event) => {
+    dialog.showOpenDialog(
+      win,
+      {
+        properties: [
+          'openDirectory'
+        ]
+      }
+    ).then(
+      (result) => {
+        event.reply("open-export-excel-dialog-reply", result);
+      }
+    );
   });
 
   // win.webContents.openDevTools();

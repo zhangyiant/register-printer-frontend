@@ -6,6 +6,7 @@ import { dialog, getCurrentWindow } from '@electron/remote';
 import { TopSysTreeViewComponent } from '../ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
 import {RegisterPrinterService} from '../register-printer.service';
 import { SelectEvent } from '../select-event';
+import { openExportToExcelDialog } from '../../open-dialog-utilities';
 
 @Component({
   selector: 'app-main-window-view',
@@ -36,15 +37,7 @@ export class MainWindowViewComponent implements OnInit {
   }
 
   onExportToExcelClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openDirectory'
-        ]
-      }
-    ).then(
+    openExportToExcelDialog(
       (result) => {
         if (!result.canceled) {
           const outputPath: string = result.filePaths[0];
