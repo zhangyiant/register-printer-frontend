@@ -21,3 +21,10 @@ export function openLoadFromJsonDialog(callback: (result: any) => void) {
         callback(result);
     });
 }
+
+export function openGenerateDialog(callback: (result: any) => void) {
+    ipcRenderer.send("open-generate-dialog");
+    ipcRenderer.once("open-generate-dialog-reply", (event, result) => {
+        callback(result);
+    })
+}

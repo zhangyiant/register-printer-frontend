@@ -69,6 +69,20 @@ function createWindow() {
     );
   });
 
+  ipcMain.on("open-generate-dialog", (event) => {
+    dialog.showOpenDialog(
+      win,
+      {
+        properties: [
+          'openDirectory'
+        ]
+      }
+    ).then(
+      (result) => {
+        event.reply("open-generate-dialog-reply", result);
+      }
+    );
+  });
   // win.webContents.openDevTools();
 
   remoteMain.enable(win.webContents);

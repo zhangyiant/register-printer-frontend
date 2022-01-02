@@ -9,7 +9,8 @@ import { SelectEvent } from '../select-event';
 import {
   openExportToExcelDialog,
   openExportToJsonDialog,
-  openLoadFromJsonDialog
+  openLoadFromJsonDialog,
+  openGenerateDialog
 } from '../../open-dialog-utilities';
 
 @Component({
@@ -83,15 +84,7 @@ export class MainWindowViewComponent implements OnInit {
   }
 
   onGenerateClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openDirectory'
-        ]
-      }
-    ).then(
+    openGenerateDialog(
       (result) => {
         if (!result.canceled) {
           const outputPath: string = result.filePaths[0];
