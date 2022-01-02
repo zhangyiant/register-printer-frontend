@@ -1,5 +1,4 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { dialog, getCurrentWindow } from '@electron/remote';
 import { RegisterPrinterService } from '../register-printer.service';
 import {
   openConfigFileDialog,
