@@ -6,7 +6,10 @@ import { dialog, getCurrentWindow } from '@electron/remote';
 import { TopSysTreeViewComponent } from '../ui-tree-view/top-sys-tree-view/top-sys-tree-view.component';
 import {RegisterPrinterService} from '../register-printer.service';
 import { SelectEvent } from '../select-event';
-import { openExportToExcelDialog } from '../../open-dialog-utilities';
+import {
+  openExportToExcelDialog,
+  openExportToJsonDialog
+} from '../../open-dialog-utilities';
 
 @Component({
   selector: 'app-main-window-view',
@@ -51,19 +54,7 @@ export class MainWindowViewComponent implements OnInit {
   }
 
   onExportToJsonClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showSaveDialog(
-      currentWindow,
-      {
-        title: 'Export to JSON file',
-        filters: [
-          {
-            name: 'JSON file',
-            extensions: ['json']
-          }
-        ]
-      }
-    ).then(
+    openExportToJsonDialog(
       (result) => {
         if (!result.canceled) {
           const outputFilename: string = result.filePath;

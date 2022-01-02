@@ -29,6 +29,25 @@ function createWindow() {
     );
   });
 
+  ipcMain.on("open-export-to-json-dialog", (event) => {
+    dialog.showSaveDialog(
+      win,
+      {
+        title: 'Export to JSON file',
+        filters: [
+          {
+            name: 'JSON file',
+            extensions: ['json']
+          }
+        ]
+      }
+    ).then(
+      (result) => {
+        event.reply("open-export-to-json-dialog-reply", result);
+      }
+    );
+  });
+
   // win.webContents.openDevTools();
 
   remoteMain.enable(win.webContents);
