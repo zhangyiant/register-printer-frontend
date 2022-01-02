@@ -1,4 +1,5 @@
 import { app } from '@electron/remote';
+import { ipcRenderer } from 'electron';
 import * as process from 'process';
 import * as path from 'path';
 import * as fs from 'fs';
@@ -6,7 +7,7 @@ import * as os from 'os';
 import * as child_process from 'child_process';
 
 export function getRegisterPrinterPath() {
-    const appPath = app.getAppPath();
+    const appPath = ipcRenderer.sendSync("get-app-path");
 
     let appName;
 

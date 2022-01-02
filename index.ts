@@ -14,6 +14,10 @@ function createWindow() {
     }
   });
 
+  ipcMain.on("get-app-path", (event) => {
+    event.returnValue = app.getAppPath();
+  });
+
   ipcMain.on("open-export-to-excel-dialog", (event) => {
     dialog.showOpenDialog(
       win,
