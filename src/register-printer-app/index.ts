@@ -41,7 +41,7 @@ export function getRegisterPrinterPath() {
 }
 
 export function getVersion(): string {
-    return app.getVersion();
+  return ipcRenderer.sendSync("get-version");
 }
 
 export function exportExcels(jsonString: string, outputFolder: string, dataCallback: (data: any) => void, exitCallback: (data: any) => void) {

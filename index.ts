@@ -18,6 +18,10 @@ function createWindow() {
     event.returnValue = app.getAppPath();
   });
 
+  ipcMain.on("get-version", (event) => {
+    event.returnValue = app.getVersion();
+  });
+
   ipcMain.on("open-export-to-excel-dialog", (event) => {
     dialog.showOpenDialog(
       win,
