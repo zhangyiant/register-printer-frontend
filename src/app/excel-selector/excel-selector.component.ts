@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { dialog, getCurrentWindow } from '@electron/remote';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { RegisterPrinterService } from '../register-printer.service';
+import {
+  openConfigFileDialog,
+  openExcelPathDialog,
+  openOutputPathDialog
+} from '../../open-dialog-utilities';
 
 
 @Component({
@@ -20,69 +24,46 @@ export class ExcelSelectorComponent implements OnInit {
   genRtl: boolean = true;
 
   constructor(
-    private registerPrinterService: RegisterPrinterService
+    private registerPrinterService: RegisterPrinterService,
+    private ngZone: NgZone
   ) {}
 
   ngOnInit(): void {
   }
 
   onConfigFileClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openFile'
-        ],
-        filters: [
-          {
-            name: 'Excel files',
-            extensions: ['xlsx']
-          }
-        ]
-      }
-    ).then(
+    openConfigFileDialog(
       (result) => {
-        if (!result.canceled) {
-          this.configFile = result.filePaths[0];
-        }
+        this.ngZone.run(() => {
+          if (!result.canceled) {
+            this.configFile = result.filePaths[0];
+          }
+        });
       }
     );
     return;
   }
 
   onExcelPathClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openDirectory'
-        ]
-      }
-    ).then(
+    openExcelPathDialog(
       (result) => {
-        if (!result.canceled) {
-          this.excelPath = result.filePaths[0];
-        }
+        this.ngZone.run( () => {
+          if (!result.canceled) {
+            this.excelPath = result.filePaths[0];
+          }
+        });
       }
     );
     return;
   }
 
   onOutputPathClicked() {
-    const currentWindow = getCurrentWindow();
-    dialog.showOpenDialog(
-      currentWindow,
-      {
-        properties: [
-          'openDirectory'
-        ]
-      }
-    ).then(
+    openOutputPathDialog(
       (result) => {
         if (!result.canceled) {
-          this.outputPath = result.filePaths[0];
+          this.ngZone.run( () => {
+            this.outputPath = result.filePaths[0];
+          });
         }
       }
     );
