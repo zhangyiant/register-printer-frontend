@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
         }
       }
     );
-    console.log(_window().mytest);
     return;
   }
 

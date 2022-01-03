@@ -145,7 +145,7 @@ function createWindow() {
     );
   });
 
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
   win.loadFile('dist/register-printer-frontend/index.html');
 }
