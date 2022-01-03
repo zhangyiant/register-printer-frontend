@@ -60,8 +60,14 @@ function exportExcels(jsonString: string, outputFolder: string, dataCallback: (d
     const appProcess = child_process.spawn(
       registerPrinterApp, args
     );
-    appProcess.stdout.on('data', dataCallback);
-    appProcess.stderr.on('data', dataCallback);
+    appProcess.stdout.on('data', (data) => {
+        const str = data.toString("utf8");
+        dataCallback(str);
+    });
+    appProcess.stderr.on('data', (data) => {
+        const str = data.toString("utf8");
+        dataCallback(str);
+    });
     appProcess.on('exit', exitCallback);
   });
 }
@@ -91,14 +97,20 @@ function generate(generateConfig: any, dataCallback: (data: any) => void, exitCa
   const appProcess = child_process.spawn(
     registerPrinterApp, args
   );
-  appProcess.stdout.on('data', dataCallback);
-  appProcess.stderr.on('data', dataCallback);
+  appProcess.stdout.on('data', (data) => {
+    const str = data.toString("utf8");
+    dataCallback(str);
+  });
+  appProcess.stderr.on('data', (data) => {
+    const str = data.toString("utf8");
+    dataCallback(str);
+  });
   appProcess.on('exit', (code) => {
     const filename: string = path.join(
       generateConfig.outputPath,
       'register_printer.json'
     );
-    fs.readFile(filename, (err, data) => {
+    fs.readFile(filename, { encoding: "utf8" }, (err, data) => {
       // Check for errors
       if (err) {
         throw err;
@@ -173,8 +185,14 @@ function generateAll(jsonString: string, outputPath: string, dataCallback: (data
     const appProcess = child_process.spawn(
       registerPrinterApp, args
     );
-    appProcess.stdout.on('data', dataCallback);
-    appProcess.stderr.on('data', dataCallback);
+    appProcess.stdout.on('data', (data) => {
+        const str = data.toString("utf8");
+        dataCallback(str);
+    });
+    appProcess.stderr.on('data', (data) => {
+        const str = data.toString("utf8");
+        dataCallback(str);
+    });
   });
 }
 
