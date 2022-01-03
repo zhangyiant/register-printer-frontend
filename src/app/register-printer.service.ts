@@ -171,7 +171,7 @@ export class RegisterPrinterService {
   }
   loadJson(jsonFilename: string) {
 
-    this.registerPrinterStartSource.next(true);
+    // this.registerPrinterStartSource.next(true);
 
     _loadJson(jsonFilename,
       (data) => {
