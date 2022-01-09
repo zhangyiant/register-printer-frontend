@@ -6,6 +6,7 @@ import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 import { RegisterPrinterService } from './register-printer.service';
 import { MainWindowViewComponent } from './main-window-view/main-window-view.component';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
