@@ -21,7 +21,6 @@
   },
   "files": [
     "index.ts",
-    "preload.ts",
     "get-register-printer-version.ts"
   ]
 }
