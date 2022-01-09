@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:electron": "tsc --build tsconfig.electron.json && tsc --build tsconfig.preload.json && ng build --base-href=. && electron .",
+    "start:electron": "tsc --build tsconfig.electron.json && webpack --config webpack.config.preload.js && ng build --base-href=. && electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
