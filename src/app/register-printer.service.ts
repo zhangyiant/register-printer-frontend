@@ -1,4 +1,4 @@
-import { Injectable, NgZone, ɵɵsetComponentScope } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import {
@@ -171,7 +171,7 @@ export class RegisterPrinterService {
   }
   loadJson(jsonFilename: string) {
 
-    // this.registerPrinterStartSource.next(true);
+    this.registerPrinterStartSource.next(true);
 
     _loadJson(jsonFilename,
       (data) => {
@@ -185,7 +185,7 @@ export class RegisterPrinterService {
         );
       },
       (data) => {
-        //Converting to JSON
+        // Converting to JSON
         this.ngZone.run(() => {
           const topSys: TopSys = this.parseDoc(data.toString());
           this.topSys = topSys;
