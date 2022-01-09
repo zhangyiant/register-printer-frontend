@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/electron",
-    "sourceMap": true,
+    "inlineSourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
@@ -21,6 +21,7 @@
   },
   "files": [
     "index.ts",
+    "preload.ts",
     "get-register-printer-version.ts"
   ]
 }
