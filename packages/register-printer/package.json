@@ -1,0 +1,25 @@
+{
+  "name": "register-printer",
+  "version": "1.0.0",
+  "description": "RegisterPrinter data model",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangyiant/register-printer-frontend.git"
+  },
+  "keywords": [
+    "EDA"
+  ],
+  "author": "Yi Zhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhangyiant/register-printer-frontend/issues"
+  },
+  "homepage": "https://github.com/zhangyiant/register-printer-frontend#readme",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
