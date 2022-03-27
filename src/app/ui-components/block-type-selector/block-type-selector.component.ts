@@ -6,7 +6,7 @@ import {
   OnInit
 } from '@angular/core';
 
-import { BlockTemplate } from '../../../register-printer';
+import { BlockTemplate } from '@antee/register-printer';
 
 
 @Component({

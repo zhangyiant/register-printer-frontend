@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { Field } from '../../../register-printer';
+import { Field } from '@antee/register-printer';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
 import { MatTable } from '@angular/material/table'
 import { AddFieldDlgComponent } from '../../ui-dialogs/add-field-dlg/add-field-dlg.component';

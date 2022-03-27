@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import {BlockInstance, TopSys} from '../../../register-printer';
+import {BlockInstance, TopSys} from '@antee/register-printer';
 import { MatTable } from '@angular/material/table'
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
 import {

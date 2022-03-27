@@ -3,7 +3,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA
 } from '@angular/material/dialog';
-import {Field, Register} from '../../../register-printer';
+import {Field, Register} from '@antee/register-printer';
 import {SelectRegisterDlgData} from '../select-register-dlg/select-register-dlg.component';
 
 export interface SelectFieldDlgData {

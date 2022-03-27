@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Field } from '../../../register-printer';
+import { Field } from '@antee/register-printer';
 
 @Component({
   selector: 'app-field-view',
