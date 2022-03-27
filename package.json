@@ -7,7 +7,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxyConfig=proxy.config.json",
-    "build": "ng build --base-href=/register-printer --deploy-url=/register-printer/",
+    "build": "ng build --base-href=.",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
