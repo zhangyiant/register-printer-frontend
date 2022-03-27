@@ -86,5 +86,8 @@
       "provider": "generic",
       "url": "http://zhangyiant.tpddns.cn:9000/"
     }
-  }
+  },
+  "workspaces": [
+    "packages/register-printer"
+  ]
 }
