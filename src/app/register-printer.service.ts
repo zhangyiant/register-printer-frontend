@@ -52,7 +52,7 @@ export class RegisterPrinterService {
   }
 
   parseDoc(strDoc: string): TopSys | null {
-    const jsonObj: object = JSON.parse(strDoc);
+    const jsonObj: any = JSON.parse(strDoc);
     const topSys = TopSys.parseJson(jsonObj);
     return topSys;
   }

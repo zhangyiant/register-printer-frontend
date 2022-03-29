@@ -51,11 +51,12 @@ export class TopSys {
     return jsonObj;
   }
 
-  static parseJson(jsonObj: object): TopSys {
+  static parseJson(jsonObj: any): TopSys {
     const topSys = new TopSys(
       jsonObj['name'],
       jsonObj['addressWidth'],
-      jsonObj['dataWidth']);
+      jsonObj['dataWidth']
+    );
     topSys.version = jsonObj['version'];
     topSys.author = jsonObj['author'];
     const blockTemplatesJsonObj = jsonObj['blockTemplates'];
