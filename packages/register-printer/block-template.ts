@@ -16,7 +16,7 @@ export class BlockTemplate {
   }
 
   toJson(): object {
-    const jsonObj: object = {};
+    const jsonObj: any = {};
     jsonObj["blockType"] = this.blockType;
     jsonObj["registers"] = [];
     for (const register of this.registers) {
@@ -26,7 +26,7 @@ export class BlockTemplate {
     return jsonObj;
   }
 
-  static parseJson(jsonObj: object): BlockTemplate {
+  static parseJson(jsonObj: any): BlockTemplate {
     const blockTemplate = new BlockTemplate(
       jsonObj["blockType"]
     );

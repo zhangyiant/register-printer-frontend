@@ -11,7 +11,7 @@ export class Field {
     }
 
   toJson(): object {
-    const jsonObj: object = {};
+    const jsonObj: any = {};
     jsonObj["name"] = this.name;
     jsonObj["msb"] = this.msb;
     jsonObj["lsb"] = this.lsb;
@@ -21,7 +21,7 @@ export class Field {
     return jsonObj;
   }
 
-  static parseJson(jsonObj: object): Field {
+  static parseJson(jsonObj: any): Field {
     const field = new Field(
       jsonObj["name"],
       jsonObj["msb"],
