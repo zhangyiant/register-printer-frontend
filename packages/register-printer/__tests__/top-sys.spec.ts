@@ -1,4 +1,4 @@
-import { TopSys } from './top-sys';
+import { TopSys } from '../top-sys';
 
 describe('TopSys', () => {
   test('should create an instance', () => {

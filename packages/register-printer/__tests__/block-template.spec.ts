@@ -1,4 +1,4 @@
-import { BlockTemplate } from './block-template';
+import { BlockTemplate } from '../block-template';
 
 describe('BlockType', () => {
   it('should create an instance', () => {
