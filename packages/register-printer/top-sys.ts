@@ -32,7 +32,7 @@ export class TopSys {
   }
 
   toJson(): object {
-    const jsonObj: object = {};
+    const jsonObj: any = {};
     jsonObj["name"] = this.name;
     jsonObj['addressWidth'] = this.addressWidth;
     jsonObj['dataWidth'] = this.dataWidth;
