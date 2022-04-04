@@ -3,15 +3,15 @@ export class BlockInstance {
   name: string;
   baseAddress: number;
   blockSize: number;
-  addressWidth: number;
-  dataWidth: number;
+  addressWidth: number | null;
+  dataWidth: number | null;
 
   constructor(blockType: string,
               name: string,
               baseAddress: number,
               blockSize: number,
-              addressWidth: number,
-              dataWidth: number) {
+              addressWidth: number | null,
+              dataWidth: number | null) {
     this.blockType = blockType;
     this.name = name;
     this.baseAddress = baseAddress;
@@ -23,7 +23,7 @@ export class BlockInstance {
 
   toJson(): object {
     const jsonObj: any = {};
-    jsonObj["blockType"] = this.blockType;
+    jsonObj['blockType'] = this.blockType;
     jsonObj["name"] = this.name;
     jsonObj["baseAddress"] = this.baseAddress;
     jsonObj["blockSize"] = this.blockSize;
