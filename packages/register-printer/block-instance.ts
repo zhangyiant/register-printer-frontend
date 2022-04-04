@@ -22,7 +22,7 @@ export class BlockInstance {
   }
 
   toJson(): object {
-    const jsonObj: object = {};
+    const jsonObj: any = {};
     jsonObj["blockType"] = this.blockType;
     jsonObj["name"] = this.name;
     jsonObj["baseAddress"] = this.baseAddress;
@@ -32,7 +32,7 @@ export class BlockInstance {
     return jsonObj;
   }
 
-  static parseJson(jsonObj: object): BlockInstance {
+  static parseJson(jsonObj: any): BlockInstance {
     const blockInstance = new BlockInstance(
       jsonObj["blockType"],
       jsonObj["name"],
