@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Field } from '../../../register-printer';
+import { Field } from '@antee/register-printer';
 
 
 @Component({

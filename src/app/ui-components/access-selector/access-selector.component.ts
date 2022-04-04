@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ACCESS_STRINGS } from '../../../register-printer';
+import { ACCESS_STRINGS } from '@antee/register-printer';
 
 @Component({
   selector: 'app-access-selector',

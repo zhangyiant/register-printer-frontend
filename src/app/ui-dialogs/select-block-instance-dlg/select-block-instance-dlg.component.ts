@@ -4,7 +4,7 @@ import {
   MAT_DIALOG_DATA
 } from '@angular/material/dialog'
 
-import { BlockInstance } from '../../../register-printer'
+import { BlockInstance } from '@antee/register-printer'
 
 export interface DialogData {
   blockInstances: BlockInstance[]

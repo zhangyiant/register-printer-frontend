@@ -20,7 +20,7 @@ export class Register {
     }
 
   toJson(): object {
-    const jsonObj: object = {};
+    const jsonObj: any = {};
     jsonObj["name"] = this.name;
     jsonObj["offset"] = this.offset;
     jsonObj["fields"] = [];
@@ -32,7 +32,7 @@ export class Register {
     return jsonObj;
   }
 
-  static parseJson(jsonObj: object): Register {
+  static parseJson(jsonObj: any): Register {
     const register = new Register(
       jsonObj["name"],
       jsonObj["offset"],

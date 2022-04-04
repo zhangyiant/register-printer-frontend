@@ -15,7 +15,7 @@ import {
   BlockTemplate,
   Register,
   Field
-} from '../../../register-printer';
+} from '@antee/register-printer';
 import { SelectEvent } from '../../select-event';
 
 export interface RegisterPrinterTreeNode {

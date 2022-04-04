@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
 import { MatTable } from '@angular/material/table'
-import { BlockTemplate } from '../../../register-printer';
+import { BlockTemplate } from '@antee/register-printer';
 import {
   AddRegisterDlgComponent
 } from '../../ui-dialogs/add-register-dlg/add-register-dlg.component'

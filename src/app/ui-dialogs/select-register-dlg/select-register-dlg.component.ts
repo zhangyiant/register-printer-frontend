@@ -3,7 +3,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA
 } from '@angular/material/dialog';
-import { Register } from '../../../register-printer'
+import { Register } from '@antee/register-printer'
 
 export interface SelectRegisterDlgData {
   registers: Register[]

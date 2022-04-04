@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Register } from '../../../register-printer';
+import { Register } from '@antee/register-printer';
 
 @Component({
   selector: 'app-add-register-dlg',

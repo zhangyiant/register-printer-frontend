@@ -7,8 +7,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxyConfig=proxy.config.json",
-    "build": "ng build --base-href=/register-printer --deploy-url=/register-printer/",
-    "test": "ng test",
+    "build": "ng build --base-href=.",
+    "test2": "ng test",
+    "test": "npm run test -w packages/register-printer",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start:electron": "tsc --build tsconfig.electron.json && webpack --config webpack.config.preload.js && ng build --base-href=. && electron .",
@@ -86,5 +87,8 @@
       "provider": "generic",
       "url": "http://zhangyiant.tpddns.cn:9000/"
     }
-  }
+  },
+  "workspaces": [
+    "packages/register-printer"
+  ]
 }

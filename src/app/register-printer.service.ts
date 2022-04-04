@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import {
   TopSys,
   BlockTemplate
-} from '../register-printer';
+} from '@antee/register-printer';
 import { RegisterPrinterDoc } from './register-printer-doc';
 import * as _ from 'lodash';
 import {
@@ -52,7 +52,7 @@ export class RegisterPrinterService {
   }
 
   parseDoc(strDoc: string): TopSys | null {
-    const jsonObj: object = JSON.parse(strDoc);
+    const jsonObj: any = JSON.parse(strDoc);
     const topSys = TopSys.parseJson(jsonObj);
     return topSys;
   }
@@ -92,7 +92,7 @@ export class RegisterPrinterService {
     this.registerPrinterStartSource.next(true);
     const jsonObj = this.topSys.toJson();
     const jsonString = JSON.stringify(jsonObj);
-    _exportExcels(jsonString, output, 
+    _exportExcels(jsonString, output,
       (data) => {
         this.ngZone.run(
           () => {
