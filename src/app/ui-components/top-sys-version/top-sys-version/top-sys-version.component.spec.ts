@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TopSysVersionComponent } from './top-sys-version.component';
+import {EditBoxComponent} from '../../edit-box/edit-box.component';
 
 describe('TopSysVersionComponent', () => {
   let component: TopSysVersionComponent;
@@ -8,9 +9,12 @@ describe('TopSysVersionComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopSysVersionComponent ]
+      declarations: [
+        TopSysVersionComponent,
+        EditBoxComponent
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -19,7 +19,4 @@ describe('PropertyNodeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

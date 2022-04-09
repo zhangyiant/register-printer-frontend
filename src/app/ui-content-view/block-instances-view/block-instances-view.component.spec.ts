@@ -19,7 +19,4 @@ describe('BlockInstancesViewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

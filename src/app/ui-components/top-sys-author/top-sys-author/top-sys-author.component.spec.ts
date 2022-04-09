@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TopSysAuthorComponent } from './top-sys-author.component';
+import {EditBoxComponent} from '../../edit-box/edit-box.component';
 
 describe('TopSysAuthorComponent', () => {
   let component: TopSysAuthorComponent;
@@ -8,7 +9,7 @@ describe('TopSysAuthorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopSysAuthorComponent ]
+      declarations: [ TopSysAuthorComponent, EditBoxComponent]
     })
     .compileComponents();
   }));
