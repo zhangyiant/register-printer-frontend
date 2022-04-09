@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AddFieldDlgComponent } from './add-field-dlg.component';
-import { MatDialogRef } from '@angular/material/dialog'
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NumberEditBoxComponent } from '../../ui-components/number-edit-box/number-edit-box.component';
 import { HexEditBoxComponent } from '../../ui-components/hex-editor-box/hex-edit-box.component';

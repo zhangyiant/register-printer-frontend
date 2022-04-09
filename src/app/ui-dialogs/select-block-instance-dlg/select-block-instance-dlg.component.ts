@@ -1,13 +1,13 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA
-} from '@angular/material/dialog'
+} from '@angular/material/dialog';
 
-import { BlockInstance } from '@antee/register-printer'
+import { BlockInstance } from '@antee/register-printer';
 
 export interface DialogData {
-  blockInstances: BlockInstance[]
+  blockInstances: BlockInstance[];
 }
 
 @Component({

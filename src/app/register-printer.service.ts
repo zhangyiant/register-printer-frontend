@@ -92,23 +92,21 @@ export class RegisterPrinterService {
     this.registerPrinterStartSource.next(true);
     const jsonObj = this.topSys.toJson();
     const jsonString = JSON.stringify(jsonObj);
-    _exportExcels(jsonString, output,
-      (data) => {
-        this.ngZone.run(
-          () => {
-            if (data) {
-              this.registerPrinterOutputSource.next(
-                data.toString());
-            }
+    _exportExcels(jsonString, output, (data) => {
+      this.ngZone.run(
+        () => {
+          if (data) {
+            this.registerPrinterOutputSource.next(
+              data.toString());
           }
-      )},
-      (code) => {
-        this.ngZone.run(() => {
-          this.registerPrinterOutputSource.next(
-            'Exported successfully');
-        });
-      }
-    );
+        }
+      );
+    }, (code) => {
+      this.ngZone.run(() => {
+        this.registerPrinterOutputSource.next(
+          'Exported successfully');
+      });
+    });
   }
 
   generate(generateConfig) {
@@ -157,8 +155,8 @@ export class RegisterPrinterService {
       32,
       32
     );
-    topSys.version = "1.0.0";
-    topSys.author = "Unknown";
+    topSys.version = '1.0.0';
+    topSys.author = 'Unknown';
     return topSys;
   }
 

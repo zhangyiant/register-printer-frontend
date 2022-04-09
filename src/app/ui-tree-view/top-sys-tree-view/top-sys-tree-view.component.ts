@@ -180,13 +180,13 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
     if (node instanceof TopSysTreeNode) {
       this.selected.emit(
         {
-          nodeType: "topSys",
+          nodeType: 'topSys',
           nodeValue: node.topSys
         });
     } else if (node instanceof BlockInstancesTreeNode) {
       this.selected.emit(
         {
-          nodeType: "blockInstances",
+          nodeType: 'blockInstances',
           nodeValue: node.blockInstances
         });
     } else if (node instanceof BlockInstanceTreeNode) {

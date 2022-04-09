@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
-import { MatTable } from '@angular/material/table'
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatTable } from '@angular/material/table';
 import { BlockTemplate } from '@antee/register-printer';
 import {
   AddRegisterDlgComponent
-} from '../../ui-dialogs/add-register-dlg/add-register-dlg.component'
+} from '../../ui-dialogs/add-register-dlg/add-register-dlg.component';
 import {
   SelectRegisterDlgComponent
 } from '../../ui-dialogs/select-register-dlg/select-register-dlg.component';
@@ -36,7 +36,7 @@ export class BlockTemplateViewComponent implements OnInit {
   onAddRegister() {
     const matDialogConfig = new MatDialogConfig();
     matDialogConfig.disableClose = true;
-    matDialogConfig.width = "800px";
+    matDialogConfig.width = '800px';
     const dlg = this.dialog.open(
       AddRegisterDlgComponent,
       matDialogConfig);
@@ -54,7 +54,7 @@ export class BlockTemplateViewComponent implements OnInit {
     matDialogConfig.disableClose = true;
     matDialogConfig.data = {
       registers: this.blockTemplate.registers
-    }
+    };
     const dlg = this.dialog.open(
       SelectRegisterDlgComponent,
       matDialogConfig);

@@ -5,8 +5,8 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
-import { DescriptionEditDlgComponent } from '../../ui-dialogs/description-edit-dlg/description-edit-dlg.component'
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DescriptionEditDlgComponent } from '../../ui-dialogs/description-edit-dlg/description-edit-dlg.component';
 
 @Component({
   selector: 'app-description-edit-box',
@@ -30,7 +30,7 @@ export class DescriptionEditBoxComponent implements OnInit {
   onDoubleClick() {
     const matDialogConfig = new MatDialogConfig();
     matDialogConfig.disableClose = true;
-    matDialogConfig.width = "800px";
+    matDialogConfig.width = '800px';
     matDialogConfig.data = {
       description: this.value
     };
@@ -42,6 +42,6 @@ export class DescriptionEditBoxComponent implements OnInit {
       if (result) {
         this.valueChange.emit(result);
       }
-    })
+    });
   }
 }

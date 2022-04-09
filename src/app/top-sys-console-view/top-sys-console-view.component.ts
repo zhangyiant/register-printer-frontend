@@ -8,9 +8,9 @@ import { RegisterPrinterService } from '../register-printer.service';
 })
 export class TopSysConsoleViewComponent implements OnInit {
 
-  log: string = "";
+  log: string = '';
   count: number = 1;
-  @ViewChild("mylog")
+  @ViewChild('mylog')
   mylog: ElementRef;
 
   constructor(
@@ -27,7 +27,7 @@ export class TopSysConsoleViewComponent implements OnInit {
     );
     this.registerPrinterService.registerPrinterStart$.subscribe(
       (b) => {
-        this.log = "";
+        this.log = '';
       }
     );
   }

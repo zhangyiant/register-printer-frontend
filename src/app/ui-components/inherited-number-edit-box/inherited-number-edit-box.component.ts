@@ -22,7 +22,7 @@ export class InheritedNumberEditBoxComponent implements OnInit {
     if (this.value) {
       return this.value.toString();
     } else {
-      return this.inheritedValue.toString() + "(inherited)";
+      return this.inheritedValue.toString() + '(inherited)';
     }
   }
 
@@ -33,7 +33,7 @@ export class InheritedNumberEditBoxComponent implements OnInit {
     this.isEditing = true;
     if (this.value === null) {
       this.editingIsInherited = true;
-      this.editingValue = this.inheritedValue.toString() + "(inherited)";
+      this.editingValue = this.inheritedValue.toString() + '(inherited)';
     } else {
       this.editingValue = this.value.toString();
       this.editingIsInherited = false;
@@ -46,7 +46,7 @@ export class InheritedNumberEditBoxComponent implements OnInit {
       this.isEditing = false;
       this.valueChange.emit(null);
     } else {
-      this.value = parseInt(this.editingValue);
+      this.value = parseInt(this.editingValue, 10);
       this.isEditing = false;
       this.valueChange.emit(this.value);
     }
@@ -60,7 +60,7 @@ export class InheritedNumberEditBoxComponent implements OnInit {
 
   onCheckBoxChange() {
     if (this.editingIsInherited) {
-      this.editingValue = this.inheritedValue.toString() + "(inherited)";
+      this.editingValue = this.inheritedValue.toString() + '(inherited)';
     } else {
       this.editingValue = this.inheritedValue.toString();
     }
