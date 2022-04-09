@@ -1,12 +1,35 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed, waitForAsync} from '@angular/core/testing';
 
-import { RegisterPrinterService } from './register-printer.service';
+import {RegisterPrinterService} from './register-printer.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {NgZone} from '@angular/core';
+
+class MockHttpClient {
+}
+
+class MockNgZone {
+}
 
 describe('RegisterPrinterService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(
+    () => TestBed.configureTestingModule({
+      imports: [
+        HttpClientModule
+      ],
+      providers: [
+        {
+          provider: HttpClient, useClass: MockHttpClient
+        },
+        {
+          provider: NgZone, useClass: MockNgZone
+        }
+      ]
+    })
+  );
 
   it('should be created', () => {
-    const service: RegisterPrinterService = TestBed.get(RegisterPrinterService);
+    const service: RegisterPrinterService = TestBed.inject(RegisterPrinterService);
+
     expect(service).toBeTruthy();
   });
 });
