@@ -2,7 +2,8 @@
   "name": "@antee/register-printer",
   "version": "1.0.0",
   "description": "RegisterPrinter data model",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest"
   },
