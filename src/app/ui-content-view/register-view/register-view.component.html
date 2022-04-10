@@ -2,7 +2,7 @@
   <h2>Register: {{ register.name }}</h2>
   <h3>Offset: {{ register.offset }}</h3>
   <h3>Description: {{ register.description }}</h3>
-  <table mat-table [dataSource]="register.fields" class="mat-elevation-z8">
+  <table mat-table [dataSource]="register.fieldTemplates" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let field">

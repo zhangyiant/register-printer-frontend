@@ -13,7 +13,7 @@
 
   <table
     mat-table
-    [dataSource]="blockTemplate.registers"
+    [dataSource]="blockTemplate.registerTemplates"
     class="mat-elevation-z8"
     multiTemplateDataRows>
     <ng-container matColumnDef="name">
@@ -37,7 +37,7 @@
     </ng-container>
     <ng-container matColumnDef="fields">
       <td mat-cell *matCellDef="let register" [attr.colspan]="displayedColumns.length">
-        <app-fields-view [fields]="register.fields">
+        <app-fields-view [fields]="register.fieldTemplates">
         </app-fields-view>
       </td>
     </ng-container>
