@@ -23,10 +23,10 @@ export class Register {
     const jsonObj: any = {};
     jsonObj["name"] = this.name;
     jsonObj["offset"] = this.offset;
-    jsonObj["fields"] = [];
+    jsonObj['fieldTemplates'] = [];
     for (let field of this.fields) {
       const fieldJsonObj = field.toJson();
-      jsonObj["fields"].push(fieldJsonObj);
+      jsonObj['fieldTemplates'].push(fieldJsonObj);
     }
     jsonObj['description'] = this.description;
     return jsonObj;
@@ -37,7 +37,7 @@ export class Register {
       jsonObj["name"],
       jsonObj["offset"],
       jsonObj['description']);
-    const fieldsJsonObj = jsonObj["fields"];
+    const fieldsJsonObj = jsonObj['fieldTemplates'];
     for (let fieldJsonObj of fieldsJsonObj) {
       const field = Field.parseJson(
         fieldJsonObj);
