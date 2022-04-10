@@ -6,13 +6,13 @@ export class RegisterTemplate {
         this.name = name;
         this.offset = offset;
         this.description = description;
-        this.fields = [];
+        this.fieldTemplates = [];
         return;
     }
     name: string;
     offset: number;
     description: string;
-    fields: FieldTemplate[];
+    fieldTemplates: FieldTemplate[];
 
   static parseJson(jsonObj: any): RegisterTemplate {
     const register = new RegisterTemplate(
@@ -29,7 +29,7 @@ export class RegisterTemplate {
   }
 
     addField(field: FieldTemplate) {
-        this.fields.push(field);
+        this.fieldTemplates.push(field);
         return;
     }
 
@@ -38,7 +38,7 @@ export class RegisterTemplate {
     jsonObj.name = this.name;
     jsonObj.offset = this.offset;
     jsonObj.fieldTemplates = [];
-    for (const field of this.fields) {
+    for (const field of this.fieldTemplates) {
       const fieldJsonObj = field.toJson();
       jsonObj.fieldTemplates.push(fieldJsonObj);
     }

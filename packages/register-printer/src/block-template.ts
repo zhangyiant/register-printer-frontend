@@ -2,16 +2,16 @@ import { RegisterTemplate } from './register-template';
 
 export class BlockTemplate {
   blockType: string;
-  registers: Array<RegisterTemplate>;
+  registerTemplates: Array<RegisterTemplate>;
 
   constructor(blockType: string) {
     this.blockType = blockType;
-    this.registers = [];
+    this.registerTemplates = [];
     return;
   }
 
   addRegister(register: RegisterTemplate) {
-    this.registers.push(register);
+    this.registerTemplates.push(register);
     return;
   }
 
@@ -19,7 +19,7 @@ export class BlockTemplate {
     const jsonObj: any = {};
     jsonObj["blockType"] = this.blockType;
     jsonObj["registerTemplates"] = [];
-    for (const register of this.registers) {
+    for (const register of this.registerTemplates) {
       const registerJsonObj = register.toJson();
       jsonObj['registerTemplates'].push(registerJsonObj);
     }
