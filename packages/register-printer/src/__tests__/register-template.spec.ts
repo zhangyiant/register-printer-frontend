@@ -1,6 +1,6 @@
 import { RegisterTemplate } from '../register-template';
 
-describe('Register', () => {
+describe('RegisterTemplate', () => {
   it('should create an instance', () => {
 
   });
