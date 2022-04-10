@@ -19,6 +19,14 @@ import * as _ from 'lodash';
 export class BlockTemplateViewComponent implements OnInit {
 
   @Input() blockTemplate: BlockTemplate;
+  arrayTemplatesDisplayColumns: string[] = [
+    'name',
+    'length',
+    'offset',
+    'startAddress',
+    'endAddress',
+    'description'
+  ];
   displayedColumns: string[] = [
     'name',
     'offset',
