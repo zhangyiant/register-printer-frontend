@@ -1,8 +1,8 @@
-import { Register } from './register';
+import { RegisterTemplate } from './register-template';
 
 export class BlockTemplate {
   blockType: string;
-  registers: Array<Register>;
+  registers: Array<RegisterTemplate>;
 
   constructor(blockType: string) {
     this.blockType = blockType;
@@ -10,7 +10,7 @@ export class BlockTemplate {
     return;
   }
 
-  addRegister(register: Register) {
+  addRegister(register: RegisterTemplate) {
     this.registers.push(register);
     return;
   }
@@ -33,7 +33,7 @@ export class BlockTemplate {
 
     const registersJsonObj = jsonObj["registerTemplates"];
     for (const registerJsonObj of registersJsonObj) {
-      const register = Register.parseJson(
+      const register = RegisterTemplate.parseJson(
         registerJsonObj);
       blockTemplate.addRegister(register);
     }

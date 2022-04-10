@@ -1,6 +1,6 @@
 import { Field } from './field';
 
-export class Register {
+export class RegisterTemplate {
     name: string;
     offset: number;
     description: string;
@@ -32,8 +32,8 @@ export class Register {
     return jsonObj;
   }
 
-  static parseJson(jsonObj: any): Register {
-    const register = new Register(
+  static parseJson(jsonObj: any): RegisterTemplate {
+    const register = new RegisterTemplate(
       jsonObj["name"],
       jsonObj["offset"],
       jsonObj['description']);
