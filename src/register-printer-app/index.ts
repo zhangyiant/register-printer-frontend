@@ -1,10 +1,5 @@
 const api: any = (window as any).registerPrinterAppApi;
 
-export function getRegisterPrinterPath() {
-  api.getRegisterPrinterPath();
-  return;
-}
-
 export function getVersion(): string {
   return api.getVersion();
 }
