@@ -5,6 +5,7 @@ import { RegisterTemplate } from '../register-template';
 import { FieldTemplate } from '../field-template';
 import * as fs from 'fs';
 import * as path from 'path';
+import {ArrayTemplate} from '../array-template';
 
 
 describe('TopSys', () => {
@@ -53,6 +54,7 @@ describe('TopSys', () => {
     expectedTopSys.blockInstances.push(blockInstance);
 
     let blockTemplate: BlockTemplate = new BlockTemplate('Type2');
+    let arrayTemplate;
     let register: RegisterTemplate = new RegisterTemplate('reg1', 0, 'register 1');
     let field: FieldTemplate = new FieldTemplate('Field1', 7, 1, 1, 'RW', 'Register1-Field1');
     register.addField(field);
@@ -68,6 +70,10 @@ describe('TopSys', () => {
     expectedTopSys.addBlockTemplate(blockTemplate);
 
     blockTemplate = new BlockTemplate('Type1');
+    arrayTemplate = new ArrayTemplate('reg_array1', 16, 4, 16, 16, '');
+    blockTemplate.addArrayTemplate(arrayTemplate);
+    arrayTemplate = new ArrayTemplate('reg_array2', 4, 32, 256, 284, '');
+    blockTemplate.addArrayTemplate(arrayTemplate);
     register = new RegisterTemplate('reg1', 0, 'register 1');
     field = new FieldTemplate('Field1', 7, 1, 1, 'RW', 'Register1-Field1');
     register.addField(field);
