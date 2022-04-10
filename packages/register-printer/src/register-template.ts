@@ -1,10 +1,6 @@
-import { Field } from './field';
+import { FieldTemplate } from './field-template';
 
 export class RegisterTemplate {
-    name: string;
-    offset: number;
-    description: string;
-    fields: Field[];
 
     constructor(name: string, offset: number, description: string) {
         this.name = name;
@@ -13,36 +9,40 @@ export class RegisterTemplate {
         this.fields = [];
         return;
     }
+    name: string;
+    offset: number;
+    description: string;
+    fields: FieldTemplate[];
 
-    addField(field: Field) {
+  static parseJson(jsonObj: any): RegisterTemplate {
+    const register = new RegisterTemplate(
+      jsonObj.name,
+      jsonObj.offset,
+      jsonObj.description);
+    const fieldsJsonObj = jsonObj.fieldTemplates;
+    for (const fieldJsonObj of fieldsJsonObj) {
+      const field = FieldTemplate.parseJson(
+        fieldJsonObj);
+      register.addField(field);
+    }
+    return register;
+  }
+
+    addField(field: FieldTemplate) {
         this.fields.push(field);
         return;
     }
 
   toJson(): object {
     const jsonObj: any = {};
-    jsonObj["name"] = this.name;
-    jsonObj["offset"] = this.offset;
-    jsonObj['fieldTemplates'] = [];
-    for (let field of this.fields) {
+    jsonObj.name = this.name;
+    jsonObj.offset = this.offset;
+    jsonObj.fieldTemplates = [];
+    for (const field of this.fields) {
       const fieldJsonObj = field.toJson();
-      jsonObj['fieldTemplates'].push(fieldJsonObj);
+      jsonObj.fieldTemplates.push(fieldJsonObj);
     }
-    jsonObj['description'] = this.description;
+    jsonObj.description = this.description;
     return jsonObj;
-  }
-
-  static parseJson(jsonObj: any): RegisterTemplate {
-    const register = new RegisterTemplate(
-      jsonObj["name"],
-      jsonObj["offset"],
-      jsonObj['description']);
-    const fieldsJsonObj = jsonObj['fieldTemplates'];
-    for (let fieldJsonObj of fieldsJsonObj) {
-      const field = Field.parseJson(
-        fieldJsonObj);
-      register.addField(field);
-    }
-    return register;
   }
 }
