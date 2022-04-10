@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Field } from '@antee/register-printer';
+import { FieldTemplate } from '@antee/register-printer';
 
 
 @Component({
@@ -10,10 +10,10 @@ import { Field } from '@antee/register-printer';
 })
 export class AddFieldDlgComponent implements OnInit {
 
-  public field: Field;
+  public field: FieldTemplate;
 
   constructor(private dialogRef: MatDialogRef<AddFieldDlgComponent>) {
-    this.field = new Field('', 0, 0, 0, 'RW', '');
+    this.field = new FieldTemplate('', 0, 0, 0, 'RW', '');
   }
 
   ngOnInit(): void {

@@ -1,15 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {
-  TopSys,
-  BlockInstance,
-  BlockTemplate,
-  Register,
-  Field
+  TopSys
 } from '@antee/register-printer';
 import {
   SelectEvent
 } from '../../select-event';
-import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-top-sys-content-view',
@@ -27,40 +22,26 @@ export class TopSysContentViewComponent implements OnInit {
   }
 
   isTopSys(): boolean {
-    if (this.selected?.nodeType === 'topSys') {
-      return true;
-    }
-    return false;
+    return this.selected?.nodeType === 'topSys';
   }
 
   isBlockInstance(): boolean {
-    if (this.selected?.nodeType === 'blockInstance') {
-      return true;
-    }
-    return false;
+    return this.selected?.nodeType === 'blockInstance';
   }
   isBlockInstances(): boolean {
-    if (this.selected?.nodeType === 'blockInstances') {
-      return true;
-    }
-    return false;
+    return this.selected?.nodeType === 'blockInstances';
+
   }
   isBlockTemplate(): boolean {
-    if (this.selected?.nodeType === 'blockTemplate') {
-      return true;
-    }
-    return false;
+    return this.selected?.nodeType === 'blockTemplate';
+
   }
   isRegister(): boolean {
-    if (this.selected?.nodeType === 'register') {
-      return true;
-    }
-    return false;
+    return this.selected?.nodeType === 'register';
+
   }
   isField(): boolean {
-    if (this.selected?.nodeType === 'field') {
-      return true;
-    }
-    return false;
+    return this.selected?.nodeType === 'field';
+
   }
 }

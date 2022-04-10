@@ -13,8 +13,8 @@ import {
   TopSys,
   BlockInstance,
   BlockTemplate,
-  Register,
-  Field
+  RegisterTemplate,
+  FieldTemplate
 } from '@antee/register-printer';
 import { SelectEvent } from '../../select-event';
 
@@ -88,7 +88,7 @@ export class RegistersTreeNode implements RegisterPrinterTreeNode {
 
 export class RegisterTreeNode implements RegisterPrinterTreeNode {
   type: string;
-  register: Register;
+  register: RegisterTemplate;
   children?: RegisterPrinterTreeNode[];
   constructor() {
     this.type = 'RegisterNode';
@@ -105,7 +105,7 @@ export class FieldsTreeNode implements RegisterPrinterTreeNode {
 
 export class FieldTreeNode implements RegisterPrinterTreeNode {
   type: string;
-  field: Field;
+  field: FieldTemplate;
   children?: RegisterPrinterTreeNode[];
   constructor() {
     this.type = 'FieldNode';

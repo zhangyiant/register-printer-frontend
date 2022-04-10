@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { Field } from '@antee/register-printer';
+import { FieldTemplate } from '@antee/register-printer';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { AddFieldDlgComponent } from '../../ui-dialogs/add-field-dlg/add-field-dlg.component';
@@ -7,7 +7,6 @@ import {
   SelectFieldDlgComponent
 } from '../../ui-dialogs/select-field-dlg/select-field-dlg.component';
 import * as _ from 'lodash';
-import {SelectRegisterDlgComponent} from '../../ui-dialogs/select-register-dlg/select-register-dlg.component';
 
 @Component({
   selector: 'app-fields-view',
@@ -16,7 +15,7 @@ import {SelectRegisterDlgComponent} from '../../ui-dialogs/select-register-dlg/s
 })
 export class FieldsViewComponent implements OnInit {
 
-  @Input() fields: Field[];
+  @Input() fields: FieldTemplate[];
 
   @ViewChild(MatTable)
   table: MatTable<any>;
