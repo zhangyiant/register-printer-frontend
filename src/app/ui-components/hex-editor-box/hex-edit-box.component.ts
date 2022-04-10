@@ -28,8 +28,8 @@ export class HexEditBoxComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if ("value" in changes) {
-      this.hexString = changes["value"].currentValue.toString(16);
+    if ('value' in changes) {
+      this.hexString = changes.value.currentValue.toString(16);
     }
   }
 

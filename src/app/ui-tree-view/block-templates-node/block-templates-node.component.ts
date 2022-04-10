@@ -36,7 +36,7 @@ export class BlockTemplatesNodeComponent implements OnInit {
           this.registerPrinterService.addBlockTemplate(result);
         }
       }
-    )
+    );
   }
 
   removeBlockTemplate() {
@@ -44,7 +44,7 @@ export class BlockTemplatesNodeComponent implements OnInit {
     config.disableClose = true;
     config.data = {
       blockTemplates: this.blockTemplatesTreeNode.blockTemplates
-    }
+    };
     const dlg = this.dialog.open(
       SelectBlockTemplateDlgComponent,
       config
@@ -55,6 +55,6 @@ export class BlockTemplatesNodeComponent implements OnInit {
           this.registerPrinterService.removeBlockTemplate(result);
         }
       }
-    )
+    );
   }
 }

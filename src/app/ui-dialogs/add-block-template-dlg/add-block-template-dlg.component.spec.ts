@@ -19,7 +19,4 @@ describe('AddBlockTemplateDlgComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

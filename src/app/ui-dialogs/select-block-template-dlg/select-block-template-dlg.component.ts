@@ -4,10 +4,10 @@ import {
   MAT_DIALOG_DATA
 } from '@angular/material/dialog';
 
-import { BlockTemplate } from '@antee/register-printer'
+import { BlockTemplate } from '@antee/register-printer';
 
 export interface DialogData {
-  blockTemplates: BlockTemplate[]
+  blockTemplates: BlockTemplate[];
 }
 
 @Component({

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BlockInstanceNodeComponent } from './block-instance-node.component';
 
-describe('AddressMapNodeComponent', () => {
+describe('BlockInstanceNodeComponent', () => {
   let component: BlockInstanceNodeComponent;
   let fixture: ComponentFixture<BlockInstanceNodeComponent>;
 
@@ -19,7 +19,4 @@ describe('AddressMapNodeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

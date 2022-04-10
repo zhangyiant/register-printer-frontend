@@ -19,7 +19,4 @@ describe('BlockTypesNodeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

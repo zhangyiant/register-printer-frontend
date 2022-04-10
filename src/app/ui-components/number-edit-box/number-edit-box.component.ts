@@ -26,7 +26,7 @@ export class NumberEditBoxComponent implements OnInit {
   }
 
   onSubmit(event) {
-    this.value = parseInt(this.editingValue);
+    this.value = parseInt(this.editingValue, 10);
     this.isEditing = false;
     this.valueChange.emit(this.value);
     return;

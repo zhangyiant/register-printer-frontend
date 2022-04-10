@@ -2,10 +2,10 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA
-} from '@angular/material/dialog'
+} from '@angular/material/dialog';
 
 export interface DescriptionDialogData {
-  description: string
+  description: string;
 }
 
 @Component({

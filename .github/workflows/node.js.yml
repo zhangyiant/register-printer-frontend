@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [16.14.0]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -31,7 +31,10 @@ jobs:
     - name: Install dependencies in register-printer workspace
       run: npm ci
       working-directory: ./packages/register-printer
+    - run: npm run lint
+    - run: npm run build -w packages/register-printer
     - run: npm run build --if-present
+    - run: npm run test2 -- --no-watch --no-progress --browsers=ChromeHeadlessCI
     - name: Run test in register-printer workspace
       run: npm test
       working-directory: ./packages/register-printer

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Field } from '@antee/register-printer';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
-import { MatTable } from '@angular/material/table'
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatTable } from '@angular/material/table';
 import { AddFieldDlgComponent } from '../../ui-dialogs/add-field-dlg/add-field-dlg.component';
 import {
   SelectFieldDlgComponent
@@ -29,7 +29,7 @@ export class FieldsViewComponent implements OnInit {
   onAddField(): void {
     const matDialogConfig = new MatDialogConfig();
     matDialogConfig.disableClose = true;
-    matDialogConfig.width = "800px";
+    matDialogConfig.width = '800px';
     const dlg = this.dialog.open(
       AddFieldDlgComponent,
       matDialogConfig);
@@ -47,7 +47,7 @@ export class FieldsViewComponent implements OnInit {
     matDialogConfig.disableClose = true;
     matDialogConfig.data = {
       fields: this.fields
-    }
+    };
     const dlg = this.dialog.open(
       SelectFieldDlgComponent,
       matDialogConfig);

@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import {BlockInstance, TopSys} from '@antee/register-printer';
-import { MatTable } from '@angular/material/table'
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
+import { MatTable } from '@angular/material/table';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {
   SelectBlockInstanceDlgComponent,
   DialogData
-} from '../../ui-dialogs/select-block-instance-dlg/select-block-instance-dlg.component'
-import * as _ from 'lodash'
+} from '../../ui-dialogs/select-block-instance-dlg/select-block-instance-dlg.component';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-block-instances-view',
@@ -37,7 +37,7 @@ export class BlockInstancesViewComponent implements OnInit {
   onAddBlockInstance() {
     const blockInstance = new BlockInstance(
       null,
-      "NewBlockInstance",
+      'NewBlockInstance',
       0,
       0,
       null,
@@ -52,7 +52,7 @@ export class BlockInstancesViewComponent implements OnInit {
     matDialogConfig.disableClose = true;
     matDialogConfig.data = {
       blockInstances: this.blockInstances
-    }
+    };
     const dlg = this.dialog.open(
       SelectBlockInstanceDlgComponent,
       matDialogConfig);

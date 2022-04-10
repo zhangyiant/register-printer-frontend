@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BlockTypeSelectorComponent } from './block-type-selector.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('BlockTypeSelectorComponent', () => {
   let component: BlockTypeSelectorComponent;
@@ -8,7 +11,12 @@ describe('BlockTypeSelectorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlockTypeSelectorComponent ]
+      declarations: [ BlockTypeSelectorComponent ],
+      imports: [
+        MatFormFieldModule,
+        MatSelectModule,
+        BrowserAnimationsModule
+      ]
     })
     .compileComponents();
   }));

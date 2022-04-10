@@ -18,10 +18,10 @@ export class BlockTemplate {
   toJson(): object {
     const jsonObj: any = {};
     jsonObj["blockType"] = this.blockType;
-    jsonObj["registers"] = [];
+    jsonObj["registerTemplates"] = [];
     for (const register of this.registers) {
       const registerJsonObj = register.toJson();
-      jsonObj['registers'].push(registerJsonObj);
+      jsonObj['registerTemplates'].push(registerJsonObj);
     }
     return jsonObj;
   }
@@ -31,7 +31,7 @@ export class BlockTemplate {
       jsonObj["blockType"]
     );
 
-    const registersJsonObj = jsonObj["registers"];
+    const registersJsonObj = jsonObj["registerTemplates"];
     for (const registerJsonObj of registersJsonObj) {
       const register = Register.parseJson(
         registerJsonObj);

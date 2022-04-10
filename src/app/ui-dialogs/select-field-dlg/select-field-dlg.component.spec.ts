@@ -19,7 +19,4 @@ describe('SelectFieldDlgComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

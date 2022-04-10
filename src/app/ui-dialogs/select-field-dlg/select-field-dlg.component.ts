@@ -7,7 +7,7 @@ import {Field, Register} from '@antee/register-printer';
 import {SelectRegisterDlgData} from '../select-register-dlg/select-register-dlg.component';
 
 export interface SelectFieldDlgData {
-  fields: Field[]
+  fields: Field[];
 }
 
 @Component({
