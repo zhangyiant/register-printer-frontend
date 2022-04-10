@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Register } from '@antee/register-printer';
+import { RegisterTemplate } from '@antee/register-printer';
 
 @Component({
   selector: 'app-add-register-dlg',
@@ -13,10 +13,10 @@ export class AddRegisterDlgComponent implements OnInit {
   public offsetStr: string;
   public descriptionStr: string;
 
-  public register: Register;
+  public register: RegisterTemplate;
 
   constructor(private dialogRef: MatDialogRef<AddRegisterDlgComponent>) {
-    this.register = new Register('', 0, '');
+    this.register = new RegisterTemplate('', 0, '');
   }
 
   ngOnInit(): void {

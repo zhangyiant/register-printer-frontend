@@ -3,10 +3,10 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA
 } from '@angular/material/dialog';
-import { Register } from '@antee/register-printer';
+import { RegisterTemplate } from '@antee/register-printer';
 
 export interface SelectRegisterDlgData {
-  registers: Register[];
+  registers: RegisterTemplate[];
 }
 
 @Component({
@@ -16,7 +16,7 @@ export interface SelectRegisterDlgData {
 })
 export class SelectRegisterDlgComponent implements OnInit {
 
-  public selected: Register | [];
+  public selected: RegisterTemplate | [];
 
   constructor(
     private matDialogRef: MatDialogRef<SelectRegisterDlgComponent>,

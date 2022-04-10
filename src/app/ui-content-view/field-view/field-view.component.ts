@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Field } from '@antee/register-printer';
+import { FieldTemplate } from '@antee/register-printer';
 
 @Component({
   selector: 'app-field-view',
@@ -8,7 +8,7 @@ import { Field } from '@antee/register-printer';
 })
 export class FieldViewComponent implements OnInit {
 
-  @Input() field: Field;
+  @Input() field: FieldTemplate;
 
   constructor() { }
 

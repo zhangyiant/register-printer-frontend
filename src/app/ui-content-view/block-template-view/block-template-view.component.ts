@@ -19,6 +19,14 @@ import * as _ from 'lodash';
 export class BlockTemplateViewComponent implements OnInit {
 
   @Input() blockTemplate: BlockTemplate;
+  arrayTemplatesDisplayColumns: string[] = [
+    'name',
+    'length',
+    'offset',
+    'startAddress',
+    'endAddress',
+    'description'
+  ];
   displayedColumns: string[] = [
     'name',
     'offset',
@@ -43,7 +51,7 @@ export class BlockTemplateViewComponent implements OnInit {
 
     dlg.afterClosed().subscribe(result => {
       if (result) {
-        this.blockTemplate.registers.push(result);
+        this.blockTemplate.registerTemplates.push(result);
         this.table.renderRows();
       }
     });
@@ -53,7 +61,7 @@ export class BlockTemplateViewComponent implements OnInit {
     const matDialogConfig = new MatDialogConfig();
     matDialogConfig.disableClose = true;
     matDialogConfig.data = {
-      registers: this.blockTemplate.registers
+      registers: this.blockTemplate.registerTemplates
     };
     const dlg = this.dialog.open(
       SelectRegisterDlgComponent,
@@ -61,7 +69,7 @@ export class BlockTemplateViewComponent implements OnInit {
 
     dlg.afterClosed().subscribe(result => {
       if (result) {
-        _.remove(this.blockTemplate.registers,
+        _.remove(this.blockTemplate.registerTemplates,
           (item) => {
             return item.name === result.name;
           });
