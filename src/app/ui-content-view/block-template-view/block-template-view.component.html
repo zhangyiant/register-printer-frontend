@@ -1,10 +1,21 @@
 <div>
   <h2>Block Template: {{ blockTemplate.blockType }}</h2>
+  <button
+    mat-raised-button color="primary"
+    (click)="onAddArray()">
+    Add Array
+  </button>
+  <button
+    mat-raised-button color="primary"
+    (click)="onDeleteArray()">
+    Delete Array
+  </button>
   <table
     mat-table
     [dataSource]="blockTemplate.arrayTemplates"
     class="mat-elevation-z8"
-    multiTemplateDataRows>
+    multiTemplateDataRows
+    #arrayTemplateTable>
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let blockTemplate">
@@ -59,7 +70,8 @@
     mat-table
     [dataSource]="blockTemplate.registerTemplates"
     class="mat-elevation-z8"
-    multiTemplateDataRows>
+    multiTemplateDataRows
+    #registerTemplateTable>
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let register">

@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>
+  Add Array ...
+</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="arrayTemplate.name">
+  </mat-form-field>
+  <div>
+    <span>Length:</span>
+    <app-number-edit-box [(value)]="arrayTemplate.length">
+    </app-number-edit-box>
+  </div>
+  <div>
+    <span>Offset:</span>
+    <app-hex-edit-box [(value)]="arrayTemplate.offset">
+    </app-hex-edit-box>
+  </div>
+  <div>
+    <span>Start Address:</span>
+    <app-hex-edit-box [(value)]="arrayTemplate.startAddress">
+    </app-hex-edit-box>
+  </div>
+  <div>
+    <span>End Address:</span>
+    <app-hex-edit-box [(value)]="arrayTemplate.endAddress">
+    </app-hex-edit-box>
+  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="arrayTemplate.description" rows="10">
+    </textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="arrayTemplate" cdkFocusInitial>Ok</button>
+</div>
