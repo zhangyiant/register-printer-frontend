@@ -65,6 +65,7 @@ import { AddFieldDlgComponent } from './ui-dialogs/add-field-dlg/add-field-dlg.c
 import { SelectFieldDlgComponent } from './ui-dialogs/select-field-dlg/select-field-dlg.component';
 import { AccessSelectorComponent } from './ui-components/access-selector/access-selector.component';
 import { AddArrayDlgComponent } from './ui-dialogs/add-array-dlg/add-array-dlg.component';
+import { SelectArrayTemplateDlgComponent } from './ui-dialogs/select-array-template-dlg/select-array-template-dlg.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import { AddArrayDlgComponent } from './ui-dialogs/add-array-dlg/add-array-dlg.c
     AddFieldDlgComponent,
     SelectFieldDlgComponent,
     AccessSelectorComponent,
-    AddArrayDlgComponent
+    AddArrayDlgComponent,
+    SelectArrayTemplateDlgComponent
   ],
   imports: [
     BrowserModule,

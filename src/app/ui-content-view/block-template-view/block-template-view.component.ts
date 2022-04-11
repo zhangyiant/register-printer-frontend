@@ -10,6 +10,7 @@ import {
 } from '../../ui-dialogs/select-register-dlg/select-register-dlg.component';
 import * as _ from 'lodash';
 import {AddArrayDlgComponent} from '../../ui-dialogs/add-array-dlg/add-array-dlg.component';
+import {SelectArrayTemplateDlgComponent} from '../../ui-dialogs/select-array-template-dlg/select-array-template-dlg.component';
 
 
 @Component({
@@ -99,5 +100,23 @@ export class BlockTemplateViewComponent implements OnInit {
   }
 
   onDeleteArray() {
+    const matDialogConfig = new MatDialogConfig();
+    matDialogConfig.disableClose = true;
+    matDialogConfig.data = {
+      arrayTemplates: this.blockTemplate.arrayTemplates
+    };
+    const dlg = this.dialog.open(
+      SelectArrayTemplateDlgComponent,
+      matDialogConfig);
+
+    dlg.afterClosed().subscribe(result => {
+      if (result) {
+        _.remove(this.blockTemplate.arrayTemplates,
+          (item) => {
+            return item.name === result.name;
+          });
+        this.arrayTemplateTable.renderRows();
+      }
+    });
   }
 }
