@@ -77,4 +77,10 @@ export class BlockTemplateViewComponent implements OnInit {
       }
     });
   }
+
+  onAddArray() {
+  }
+
+  onDeleteArray() {
+  }
 }

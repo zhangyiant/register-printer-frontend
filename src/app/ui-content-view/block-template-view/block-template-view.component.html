@@ -1,5 +1,15 @@
 <div>
   <h2>Block Template: {{ blockTemplate.blockType }}</h2>
+  <button
+    mat-raised-button color="primary"
+    (click)="onAddArray()">
+    Add Array
+  </button>
+  <button
+    mat-raised-button color="primary"
+    (click)="onDeleteArray()">
+    Delete Array
+  </button>
   <table
     mat-table
     [dataSource]="blockTemplate.arrayTemplates"
