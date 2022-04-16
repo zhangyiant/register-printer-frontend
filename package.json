@@ -1,6 +1,6 @@
 {
   "name": "register-printer-frontend",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "author": "antee",
   "description": "A UI tool to generate Register related codes.",
   "main": "./dist/electron/index.js",
