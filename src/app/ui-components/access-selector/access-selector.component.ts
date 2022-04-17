@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ACCESS_STRINGS } from '@antee/register-printer';
 
 @Component({
@@ -6,7 +6,7 @@ import { ACCESS_STRINGS } from '@antee/register-printer';
   templateUrl: './access-selector.component.html',
   styleUrls: ['./access-selector.component.scss']
 })
-export class AccessSelectorComponent implements OnInit {
+export class AccessSelectorComponent {
 
   @Input() access: string;
   @Output() accessChange = new EventEmitter<string>();
@@ -14,9 +14,6 @@ export class AccessSelectorComponent implements OnInit {
   public accessStrings: string[];
   constructor() {
     this.accessStrings = ACCESS_STRINGS;
-  }
-
-  ngOnInit(): void {
   }
 
 }

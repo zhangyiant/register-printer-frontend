@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { FieldTemplate } from '@antee/register-printer';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
@@ -13,7 +13,7 @@ import * as _ from 'lodash';
   templateUrl: './fields-view.component.html',
   styleUrls: ['./fields-view.component.scss']
 })
-export class FieldsViewComponent implements OnInit {
+export class FieldsViewComponent {
 
   @Input() fields: FieldTemplate[];
 
@@ -21,9 +21,6 @@ export class FieldsViewComponent implements OnInit {
   table: MatTable<any>;
 
   constructor(private dialog: MatDialog) { }
-
-  ngOnInit(): void {
-  }
 
   onAddField(): void {
     const matDialogConfig = new MatDialogConfig();

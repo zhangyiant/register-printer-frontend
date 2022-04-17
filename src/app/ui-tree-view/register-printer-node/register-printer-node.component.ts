@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   RegisterPrinterTreeNode,
   BlockInstancesTreeNode,
@@ -16,7 +16,7 @@ import {
   templateUrl: './register-printer-node.component.html',
   styleUrls: ['./register-printer-node.component.scss']
 })
-export class RegisterPrinterNodeComponent implements OnInit {
+export class RegisterPrinterNodeComponent {
 
   @Input() registerPrinterTreeNode: RegisterPrinterTreeNode;
 
@@ -47,8 +47,6 @@ export class RegisterPrinterNodeComponent implements OnInit {
   }
   isFieldTreeNode() {
     return this.registerPrinterTreeNode instanceof FieldTreeNode;
-  }
-  ngOnInit() {
   }
 
 }

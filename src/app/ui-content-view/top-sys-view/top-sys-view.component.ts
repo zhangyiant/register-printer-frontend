@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { TopSys } from '@antee/register-printer';
 
 @Component({
@@ -6,12 +6,9 @@ import { TopSys } from '@antee/register-printer';
   templateUrl: './top-sys-view.component.html',
   styleUrls: ['./top-sys-view.component.scss']
 })
-export class TopSysViewComponent implements OnInit {
+export class TopSysViewComponent {
   @Input() topSys: TopSys;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

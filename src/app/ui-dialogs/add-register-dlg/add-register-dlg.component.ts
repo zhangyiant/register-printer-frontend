@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { RegisterTemplate } from '@antee/register-printer';
 
@@ -7,7 +7,7 @@ import { RegisterTemplate } from '@antee/register-printer';
   templateUrl: './add-register-dlg.component.html',
   styleUrls: ['./add-register-dlg.component.scss']
 })
-export class AddRegisterDlgComponent implements OnInit {
+export class AddRegisterDlgComponent {
 
   public nameStr: string;
   public offsetStr: string;
@@ -17,9 +17,6 @@ export class AddRegisterDlgComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<AddRegisterDlgComponent>) {
     this.register = new RegisterTemplate('', 0, '');
-  }
-
-  ngOnInit(): void {
   }
 
   onCancelClick() {

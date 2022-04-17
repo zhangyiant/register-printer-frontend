@@ -12,7 +12,7 @@ import {
   templateUrl: './excel-selector.component.html',
   styleUrls: ['./excel-selector.component.scss']
 })
-export class ExcelSelectorComponent implements OnInit {
+export class ExcelSelectorComponent {
 
   configFile: string;
   excelPath: string;
@@ -27,9 +27,6 @@ export class ExcelSelectorComponent implements OnInit {
     private registerPrinterService: RegisterPrinterService,
     private ngZone: NgZone
   ) {}
-
-  ngOnInit(): void {
-  }
 
   onConfigFileClicked() {
     openConfigFileDialog(

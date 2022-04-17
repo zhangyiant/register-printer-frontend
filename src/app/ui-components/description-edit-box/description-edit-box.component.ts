@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   Input,
   Output,
   EventEmitter
@@ -13,7 +12,7 @@ import { DescriptionEditDlgComponent } from '../../ui-dialogs/description-edit-d
   templateUrl: './description-edit-box.component.html',
   styleUrls: ['./description-edit-box.component.scss']
 })
-export class DescriptionEditBoxComponent implements OnInit {
+export class DescriptionEditBoxComponent {
 
   @Input() value: string;
   @Output() valueChange = new EventEmitter<string>();
@@ -22,9 +21,6 @@ export class DescriptionEditBoxComponent implements OnInit {
     private dialog: MatDialog
   ) {
 
-  }
-
-  ngOnInit(): void {
   }
 
   onDoubleClick() {

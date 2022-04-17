@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA
@@ -14,7 +14,7 @@ export interface SelectRegisterDlgData {
   templateUrl: './select-register-dlg.component.html',
   styleUrls: ['./select-register-dlg.component.scss']
 })
-export class SelectRegisterDlgComponent implements OnInit {
+export class SelectRegisterDlgComponent {
 
   public selected: RegisterTemplate | [];
 
@@ -22,8 +22,6 @@ export class SelectRegisterDlgComponent implements OnInit {
     private matDialogRef: MatDialogRef<SelectRegisterDlgComponent>,
     @Inject(MAT_DIALOG_DATA) public data: SelectRegisterDlgData) { }
 
-  ngOnInit(): void {
-  }
   onCancelClick() {
     this.matDialogRef.close();
   }

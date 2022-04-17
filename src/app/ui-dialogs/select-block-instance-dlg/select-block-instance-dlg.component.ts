@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA
@@ -15,16 +15,13 @@ export interface DialogData {
   templateUrl: './select-block-instance-dlg.component.html',
   styleUrls: ['./select-block-instance-dlg.component.scss']
 })
-export class SelectBlockInstanceDlgComponent implements OnInit {
+export class SelectBlockInstanceDlgComponent {
 
   public selected: BlockInstance | null;
 
   constructor(
     private matDialogRef: MatDialogRef<SelectBlockInstanceDlgComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-  }
-
-  ngOnInit(): void {
   }
 
   onCancelClick() {

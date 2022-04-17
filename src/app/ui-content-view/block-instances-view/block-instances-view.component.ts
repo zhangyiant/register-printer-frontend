@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import {BlockInstance, TopSys} from '@antee/register-printer';
 import { MatTable } from '@angular/material/table';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -13,7 +13,7 @@ import * as _ from 'lodash';
   templateUrl: './block-instances-view.component.html',
   styleUrls: ['./block-instances-view.component.scss']
 })
-export class BlockInstancesViewComponent implements OnInit {
+export class BlockInstancesViewComponent {
 
   @Input() blockInstances: BlockInstance[];
   @Input() topSys: TopSys;
@@ -30,9 +30,6 @@ export class BlockInstancesViewComponent implements OnInit {
   table: MatTable<any>;
 
   constructor(private dialog: MatDialog) { }
-
-  ngOnInit(): void {
-  }
 
   onAddBlockInstance() {
     const blockInstance = new BlockInstance(

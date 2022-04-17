@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {ArrayTemplate} from '@antee/register-printer';
 
@@ -7,7 +7,7 @@ import {ArrayTemplate} from '@antee/register-printer';
   templateUrl: './add-array-dlg.component.html',
   styleUrls: ['./add-array-dlg.component.scss']
 })
-export class AddArrayDlgComponent implements OnInit {
+export class AddArrayDlgComponent {
 
   public arrayTemplate: ArrayTemplate;
 
@@ -20,9 +20,6 @@ export class AddArrayDlgComponent implements OnInit {
       0,
       ''
     );
-  }
-
-  ngOnInit(): void {
   }
 
   onCancelClick() {

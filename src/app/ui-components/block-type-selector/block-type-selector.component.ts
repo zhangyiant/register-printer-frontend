@@ -2,8 +2,7 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output,
-  OnInit
+  Output
 } from '@angular/core';
 
 import { BlockTemplate } from '@antee/register-printer';
@@ -14,15 +13,12 @@ import { BlockTemplate } from '@antee/register-printer';
   templateUrl: './block-type-selector.component.html',
   styleUrls: ['./block-type-selector.component.scss']
 })
-export class BlockTypeSelectorComponent implements OnInit {
+export class BlockTypeSelectorComponent {
 
   @Input() blockType: string;
   @Input() blockTemplates: BlockTemplate[];
   @Output() blockTypeChange = new EventEmitter<string>();
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

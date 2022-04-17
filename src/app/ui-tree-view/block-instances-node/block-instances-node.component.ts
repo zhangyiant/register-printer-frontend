@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-block-instances-node',
   templateUrl: './block-instances-node.component.html',
   styleUrls: ['./block-instances-node.component.scss']
 })
-export class BlockInstancesNodeComponent implements OnInit {
+export class BlockInstancesNodeComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

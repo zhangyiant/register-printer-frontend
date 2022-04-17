@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   Input,
   Output,
   EventEmitter
@@ -11,15 +10,12 @@ import {
   templateUrl: './top-sys-author.component.html',
   styleUrls: ['./top-sys-author.component.scss']
 })
-export class TopSysAuthorComponent implements OnInit {
+export class TopSysAuthorComponent {
 
   @Input() author: string;
   @Output() authorChange = new EventEmitter<string>();
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   onValueChange($event: string) {
     this.authorChange.emit($event);

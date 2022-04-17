@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RegisterTemplate } from '@antee/register-printer';
 
 
@@ -7,7 +7,7 @@ import { RegisterTemplate } from '@antee/register-printer';
   templateUrl: './register-view.component.html',
   styleUrls: ['./register-view.component.scss']
 })
-export class RegisterViewComponent implements OnInit {
+export class RegisterViewComponent {
 
   @Input() register: RegisterTemplate;
   displayedColumns: string[] = [
@@ -19,8 +19,5 @@ export class RegisterViewComponent implements OnInit {
     'description'
   ];
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

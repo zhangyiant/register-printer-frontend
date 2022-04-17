@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject } from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA
@@ -14,7 +14,7 @@ export interface SelectArrayTemplateDlgData {
   templateUrl: './select-array-template-dlg.component.html',
   styleUrls: ['./select-array-template-dlg.component.scss']
 })
-export class SelectArrayTemplateDlgComponent implements OnInit {
+export class SelectArrayTemplateDlgComponent {
 
   public selected: ArrayTemplate | [];
 
@@ -23,9 +23,6 @@ export class SelectArrayTemplateDlgComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: SelectArrayTemplateDlgData
   ) {
 
-  }
-
-  ngOnInit(): void {
   }
 
   onCancelClick() {

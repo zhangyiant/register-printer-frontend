@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   Input,
   Output,
   EventEmitter
@@ -11,7 +10,7 @@ import {
   templateUrl: './edit-box.component.html',
   styleUrls: ['./edit-box.component.scss']
 })
-export class EditBoxComponent implements OnInit {
+export class EditBoxComponent {
 
   @Input() title: string;
   @Input() value: string;
@@ -21,9 +20,6 @@ export class EditBoxComponent implements OnInit {
   isEditing = false;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   onDoubleClick(event) {
     this.isEditing = true;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA
@@ -14,7 +14,7 @@ export interface SelectFieldDlgData {
   templateUrl: './select-field-dlg.component.html',
   styleUrls: ['./select-field-dlg.component.scss']
 })
-export class SelectFieldDlgComponent implements OnInit {
+export class SelectFieldDlgComponent {
 
   public selected: FieldTemplate | [];
 
@@ -25,8 +25,6 @@ export class SelectFieldDlgComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-  }
   onCancelClick() {
     this.matDialogRef.close();
   }
