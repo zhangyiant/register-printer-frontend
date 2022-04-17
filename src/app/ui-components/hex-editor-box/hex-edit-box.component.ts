@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   OnChanges,
   SimpleChanges,
   Input,
@@ -13,7 +12,7 @@ import {
   templateUrl: './hex-edit-box.component.html',
   styleUrls: ['./hex-edit-box.component.scss']
 })
-export class HexEditBoxComponent implements OnInit, OnChanges {
+export class HexEditBoxComponent implements OnChanges {
 
   @Input() value: number;
   @Output() valueChange = new EventEmitter<number>();
@@ -23,9 +22,6 @@ export class HexEditBoxComponent implements OnInit, OnChanges {
   isEditing = false;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   ngOnChanges(changes: SimpleChanges) {
     if ('value' in changes) {

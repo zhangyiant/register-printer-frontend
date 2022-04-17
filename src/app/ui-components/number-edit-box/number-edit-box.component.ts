@@ -1,11 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-number-edit-box',
   templateUrl: './number-edit-box.component.html',
   styleUrls: ['./number-edit-box.component.scss']
 })
-export class NumberEditBoxComponent implements OnInit {
+export class NumberEditBoxComponent {
 
   @Input() title: string;
   @Input() value: number;
@@ -15,9 +15,6 @@ export class NumberEditBoxComponent implements OnInit {
   isEditing = false;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   onDoubleClick(event) {
     this.isEditing = true;

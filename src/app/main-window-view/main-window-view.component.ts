@@ -17,7 +17,7 @@ import {
   templateUrl: './main-window-view.component.html',
   styleUrls: ['./main-window-view.component.scss']
 })
-export class MainWindowViewComponent implements OnInit {
+export class MainWindowViewComponent {
 
   @Input() topSys: TopSys | null;
   selected: SelectEvent | null;
@@ -27,9 +27,6 @@ export class MainWindowViewComponent implements OnInit {
   constructor(
     private registerPrinterService: RegisterPrinterService
   ) { }
-
-  ngOnInit(): void {
-  }
 
   onSelect(selectEvent: SelectEvent): void {
     this.selected = selectEvent;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { BlockTemplate } from '@antee/register-printer';
@@ -18,7 +18,7 @@ import {SelectArrayTemplateDlgComponent} from '../../ui-dialogs/select-array-tem
   templateUrl: './block-template-view.component.html',
   styleUrls: ['./block-template-view.component.scss']
 })
-export class BlockTemplateViewComponent implements OnInit {
+export class BlockTemplateViewComponent {
 
   @Input() blockTemplate: BlockTemplate;
   arrayTemplatesDisplayColumns: string[] = [
@@ -42,9 +42,6 @@ export class BlockTemplateViewComponent implements OnInit {
   registerTemplateTable: MatTable<any>;
 
   constructor(private dialog: MatDialog) { }
-
-  ngOnInit() {
-  }
 
   onAddRegister() {
     const matDialogConfig = new MatDialogConfig();

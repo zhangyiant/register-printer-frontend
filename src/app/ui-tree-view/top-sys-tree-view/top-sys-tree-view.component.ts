@@ -1,7 +1,6 @@
 import {
   Component,
   EventEmitter,
-  OnInit,
   OnChanges,
   SimpleChanges,
   Input,
@@ -121,7 +120,7 @@ let TREE_DATA: RegisterPrinterTreeNode[] = [];
   templateUrl: './top-sys-tree-view.component.html',
   styleUrls: ['./top-sys-tree-view.component.scss']
 })
-export class TopSysTreeViewComponent implements OnInit, OnChanges {
+export class TopSysTreeViewComponent implements OnChanges {
 
   @Input() topSys: TopSys;
   @Output() selected = new EventEmitter<SelectEvent>();
@@ -133,9 +132,6 @@ export class TopSysTreeViewComponent implements OnInit, OnChanges {
   }
 
   hasChild = (_: number, node: RegisterPrinterTreeNode) => !!node.children && node.children.length > 0;
-
-  ngOnInit() {
-  }
 
   refresh() {
     this.updateTopSys(this.topSys);

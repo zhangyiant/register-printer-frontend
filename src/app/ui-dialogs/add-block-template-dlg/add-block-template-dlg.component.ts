@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 
@@ -7,14 +7,11 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './add-block-template-dlg.component.html',
   styleUrls: ['./add-block-template-dlg.component.scss']
 })
-export class AddBlockTemplateDlgComponent implements OnInit {
+export class AddBlockTemplateDlgComponent {
 
   public blockType: string;
 
   constructor(private dialogRef: MatDialogRef<AddBlockTemplateDlgComponent>) { }
-
-  ngOnInit(): void {
-  }
 
   onCancelClick() {
     this.dialogRef.close();

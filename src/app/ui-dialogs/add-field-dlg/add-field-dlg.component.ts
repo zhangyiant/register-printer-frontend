@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FieldTemplate } from '@antee/register-printer';
 
@@ -8,15 +8,12 @@ import { FieldTemplate } from '@antee/register-printer';
   templateUrl: './add-field-dlg.component.html',
   styleUrls: ['./add-field-dlg.component.scss']
 })
-export class AddFieldDlgComponent implements OnInit {
+export class AddFieldDlgComponent {
 
   public field: FieldTemplate;
 
   constructor(private dialogRef: MatDialogRef<AddFieldDlgComponent>) {
     this.field = new FieldTemplate('', 0, 0, 0, 'RW', '');
-  }
-
-  ngOnInit(): void {
   }
 
   onCancelClick() {

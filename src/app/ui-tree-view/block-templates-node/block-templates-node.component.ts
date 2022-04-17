@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { MatMenu } from '@angular/material/menu';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddBlockTemplateDlgComponent } from '../../ui-dialogs/add-block-template-dlg/add-block-template-dlg.component';
@@ -11,7 +11,7 @@ import { RegisterPrinterService } from '../../register-printer.service';
   templateUrl: './block-templates-node.component.html',
   styleUrls: ['./block-templates-node.component.scss']
 })
-export class BlockTemplatesNodeComponent implements OnInit {
+export class BlockTemplatesNodeComponent {
 
   @Input() blockTemplatesTreeNode: BlockTemplatesTreeNode;
 
@@ -19,9 +19,6 @@ export class BlockTemplatesNodeComponent implements OnInit {
     private dialog: MatDialog,
     private registerPrinterService: RegisterPrinterService
   ) { }
-
-  ngOnInit() {
-  }
 
   addBlockTemplate() {
     const config = new MatDialogConfig();

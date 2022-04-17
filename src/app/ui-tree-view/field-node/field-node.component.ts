@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FieldTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
 
 @Component({
@@ -6,13 +6,10 @@ import { FieldTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component'
   templateUrl: './field-node.component.html',
   styleUrls: ['./field-node.component.scss']
 })
-export class FieldNodeComponent implements OnInit {
+export class FieldNodeComponent {
 
   @Input() fieldTreeNode: FieldTreeNode;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

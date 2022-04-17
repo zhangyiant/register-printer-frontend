@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BlockInstanceTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
 
 @Component({
@@ -6,13 +6,10 @@ import { BlockInstanceTreeNode } from '../top-sys-tree-view/top-sys-tree-view.co
   templateUrl: './block-instance-node.component.html',
   styleUrls: ['./block-instance-node.component.scss']
 })
-export class BlockInstanceNodeComponent implements OnInit {
+export class BlockInstanceNodeComponent {
 
   @Input() blockInstanceTreeNode: BlockInstanceTreeNode;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
