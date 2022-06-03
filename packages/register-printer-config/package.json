@@ -1,0 +1,27 @@
+{
+  "name": "register-printer-config",
+  "version": "1.0.0",
+  "description": "RegisterPrinter frontend config interface.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "typescript": "^4.7.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangyiant/register-printer-frontend.git"
+  },
+  "keywords": [
+    "eda"
+  ],
+  "author": "zhangyiant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhangyiant/register-printer-frontend/issues"
+  },
+  "homepage": "https://github.com/zhangyiant/register-printer-frontend#readme"
+}
