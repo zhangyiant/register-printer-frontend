@@ -3,6 +3,7 @@ import { contextBridge } from 'electron';
 
 import { registerPrinterAppApi } from './register-printer-app';
 import { openDialogUtilitiesApi } from './open-dialog-utilities';
+import { registerPrinterConfigApi } from './register-printer-config-api';
 
 contextBridge.exposeInMainWorld(
     'registerPrinterAppApi',
@@ -12,4 +13,9 @@ contextBridge.exposeInMainWorld(
 contextBridge.exposeInMainWorld(
     'openDialogUtilitiesApi',
     openDialogUtilitiesApi
+);
+
+contextBridge.exposeInMainWorld(
+  'regsiterPrinterConfigApi',
+  registerPrinterConfigApi
 );
