@@ -16,6 +16,6 @@ contextBridge.exposeInMainWorld(
 );
 
 contextBridge.exposeInMainWorld(
-  'regsiterPrinterConfigApi',
+  'registerPrinterConfigApi',
   registerPrinterConfigApi
 );

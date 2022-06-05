@@ -15,6 +15,7 @@ import {
   loadJson as _loadJson,
   generateAll as _generateAll
 } from 'src/register-printer-app';
+import { registerPrinterConfigRendererApi } from '../register-printer-config-renderer-api';
 
 
 @Injectable({
