@@ -11,7 +11,9 @@
     "test2": "ng test",
     "test": "npm run test -w packages/register-printer",
     "e2e": "ng e2e",
-    "start:electron": "npm run build -w packages/register-printer && tsc --build tsconfig.electron.json && webpack --config webpack.config.preload.js && ng build --base-href=. && electron .",
+    "build-register-printer": "npm run build -w packages/register-printer",
+    "build-register-printer-config": "npm run build -w packages/register-printer-config",
+    "start:electron": "npm run build-register-printer && npm run build-register-printer-config && tsc --build tsconfig.electron.json && webpack --config webpack.config.preload.js && ng build --base-href=. && electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "lint": "ng lint"
@@ -97,6 +99,7 @@
     }
   },
   "workspaces": [
-    "packages/register-printer"
+    "packages/register-printer",
+    "packages/register-printer-config"
   ]
 }
