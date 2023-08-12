@@ -23,9 +23,19 @@
     <app-access-selector [(access)]="field.access">
     </app-access-selector>
   </div>
+  <div>
+    <span>User_visible: </span>
+    <app-user_visible-selector [(user_visible)]="field.user_visible">
+    </app-user_visible-selector>
+  </div>
   <mat-form-field appearance="fill">
     <mat-label>Description</mat-label>
     <textarea matInput [(ngModel)]="field.description" rows="10">
+    </textarea>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Description_chinese</mat-label>
+    <textarea matInput [(ngModel)]="field.description_chinese" rows="10">
     </textarea>
   </mat-form-field>
 </div>

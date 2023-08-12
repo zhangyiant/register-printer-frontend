@@ -64,6 +64,7 @@ import { FieldsViewComponent } from './ui-content-view/fields-view/fields-view.c
 import { AddFieldDlgComponent } from './ui-dialogs/add-field-dlg/add-field-dlg.component';
 import { SelectFieldDlgComponent } from './ui-dialogs/select-field-dlg/select-field-dlg.component';
 import { AccessSelectorComponent } from './ui-components/access-selector/access-selector.component';
+import { User_visibleSelectorComponent } from './ui-components/user_visible-selector/user_visible-selector.component';
 import { AddArrayDlgComponent } from './ui-dialogs/add-array-dlg/add-array-dlg.component';
 import { SelectArrayTemplateDlgComponent } from './ui-dialogs/select-array-template-dlg/select-array-template-dlg.component';
 
@@ -110,6 +111,7 @@ import { SelectArrayTemplateDlgComponent } from './ui-dialogs/select-array-templ
     AddFieldDlgComponent,
     SelectFieldDlgComponent,
     AccessSelectorComponent,
+    User_visibleSelectorComponent,
     AddArrayDlgComponent,
     SelectArrayTemplateDlgComponent
   ],

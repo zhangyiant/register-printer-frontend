@@ -40,6 +40,13 @@
       </app-access-selector>
     </td>
   </ng-container>
+  <ng-container matColumnDef="user_visible">
+    <th mat-header-cell *matHeaderCellDef>User_visible</th>
+    <td mat-cell *matCellDef="let field">
+      <app-user_visible-selector [(user_visible)]="field.user_visible">
+      </app-user_visible-selector>
+    </td>
+  </ng-container>
   <ng-container matColumnDef="description">
     <th mat-header-cell *matHeaderCellDef>Description</th>
     <td mat-cell *matCellDef="let field">
@@ -47,6 +54,13 @@
       </app-description-edit-box>
     </td>
   </ng-container>
-  <tr mat-header-row *matHeaderRowDef="['name', 'msb','lsb', 'defaultValue', 'access', 'description']"></tr>
-  <tr mat-row *matRowDef="let row; columns: ['name', 'msb','lsb', 'defaultValue', 'access', 'description'];"></tr>
+  <ng-container matColumnDef="description_chinese">
+    <th mat-header-cell *matHeaderCellDef>Description_chinese</th>
+    <td mat-cell *matCellDef="let field">
+      <app-description-edit-box [(value)]="field.description_chinese">
+      </app-description-edit-box>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="['name', 'msb','lsb', 'defaultValue', 'access', 'user_visible', 'description', 'description_chinese']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['name', 'msb','lsb', 'defaultValue', 'access', 'user_visible', 'description', 'description_chinese'];"></tr>
 </table>

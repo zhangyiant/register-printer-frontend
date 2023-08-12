@@ -1,0 +1,9 @@
+<ng-container>
+  <mat-form-field appearance="fill">
+    <mat-select [value]="user_visible" (valueChange)="user_visibleChange.emit($event)">
+      <mat-option *ngFor="let user_visibleString of user_visibleStrings" [value]="user_visibleString">
+        {{ user_visibleString }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</ng-container>
