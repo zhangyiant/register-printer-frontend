@@ -51,13 +51,13 @@ export class BlockTemplateViewComponent {
     matDialogConfig.data = {offset: 0};
     const len = this.blockTemplate.registerTemplates.length;
     if(len > 0) {
-      var max = -1;
+      var max_msb = -1;
       for (var i=0;i<this.blockTemplate.registerTemplates[len-1].fieldTemplates.length;i++) {
-        if(this.blockTemplate.registerTemplates[len-1].fieldTemplates[i].msb > max) { 
-          max = this.blockTemplate.registerTemplates[len-1].fieldTemplates[i].msb;
+        if(this.blockTemplate.registerTemplates[len-1].fieldTemplates[i].msb > max_msb) { 
+          max_msb = this.blockTemplate.registerTemplates[len-1].fieldTemplates[i].msb;
         }
       }
-      matDialogConfig.data.offset = this.blockTemplate.registerTemplates[len-1].offset + (max+1)/8;
+      matDialogConfig.data.offset = this.blockTemplate.registerTemplates[len-1].offset + (max_msb+1)/8;
     }
     const dlg = this.dialog.open(
       AddRegisterDlgComponent,
