@@ -1,6 +1,11 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RegisterTemplate } from '@antee/register-printer';
+import * as M from 'minimatch';
+
+export interface AddRegisterDlgData {
+  offset: number;
+}
 
 @Component({
   selector: 'app-add-register-dlg',
@@ -15,8 +20,12 @@ export class AddRegisterDlgComponent {
 
   public register: RegisterTemplate;
 
-  constructor(private dialogRef: MatDialogRef<AddRegisterDlgComponent>) {
+  constructor(
+    private dialogRef: MatDialogRef<AddRegisterDlgComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: AddRegisterDlgData
+    ) {
     this.register = new RegisterTemplate('', 0, '');
+    this.register.offset = data.offset;
   }
 
   onCancelClick() {

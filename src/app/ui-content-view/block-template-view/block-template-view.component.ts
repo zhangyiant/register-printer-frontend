@@ -35,6 +35,7 @@ export class BlockTemplateViewComponent {
     'description'
   ];
 
+
   @ViewChild('arrayTemplateTable')
   arrayTemplateTable: MatTable<any>;
 
@@ -47,6 +48,17 @@ export class BlockTemplateViewComponent {
     const matDialogConfig = new MatDialogConfig();
     matDialogConfig.disableClose = true;
     matDialogConfig.width = '800px';
+    matDialogConfig.data = {offset: 0};
+    const len = this.blockTemplate.registerTemplates.length;
+    if(len > 0) {
+      var max = -1;
+      for (var i=0;i<this.blockTemplate.registerTemplates[len-1].fieldTemplates.length;i++) {
+        if(this.blockTemplate.registerTemplates[len-1].fieldTemplates[i].msb > max) { 
+          max = this.blockTemplate.registerTemplates[len-1].fieldTemplates[i].msb;
+        }
+      }
+      matDialogConfig.data.offset = this.blockTemplate.registerTemplates[len-1].offset + (max+1)/8;
+    }
     const dlg = this.dialog.open(
       AddRegisterDlgComponent,
       matDialogConfig);
