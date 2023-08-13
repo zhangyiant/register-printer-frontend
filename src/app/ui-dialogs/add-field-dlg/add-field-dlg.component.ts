@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FieldTemplate } from '@antee/register-printer';
+
+export interface AddFieldDlgData {
+  msb: number;
+}
 
 
 @Component({
@@ -12,8 +16,12 @@ export class AddFieldDlgComponent {
 
   public field: FieldTemplate;
 
-  constructor(private dialogRef: MatDialogRef<AddFieldDlgComponent>) {
+  constructor(
+    private dialogRef: MatDialogRef<AddFieldDlgComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: AddFieldDlgData
+    ) {
     this.field = new FieldTemplate('', 0, 0, 0, 'RW', '');
+    this.field.msb = data.msb;
   }
 
   onCancelClick() {

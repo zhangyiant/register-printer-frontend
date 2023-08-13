@@ -26,6 +26,11 @@ export class FieldsViewComponent {
     const matDialogConfig = new MatDialogConfig();
     matDialogConfig.disableClose = true;
     matDialogConfig.width = '800px';
+    const len = this.fields.length;
+    matDialogConfig.data = { msb : 31 };
+    if(len > 0 && this.fields[len-1].lsb != 0) {
+      matDialogConfig.data.msb = this.fields[len-1].lsb -1;
+    }
     const dlg = this.dialog.open(
       AddFieldDlgComponent,
       matDialogConfig);
