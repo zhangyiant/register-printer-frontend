@@ -37,6 +37,11 @@ export class FieldsViewComponent {
 
     dlg.afterClosed().subscribe(result => {
       if (result) {
+        if(result.name == "-" || result.access == "-" || result.name == ""  ) {
+          result.name = "-";
+          result.access = "-";
+          result.defaultValue = 0;
+        }
         this.fields.push(result);
         this.table.renderRows();
       }

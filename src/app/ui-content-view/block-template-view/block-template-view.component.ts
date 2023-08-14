@@ -65,6 +65,9 @@ export class BlockTemplateViewComponent {
 
     dlg.afterClosed().subscribe(result => {
       if (result) {
+        if(result.name == "-" || result.name == ""  ) {
+          result.name = "reg_0x" + result.offset.toString(16);
+        }
         this.blockTemplate.registerTemplates.push(result);
         this.registerTemplateTable.renderRows();
       }
