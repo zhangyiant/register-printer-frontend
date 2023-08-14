@@ -57,7 +57,7 @@ export class BlockTemplateViewComponent {
           max_msb = this.blockTemplate.registerTemplates[len-1].fieldTemplates[i].msb;
         }
       }
-      matDialogConfig.data.offset = this.blockTemplate.registerTemplates[len-1].offset + (max_msb+1)/8;
+      matDialogConfig.data.offset = this.blockTemplate.registerTemplates[len-1].offset + Math.ceil((max_msb+1)/8);
     }
     const dlg = this.dialog.open(
       AddRegisterDlgComponent,

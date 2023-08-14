@@ -20,7 +20,11 @@ export class FieldsViewComponent {
   @ViewChild(MatTable)
   table: MatTable<any>;
 
-  constructor(private dialog: MatDialog) { }
+  element: boolean;
+
+  constructor(private dialog: MatDialog) { 
+    this.element = true;
+  }
 
   onAddField(): void {
     const matDialogConfig = new MatDialogConfig();
@@ -68,4 +72,14 @@ export class FieldsViewComponent {
       }
     });
   }
+
+
+  onshow(): void {
+    if(this.element == true) {
+      this.element = false;
+    } else {
+      this.element = true;
+    }
+  }
+
 }
