@@ -22,6 +22,8 @@ export class FieldsViewComponent {
 
   element: boolean;
 
+  public item : FieldTemplate;
+
   constructor(private dialog: MatDialog) { 
     this.element = true;
   }
@@ -46,7 +48,16 @@ export class FieldsViewComponent {
           result.access = "-";
           result.defaultValue = 0;
         }
-        this.fields.push(result);
+        var index = 0;
+        for (this.item of this.fields) {
+          if(this.item.msb >= result.msb) {
+            index += 1;
+          } else {
+            this.fields.splice(index,0,result)
+            break
+          }
+        }
+//        this.fields.push(result);
         this.table.renderRows();
       }
     });

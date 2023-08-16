@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
-import { BlockTemplate } from '@antee/register-printer';
+import { BlockTemplate, RegisterTemplate } from '@antee/register-printer';
 import {
   AddRegisterDlgComponent
 } from '../../ui-dialogs/add-register-dlg/add-register-dlg.component';
@@ -21,6 +21,10 @@ import {SelectArrayTemplateDlgComponent} from '../../ui-dialogs/select-array-tem
 export class BlockTemplateViewComponent {
 
   @Input() blockTemplate: BlockTemplate;
+
+  public item : RegisterTemplate;
+
+  
   arrayTemplatesDisplayColumns: string[] = [
     'name',
     'length',
@@ -68,7 +72,16 @@ export class BlockTemplateViewComponent {
         if(result.name == "-" || result.name == ""  ) {
           result.name = "reg_0x" + result.offset.toString(16);
         }
-        this.blockTemplate.registerTemplates.push(result);
+        var index = 0;
+        for (this.item of this.blockTemplate.registerTemplates) {
+          if(this.item.offset <= result.offset) {
+            index += 1;
+          } else {
+            this.blockTemplate.registerTemplates.splice(index,0,result)
+            break
+          }
+        }
+//        this.blockTemplate.registerTemplates.push(result);
         this.registerTemplateTable.renderRows();
       }
     });
