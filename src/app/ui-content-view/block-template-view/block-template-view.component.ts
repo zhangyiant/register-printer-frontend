@@ -77,10 +77,10 @@ export class BlockTemplateViewComponent {
           if(this.item.offset <= result.offset) {
             index += 1;
           } else {
-            this.blockTemplate.registerTemplates.splice(index,0,result)
             break
           }
         }
+        this.blockTemplate.registerTemplates.splice(index,0,result)
 //        this.blockTemplate.registerTemplates.push(result);
         this.registerTemplateTable.renderRows();
       }

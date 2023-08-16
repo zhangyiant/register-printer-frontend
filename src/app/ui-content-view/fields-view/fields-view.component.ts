@@ -53,10 +53,10 @@ export class FieldsViewComponent {
           if(this.item.msb >= result.msb) {
             index += 1;
           } else {
-            this.fields.splice(index,0,result)
             break
           }
         }
+        this.fields.splice(index,0,result)
 //        this.fields.push(result);
         this.table.renderRows();
       }
