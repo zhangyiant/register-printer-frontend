@@ -13,6 +13,7 @@ import {
   generate as _generate,
   exportJson as _exportJson,
   loadJson as _loadJson,
+  addJson as _addJson,
   generateAll as _generateAll
 } from 'src/register-printer-app';
 
@@ -167,6 +168,8 @@ export class RegisterPrinterService {
       this.documentOpenedSource.next(topSys);
     });
   }
+
+  
   loadJson(jsonFilename: string) {
 
     this.registerPrinterStartSource.next(true);
@@ -193,6 +196,32 @@ export class RegisterPrinterService {
     );
   }
 
+
+  addJson(excelname: string) {
+
+    this.registerPrinterStartSource.next(true);
+
+    _addJson(excelname,
+      (data) => {
+        this.ngZone.run(
+          () => {
+            if (data) {
+              this.registerPrinterOutputSource.next(
+                data.toString());
+            }
+          }
+        );
+      },
+      (data) => {
+        // Converting to JSON
+        this.ngZone.run(() => {
+          const topSys: TopSys = this.parseDoc(data.toString());
+          this.topSys = topSys;
+          this.documentOpenedSource.next(topSys);
+        });
+      }
+    );
+  }
   generateAll(outputPath: string) {
     this.registerPrinterStartSource.next(true);
     const jsonObj = this.topSys.toJson();

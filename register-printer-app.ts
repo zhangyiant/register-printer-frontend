@@ -163,6 +163,41 @@ function loadJson(jsonFilename: string, dataCallback: (data: any) => void, exitC
   });
 }
 
+function addJson(excelname: string, dataCallback: (data: any) => void, exitCallback: (data: any) => void) {
+  const registerPrinterApp = getRegisterPrinterPath();
+  const args: string[] = [];
+  args.push('--input-json');
+  args.push("__register_printer__.json")
+  args.push('-o');
+  args.push(os.tmpdir());
+  args.push('-ax');
+  args.push(excelname)
+  const appProcess = child_process.spawn(
+    registerPrinterApp, args
+  );
+  appProcess.stdout.on('data', (data) => {
+    const str = data.toString('utf8');
+    dataCallback(str);
+  });
+  appProcess.stderr.on('data', (data) => {
+    const str = data.toString('utf8');
+    dataCallback(str);
+  });
+  appProcess.on('exit', () => {
+    const filename: string = path.join(
+      os.tmpdir(),
+      'register_printer.json'
+    );
+    fs.readFile(filename, {encoding: 'utf8'}, (err, data) => {
+      // Check for errors
+      if (err) {
+        throw err;
+      }
+      exitCallback(data);
+    });
+  });
+}
+
 function generateAll(jsonString: string, outputPath: string, dataCallback: (data: any) => void) {
   const filename = path.join(os.tmpdir(), 'register-printer.json');
   fs.writeFile(filename, jsonString, err => {
@@ -202,5 +237,6 @@ export const registerPrinterAppApi = {
   generate,
   exportJson,
   loadJson,
+  addJson,
   generateAll
 };

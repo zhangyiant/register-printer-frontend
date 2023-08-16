@@ -9,6 +9,7 @@ import {
   openExportToExcelDialog,
   openExportToJsonDialog,
   openLoadFromJsonDialog,
+  openConfigFileDialog,
   openGenerateDialog
 } from '../../open-dialog-utilities';
 
@@ -78,6 +79,25 @@ export class MainWindowViewComponent {
     );
     return;
   }
+
+  onLoadFromExcelClicked() {
+    openConfigFileDialog(
+      (result) => {
+        if (!result.canceled) {
+          const excelname = result.filePaths[0];
+          this.registerPrinterService.exportJson(
+            "__register_printer__.json"
+          );
+          this.registerPrinterService.addJson(
+            excelname
+          );
+        }
+      }
+    );
+    return;
+  }
+
+
 
   onGenerateClicked() {
     openGenerateDialog(

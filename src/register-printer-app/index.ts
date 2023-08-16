@@ -24,6 +24,9 @@ export function loadJson(jsonFilename: string, dataCallback: (data: any) => void
   api.loadJson(jsonFilename, dataCallback, exitCallback);
 }
 
+export function addJson(excelname: string, dataCallback: (data: any) => void, exitCallback: (data: any) => void) {
+  api.addJson(excelname, dataCallback, exitCallback);
+}
 export function generateAll(jsonString: string, outputPath: string, dataCallback: (data: any) => void) {
   api.generateAll(jsonString, outputPath, dataCallback);
 }
