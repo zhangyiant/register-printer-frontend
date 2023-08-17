@@ -9,7 +9,7 @@ export class FieldTemplate {
         public defaultValue: number,
         public access: string,
         public description: string = '',
-        public user_visible: string = 'N',
+        public user_visible: string = 'Y',
         public description_chinese: string = ''
         ) {
     }
