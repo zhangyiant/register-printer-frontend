@@ -1,4 +1,4 @@
-export const ACCESS_STRINGS: string[] = ['RW', 'RWP', 'RO', 'WO', 'RS', 'W1C', 'W0C', 'RC', 'WRC', 'WRS', 'WSC', 'WC', '-'];
+export const ACCESS_STRINGS: string[] = ['RW','RS','RC','WRS','WRC','RWP','W1C','W1S','W1T','W0C','W0S','W0T','WO','W1','RO','WS','WC','-'];
 export const USER_VISIBLE_STRINGS: string[] = ['Y', 'N'];
 
 export class FieldTemplate {
