@@ -1,6 +1,6 @@
 import { Component, ViewChild, Input } from '@angular/core';
-import { MatMenu } from '@angular/material/menu';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatLegacyMenu as MatMenu } from '@angular/material/legacy-menu';
+import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig } from '@angular/material/legacy-dialog';
 import { AddBlockTemplateDlgComponent } from '../../ui-dialogs/add-block-template-dlg/add-block-template-dlg.component';
 import { SelectBlockTemplateDlgComponent } from '../../ui-dialogs/select-block-template-dlg/select-block-template-dlg.component';
 import { BlockTemplatesTreeNode } from '../top-sys-tree-view/top-sys-tree-view.component';
