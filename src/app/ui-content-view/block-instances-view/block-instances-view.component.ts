@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import {BlockInstance, TopSys} from '@antee/register-printer';
-import { MatLegacyTable as MatTable } from '@angular/material/legacy-table';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig } from '@angular/material/legacy-dialog';
+import { MatTable } from '@angular/material/table';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {
   SelectBlockInstanceDlgComponent,
   DialogData

@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AccessSelectorComponent } from './access-selector.component';
-import {MatLegacyFormFieldModule as MatFormFieldModule} from '@angular/material/legacy-form-field';
-import {MatLegacySelectModule as MatSelectModule} from '@angular/material/legacy-select';
-import {MatLegacyOptionModule as MatOptionModule} from '@angular/material/legacy-core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatOptionModule} from '@angular/material/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('AccessSelectorComponent', () => {

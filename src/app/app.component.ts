@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { TopSys } from '@antee/register-printer';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig } from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 import { RegisterPrinterService } from './register-printer.service';
 import { MainWindowViewComponent } from './main-window-view/main-window-view.component';

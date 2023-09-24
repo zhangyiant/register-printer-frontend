@@ -4,7 +4,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig } from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DescriptionEditDlgComponent } from '../../ui-dialogs/description-edit-dlg/description-edit-dlg.component';
 
 @Component({

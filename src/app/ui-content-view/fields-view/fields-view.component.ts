@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { FieldTemplate } from '@antee/register-printer';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig } from '@angular/material/legacy-dialog';
-import { MatLegacyTable as MatTable } from '@angular/material/legacy-table';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatTable } from '@angular/material/table';
 import { AddFieldDlgComponent } from '../../ui-dialogs/add-field-dlg/add-field-dlg.component';
 import {
   SelectFieldDlgComponent
