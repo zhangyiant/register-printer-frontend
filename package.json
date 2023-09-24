@@ -65,6 +65,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.7.0",
     "protractor": "~7.0.0",
+    "puppeteer": "^21.3.4",
     "ts-loader": "^9.2.6",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
