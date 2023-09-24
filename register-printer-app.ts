@@ -10,10 +10,13 @@ function getRegisterPrinterPath() {
 
   let appName;
 
+  console.log(process.platform);
   if (process.platform === 'darwin') {
     appName = 'RegisterPrinter';
   } else if (process.platform === 'win32') {
     appName = 'RegisterPrinter.exe';
+  } else if (process.platform === 'linux') {
+    appName = 'RegisterPrinter';
   } else {
     throw new Error('Unsupported OS');
   }

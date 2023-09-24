@@ -13,6 +13,8 @@ function getRegisterPrinterPath() {
     appName = 'RegisterPrinter';
   } else if (process.platform === 'win32') {
     appName = 'RegisterPrinter.exe';
+  } else if (process.platform === 'linux') {
+    appName = 'RegisterPrinter';
   } else {
     throw new Error('Unsupported OS');
   }
