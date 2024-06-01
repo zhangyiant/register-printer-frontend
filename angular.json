@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "register-printer-frontend:build"
+            "buildTarget": "register-printer-frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "register-printer-frontend:build:production"
+              "buildTarget": "register-printer-frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "register-printer-frontend:build"
+            "buildTarget": "register-printer-frontend:build"
           }
         },
         "test": {
