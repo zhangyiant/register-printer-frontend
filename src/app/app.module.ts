@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -67,8 +67,7 @@ import { AccessSelectorComponent } from './ui-components/access-selector/access-
 import { AddArrayDlgComponent } from './ui-dialogs/add-array-dlg/add-array-dlg.component';
 import { SelectArrayTemplateDlgComponent } from './ui-dialogs/select-array-template-dlg/select-array-template-dlg.component';
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
         TopSysTreeViewComponent,
         TopSysContentViewComponent,
@@ -113,10 +112,8 @@ import { SelectArrayTemplateDlgComponent } from './ui-dialogs/select-array-templ
         AddArrayDlgComponent,
         SelectArrayTemplateDlgComponent
     ],
-    imports: [
-        BrowserModule,
+    bootstrap: [AppComponent], imports: [BrowserModule,
         FormsModule,
-        HttpClientModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MatIconModule,
@@ -132,11 +129,8 @@ import { SelectArrayTemplateDlgComponent } from './ui-dialogs/select-array-templ
         MatDialogModule,
         MatTabsModule,
         MatTableModule,
-        AngularSplitModule
-    ],
-    providers: [
-        Title
-    ],
-    bootstrap: [AppComponent]
-})
+        AngularSplitModule], providers: [
+        Title,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }

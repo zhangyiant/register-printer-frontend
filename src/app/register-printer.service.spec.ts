@@ -1,7 +1,7 @@
 import {TestBed, waitForAsync} from '@angular/core/testing';
 
 import {RegisterPrinterService} from './register-printer.service';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import {NgZone} from '@angular/core';
 
 class MockHttpClient {
@@ -13,18 +13,17 @@ class MockNgZone {
 describe('RegisterPrinterService', () => {
   beforeEach(
     () => TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule
-      ],
-      providers: [
+    imports: [],
+    providers: [
         {
-          provider: HttpClient, useClass: MockHttpClient
+            provider: HttpClient, useClass: MockHttpClient
         },
         {
-          provider: NgZone, useClass: MockNgZone
-        }
-      ]
-    })
+            provider: NgZone, useClass: MockNgZone
+        },
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
   );
 
   it('should be created', () => {
