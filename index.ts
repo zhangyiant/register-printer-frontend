@@ -147,7 +147,7 @@ function createWindow() {
 
   // win.webContents.openDevTools();
 
-  win.loadFile('dist/register-printer-frontend/index.html');
+  win.loadFile('dist/register-printer-frontend/browser/index.html');
 }
 
 const template = [
